@@ -64,10 +64,10 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
 .mob-close{position:absolute;top:1.5rem;right:2rem;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer;line-height:1}
 
 /* ── HERO ── */
-#hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:var(--black)}
+#hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:#050505}
 .h-photo-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
-.h-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(5,5,5,.9) 0%,rgba(5,5,5,.65) 45%,rgba(5,5,5,.2) 100%);z-index:1}
-.h-bar{position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,transparent,var(--green) 30%,var(--green) 70%,transparent);opacity:.6;z-index:2}
+/* Left-to-right: dark on text side, open on image side */
+.h-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.82) 0%,rgba(0,0,0,.55) 50%,rgba(0,0,0,.18) 100%);z-index:1}
 .h-cnt{position:relative;z-index:2;width:100%;padding:0 2.5rem;max-width:1320px;margin:0 auto}
 .h-eye{display:flex;align-items:center;gap:1rem;margin-bottom:3rem}
 .h-eye-line{display:block;width:40px;height:1px;background:var(--green);opacity:.7}
@@ -114,13 +114,15 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
 
 /* ── AGRICULTURE ── */
 #farms{padding:9rem 0;background:var(--black);position:relative;overflow:hidden;border-top:1px solid var(--border)}
-.fw-ghost{position:absolute;right:-2%;top:50%;transform:translateY(-50%);font-family:var(--fs);font-size:32vw;line-height:1;color:rgba(122,196,41,.035);pointer-events:none;letter-spacing:-.02em;user-select:none}
-.fw-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;align-items:stretch;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.fw-left{padding:4rem 4rem 4rem 0;border-right:1px solid var(--border)}
-.fw-photo{position:relative;overflow:hidden;min-height:480px}
-.fw-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .8s var(--ease)}
+.fw-inner{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:640px}
+.fw-left{padding:5rem 4.5rem;border-left:1px solid var(--border);display:flex;flex-direction:column;justify-content:center}
+.fw-photo{position:relative;overflow:hidden}
+.fw-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .9s var(--ease)}
 .fw-photo:hover img{transform:scale(1.03)}
-.farms-stat-strip{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border)}
+/* 35% dark overlay over photo */
+.fw-photo-overlay{position:absolute;inset:0;background:rgba(0,0,0,.35);z-index:1;pointer-events:none}
+.fw-photo .clbl{z-index:2}
+.farms-stat-strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border)}
 .farms-stat-item{padding:2.25rem 2rem;border-right:1px solid var(--border);display:flex;align-items:baseline;gap:.75rem}
 .farms-stat-item:last-child{border-right:none}
 .fsi-n{font-family:var(--fs);font-size:2.8rem;color:var(--green);line-height:1;flex-shrink:0}
@@ -254,10 +256,45 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
 #results{padding:8rem 0;background:var(--s1);border-top:1px solid var(--border)}
 .results-header{text-align:center;margin-bottom:4rem}
 .results-hl{font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);font-weight:900;text-transform:uppercase;color:var(--white);margin-top:.75rem}
-.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border)}
-.ba-item{position:relative;overflow:hidden;aspect-ratio:16/9;background:var(--s2)}
-.ba-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease)}
-.ba-item:hover img{transform:scale(1.03)}
+/* ── BEFORE / AFTER SLIDER ── */
+.ba-slider-wrap{position:relative;width:100%;aspect-ratio:16/7;overflow:hidden;cursor:col-resize;user-select:none}
+.ba-after,.ba-before{position:absolute;inset:0;overflow:hidden}
+.ba-after img,.ba-before img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;pointer-events:none}
+.ba-before{clip-path:inset(0 50% 0 0)}
+.ba-label{position:absolute;top:1.5rem;font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;background:rgba(5,5,5,.75);padding:.35rem .7rem;backdrop-filter:blur(4px)}
+.ba-label-after{left:1.5rem;color:var(--green);border-left:2px solid var(--green)}
+.ba-label-before{right:1.5rem;color:var(--g2);border-right:2px solid var(--g2)}
+.ba-divider{position:absolute;top:0;bottom:0;left:50%;width:2px;background:rgba(255,255,255,.7);transform:translateX(-50%);z-index:3;pointer-events:none}
+.ba-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:var(--white);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,.4)}
+.ba-range{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:col-resize;z-index:4;margin:0}
+
+/* ── FLOWER SHOWCASE ── */
+.showcase-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;grid-template-rows:300px;gap:2px;background:var(--border)}
+.showcase-item{position:relative;overflow:hidden}
+.showcase-item-tall{grid-row:span 1}
+.showcase-item img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .7s var(--ease)}
+.showcase-item:hover img{transform:scale(1.06)}
+.showcase-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,5,5,.65) 0%,transparent 55%);display:flex;align-items:flex-end;padding:1.25rem}
+.showcase-label{font-family:var(--fd);font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--white)}
+
+/* Remove old ba styles — replaced by slider */
+.ba-grid{display:none}
+
+/* ── EVIDENCE TRIALS ── */
+.ev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.ev-card{background:var(--s2);padding:2rem 1.75rem}
+.ev-crop{font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:.5rem}
+.ev-loc{font-size:.78rem;font-weight:300;color:var(--g3);margin-bottom:1.25rem}
+.ev-stat{display:flex;justify-content:space-between;align-items:baseline;padding:.6rem 0;border-bottom:1px solid var(--border)}
+.ev-stat:last-of-type{border-bottom:none}
+.ev-label{font-family:var(--fd);font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--g2)}
+.ev-vals{display:flex;gap:1.25rem;align-items:baseline}
+.ev-treated{font-family:var(--fs);font-size:1.4rem;color:var(--green);line-height:1}
+.ev-control{font-family:var(--fs);font-size:1rem;color:var(--g3);line-height:1}
+.ev-legend{display:flex;gap:1.5rem;margin-bottom:1.25rem}
+.ev-dot{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--fd);font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.ev-dot::before{content:'';display:block;width:10px;height:10px;border-radius:50%;background:currentColor}
+
 .ba-caption{position:absolute;bottom:0;left:0;right:0;padding:1.5rem;background:linear-gradient(to top,rgba(5,5,5,.85),transparent);z-index:1}
 .ba-tag{font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:.3rem}
 .ba-desc{font-family:var(--fd);font-size:1rem;font-weight:700;color:var(--white)}
@@ -347,8 +384,8 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
   .fw-inner{grid-template-columns:1fr}
-  .fw-left{padding:3rem 0;border-right:none;border-bottom:1px solid var(--border)}
-  .fw-photo{min-height:360px}
+  .fw-left{padding:3rem 2.5rem;border-left:none;border-top:1px solid var(--border)}
+  .fw-photo{min-height:400px}
   .golf-split{grid-template-columns:1fr;gap:3rem}
   .golf-photos{min-height:380px}
   .hg-header{grid-template-columns:1fr}
@@ -362,21 +399,6 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
   .hsteps{grid-template-columns:1fr;gap:2.5rem}
   .hsteps::before{display:none}
   .prod-grid{grid-template-columns:repeat(2,1fr) !important}
-
-/* Evidence section */
-.ev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
-.ev-card{background:var(--s2);padding:2rem 1.75rem}
-.ev-crop{font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:.5rem}
-.ev-loc{font-size:.78rem;font-weight:300;color:var(--g3);margin-bottom:1.25rem}
-.ev-stat{display:flex;justify-content:space-between;align-items:baseline;padding:.6rem 0;border-bottom:1px solid var(--border)}
-.ev-stat:last-of-type{border-bottom:none}
-.ev-label{font-family:var(--fd);font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--g2)}
-.ev-vals{display:flex;gap:1.25rem;align-items:baseline}
-.ev-treated{font-family:var(--fs);font-size:1.4rem;color:var(--green);line-height:1}
-.ev-control{font-family:var(--fs);font-size:1rem;color:var(--g3);line-height:1}
-.ev-legend{display:flex;gap:1.5rem;margin-bottom:1.25rem}
-.ev-dot{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--fd);font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
-.ev-dot::before{content:'';display:block;width:10px;height:10px;border-radius:50%}
   .ba-grid{grid-template-columns:1fr}
   .farms-stat-strip{grid-template-columns:repeat(2,1fr)}
   .farms-stat-item:nth-child(even){border-right:none}
@@ -384,9 +406,11 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
   .b2b-left{border-right:none;border-bottom:1px solid var(--border);padding:3rem 2.5rem}
   .b2b-right{padding:3rem 2.5rem}
   .form-row{grid-template-columns:1fr}
+  .ev-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
-  .ev-grid{grid-template-columns:1fr}
+  .showcase-grid{grid-template-columns:1fr 1fr;grid-template-rows:220px 220px}
+  .ba-slider-wrap{aspect-ratio:4/3}
   .nav-links,#nav .btn{display:none}
   .ham{display:flex}
   .h-hl{font-size:clamp(3.5rem,14vw,5.5rem)}
@@ -464,6 +488,52 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
   .tech-vs{grid-template-columns:1fr}
   .tech-col-bad{border-right:none;border-bottom:1px solid var(--border)}
 }
+/* ── WHO THIS IS FOR ── */
+.who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+.who-card{background:var(--s2);padding:2.5rem 2rem;display:flex;flex-direction:column;gap:.6rem;text-decoration:none;transition:background var(--t),transform var(--t);position:relative;overflow:hidden;border-bottom:3px solid transparent}
+.who-card:hover{background:var(--s3);border-bottom-color:var(--green)}
+.who-icon{width:44px;height:44px;margin-bottom:.5rem;opacity:.7;transition:opacity var(--t)}
+.who-card:hover .who-icon{opacity:1}
+.who-icon svg{width:100%;height:100%}
+.who-title{font-family:var(--fd);font-size:1.1rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--white);line-height:1.1}
+.who-sub{font-size:.8rem;font-weight:300;color:var(--g2);line-height:1.65;flex:1}
+.who-arrow{font-family:var(--fd);font-size:.75rem;font-weight:700;letter-spacing:.1em;color:var(--green);transition:transform var(--t);display:inline-block}
+.who-card:hover .who-arrow{transform:translateX(4px)}
+
+/* ── ROI BLOCK ── */
+.roi-split{display:grid;grid-template-columns:1fr auto 1fr;gap:0;border:1px solid var(--border);margin-bottom:3rem}
+.roi-col{padding:3rem}
+.roi-bad{background:rgba(255,255,255,.02);border-right:1px solid var(--border)}
+.roi-good{background:rgba(122,196,41,.04)}
+.roi-label{font-family:var(--fd);font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1.5rem;display:block}
+.roi-label-bad{color:var(--g3)}
+.roi-label-good{color:var(--green)}
+.roi-list{display:flex;flex-direction:column;gap:.8rem}
+.roi-item{font-family:var(--fd);font-size:.88rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;display:flex;align-items:flex-start;gap:.75rem;line-height:1.4}
+.roi-item-bad{color:var(--g2)}
+.roi-item-good{color:var(--g1)}
+.roi-item strong{color:var(--green)}
+.roi-x{color:var(--g3);flex-shrink:0;font-size:1rem}
+.roi-ck{color:var(--green);flex-shrink:0;font-size:1rem}
+.roi-vs{display:flex;align-items:center;justify-content:center;padding:2rem 1.5rem;border-right:1px solid var(--border)}
+.roi-vs span{font-family:var(--fs);font-size:2rem;color:var(--g3);letter-spacing:.1em}
+.roi-bottom{text-align:center}
+.roi-bottom-inner{display:inline-block;background:var(--s1);border:1px solid rgba(122,196,41,.25);padding:3rem 4rem;max-width:680px}
+.roi-bottom-label{font-family:var(--fd);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g3);margin-bottom:.5rem}
+.roi-bottom-num{font-family:var(--fs);font-size:clamp(3.5rem,7vw,6rem);color:var(--green);line-height:1;margin-bottom:.5rem}
+.roi-bottom-sub{font-size:.8rem;font-weight:300;color:var(--g2);line-height:1.7;max-width:480px;margin:0 auto}
+
+@media(max-width:1024px){
+  .who-grid{grid-template-columns:1fr 1fr}
+  .roi-split{grid-template-columns:1fr;grid-template-rows:auto auto auto}
+  .roi-bad{border-right:none;border-bottom:1px solid var(--border)}
+  .roi-vs{border-right:none;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1rem}
+  .roi-bottom-inner{padding:2.5rem 2rem}
+}
+@media(max-width:768px){
+  .who-grid{grid-template-columns:1fr 1fr}
+  .roi-bottom-inner{padding:2rem 1.5rem}
+}
 </style>
 </head>
 <body>
@@ -497,31 +567,33 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
       <li><a href="#b2b">Business</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a href="#b2b" class="btn btn-a" style="padding:.65rem 1.4rem;font-size:.73rem">Request Quote</a>
+    <a href="#b2b" class="btn btn-a" style="padding:.65rem 1.4rem;font-size:.73rem">Get a Quote</a>
     <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <!-- ══ HERO ══ -->
 <section id="hero">
+  <!-- Center pivot irrigation aerial — full bleed -->
   <img class="h-photo-bg"
-       src="https://arableone.com/cdn/shop/files/ArableONE-Farm-and-garden-soil-enhancer.jpg?v=1720568590&width=2560"
-       alt="Farm field treated with ArableONE™"/>
+       src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=2400&q=85"
+       alt="Aerial view of irrigated farm fields"/>
   <div class="h-overlay"></div>
-  <div class="h-bar"></div>
   <div class="h-cnt">
     <div class="h-eye"><span class="h-eye-line"></span><span class="h-eye-text">ArableONE™ — Regenerative Soil Technology</span></div>
-    <h1 class="h-hl">The Soil<br/>Performs.<span class="h-hl-accent">Or We Don't.</span></h1>
+    <h1 class="h-hl">Stop Stacking.<span class="h-hl-accent">Start Performing.</span></h1>
     <div class="h-rule"></div>
     <p class="h-copy">
-      <strong>Regenerative Soil Technology</strong> that works by activating the biology already in your soil —
-      <strong>increasing yield up to 150%+, cutting water use by 50%, and reducing fertilizer dependency by 80%.</strong><br/><br/>
-      100% natural. One application. Everything that grows.
+      <strong>+150% yield. –50% water. –80% fertilizer.</strong><br/>
+      One application per season. No special equipment. Everything that grows.
     </p>
     <div class="h-btns">
-      <a href="#products" class="btn btn-a">Shop Now <span class="arr">→</span></a>
-      <a href="#b2b" class="btn btn-og">Business Inquiry</a>
-      <a href="#farms" class="btn btn-ol">See Applications</a>
+      <!-- PRIMARY — largest, most prominent -->
+      <a href="#b2b" class="btn btn-a" style="font-size:1rem;padding:1.1rem 2.6rem;font-weight:900;letter-spacing:.1em">Request Commercial Quote <span class="arr">→</span></a>
+      <!-- SECONDARY -->
+      <a href="#products" class="btn btn-g" style="font-size:.88rem">Shop Consumer Sizes</a>
+      <!-- TERTIARY -->
+      <a href="#proof" class="btn btn-ol" style="font-size:.82rem;opacity:.85">View Field Results</a>
     </div>
   </div>
   <div class="h-scroll"><div class="h-scroll-ln"></div><span class="h-scroll-lbl">Scroll</span></div>
@@ -534,6 +606,113 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
     <a href="#how" class="strip-lk">How It Works →</a>
   </div>
 </div>
+
+<!-- ══ WHO THIS IS FOR ══ -->
+<section id="who" style="padding:5rem 0;background:var(--s1);border-top:1px solid var(--border)">
+  <div class="wrap">
+    <p class="lbl rev" style="text-align:center;margin-bottom:2.5rem">Who This Is For</p>
+    <div class="who-grid stg">
+      <a href="#farms" class="who-card">
+        <div class="who-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 36 Q24 20 44 36" stroke="#7AC429" stroke-width="2" fill="none"/><line x1="4" y1="36" x2="44" y2="36" stroke="#7AC429" stroke-width="2"/><line x1="14" y1="36" x2="14" y2="22" stroke="#7AC429" stroke-width="1.5" opacity=".6"/><line x1="24" y1="36" x2="24" y2="18" stroke="#7AC429" stroke-width="1.5" opacity=".6"/><line x1="34" y1="36" x2="34" y2="22" stroke="#7AC429" stroke-width="1.5" opacity=".6"/></svg>
+        </div>
+        <h3 class="who-title">Large-Scale Agriculture</h3>
+        <p class="who-sub">Row crops, orchards, sugarcane, alfalfa — any commercial scale</p>
+        <span class="who-arrow">→</span>
+      </a>
+      <a href="#golf" class="who-card">
+        <div class="who-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="24" cy="30" rx="18" ry="8" stroke="#7AC429" stroke-width="2"/><ellipse cx="24" cy="24" rx="12" ry="6" stroke="#7AC429" stroke-width="1.5" opacity=".6"/><line x1="28" y1="14" x2="28" y2="26" stroke="#7AC429" stroke-width="2"/><polygon points="28,14 36,18 28,22" fill="#7AC429" opacity=".8"/></svg>
+        </div>
+        <h3 class="who-title">Golf Courses &amp; Turf</h3>
+        <p class="who-sub">Greens, fairways, sports fields — consistent conditions year-round</p>
+        <span class="who-arrow">→</span>
+      </a>
+      <a href="#cities" class="who-card">
+        <div class="who-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="18" width="10" height="22" stroke="#7AC429" stroke-width="2"/><rect x="19" y="10" width="10" height="30" stroke="#7AC429" stroke-width="2"/><rect x="32" y="22" width="10" height="18" stroke="#7AC429" stroke-width="2"/><line x1="4" y1="40" x2="44" y2="40" stroke="#7AC429" stroke-width="2"/></svg>
+        </div>
+        <h3 class="who-title">Cities &amp; Municipalities</h3>
+        <p class="who-sub">Parks, public green space, HOA communities — at institutional scale</p>
+        <span class="who-arrow">→</span>
+      </a>
+      <a href="#hg" class="who-card">
+        <div class="who-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 38 L8 22 L16 12 L32 12 L40 22 L40 38 Z" stroke="#7AC429" stroke-width="2" fill="none"/><line x1="24" y1="12" x2="24" y2="38" stroke="#7AC429" stroke-width="1.5" opacity=".5"/><rect x="18" y="26" width="12" height="12" stroke="#7AC429" stroke-width="1.5" opacity=".7"/></svg>
+        </div>
+        <h3 class="who-title">Home &amp; Garden</h3>
+        <p class="who-sub">Lawns, garden beds, flowers — the same technology, residential size</p>
+        <span class="who-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROOF NUMBERS — immediately after Who This Is For ══ -->
+<section style="padding:6rem 0;background:var(--green-dk);position:relative;overflow:hidden;border-top:1px solid rgba(122,196,41,.2)">
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Bebas Neue',cursive;font-size:22vw;color:rgba(122,196,41,.04);white-space:nowrap;pointer-events:none;letter-spacing:.1em">DATA</div>
+  <div class="wrap" style="position:relative;z-index:1">
+    <div class="rev" style="text-align:center;margin-bottom:3.5rem">
+      <p class="lbl" style="margin-bottom:.5rem">Field-Documented Performance</p>
+      <h2 style="font-family:var(--fd);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;text-transform:uppercase;color:var(--white)">The Numbers Don't Lie.</h2>
+    </div>
+    <div class="stats stg">
+      <div class="sc"><span class="sn">150%+</span><p class="sl">Max Yield<br/>Increase</p></div>
+      <div class="sc"><span class="sn">50%</span><p class="sl">Water Use<br/>Reduction</p></div>
+      <div class="sc"><span class="sn">80%+</span><p class="sl">Fertilizer<br/>Reduction</p></div>
+      <div class="sc"><span class="sn">&lt;2%</span><p class="sl">Post-Harvest<br/>Spoilage</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PER ACRE IMPACT — ROI BLOCK ══ -->
+<section id="roi" style="padding:7rem 0;background:var(--black);border-top:1px solid var(--border)">
+  <div class="wrap">
+    <div class="rev" style="text-align:center;margin-bottom:4rem">
+      <p class="lbl" style="margin-bottom:.5rem">Economic Impact</p>
+      <h2 style="font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);font-weight:900;text-transform:uppercase;color:var(--white);line-height:.96">
+        What One Acre Is Worth<br/><span style="color:var(--green)">With ArableONE™</span>
+      </h2>
+    </div>
+    <div class="roi-split stg">
+      <!-- WITHOUT -->
+      <div class="roi-col roi-bad">
+        <p class="roi-label roi-label-bad">Without ArableONE™</p>
+        <ul class="roi-list">
+          <li class="roi-item roi-item-bad"><span class="roi-x">✕</span> High fertilizer costs — full input spend</li>
+          <li class="roi-item roi-item-bad"><span class="roi-x">✕</span> High water usage — full irrigation schedule</li>
+          <li class="roi-item roi-item-bad"><span class="roi-x">✕</span> Standard yield — no biological boost</li>
+          <li class="roi-item roi-item-bad"><span class="roi-x">✕</span> Up to 10–15% post-harvest spoilage</li>
+          <li class="roi-item roi-item-bad"><span class="roi-x">✕</span> Repeated product applications required</li>
+        </ul>
+      </div>
+      <!-- DIVIDER -->
+      <div class="roi-vs">
+        <span>VS</span>
+      </div>
+      <!-- WITH -->
+      <div class="roi-col roi-good">
+        <p class="roi-label roi-label-good">With ArableONE™</p>
+        <ul class="roi-list">
+          <li class="roi-item roi-item-good"><span class="roi-ck">✓</span> <strong>–80%</strong> fertilizer usage</li>
+          <li class="roi-item roi-item-good"><span class="roi-ck">✓</span> <strong>–50%</strong> water demand</li>
+          <li class="roi-item roi-item-good"><span class="roi-ck">✓</span> <strong>+150%+</strong> yield increase potential</li>
+          <li class="roi-item roi-item-good"><span class="roi-ck">✓</span> <strong>&lt;2%</strong> post-harvest spoilage</li>
+          <li class="roi-item roi-item-good"><span class="roi-ck">✓</span> <strong>One application</strong> — entire season</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Bottom line -->
+    <div class="roi-bottom rev">
+      <div class="roi-bottom-inner">
+        <p class="roi-bottom-label">1-Acre Documented Opportunity (Avocados — Oxnard, CA)</p>
+        <p class="roi-bottom-num">+$3,435<span style="font-size:1.5rem;opacity:.6">/acre</span></p>
+        <p class="roi-bottom-sub">Treated: 10,000 lb @ $0.67/lb vs. Untreated: 7,420 lb @ $0.44/lb · Same land. One application.</p>
+        <a href="#b2b" class="btn btn-a" style="margin-top:1.75rem;font-size:.9rem;padding:1rem 2.2rem">Calculate Your Operation's Potential <span class="arr">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ══ TECHNOLOGY EXPLAINER ══ -->
 <section id="technology">
@@ -642,27 +821,28 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
 </section>
 
 <!-- ══ 01 — AGRICULTURE ══ -->
-<section id="farms">
-  <div class="wrap">
-    <div class="fw-inner rev">
-      <div class="fw-left">
-        <span class="snum">01</span>
-        <p class="lbl" style="margin-bottom:.75rem">01 — Big Agriculture</p>
-        <h2 class="stitle">More Yield.<br/>Less <em>Input.</em></h2>
-        <p class="sbody">ArableONE™ is proprietary Regenerative Soil Technology — not a fertilizer. It works by stimulating the microbes already in your soil to proliferate, restoring depleted ground and maximizing root zone development. Yield increases up to 150%+ documented. One application per season.</p>
-        <ul class="sbulls stg">
-          <li>Up to 150%+ documented yield improvement</li>
-          <li>Only 2 quarts needed per acre</li>
-          <li>Compatible with all irrigation methods</li>
-          <li>Dramatic improvement in even poorest soils</li>
-        </ul>
-        <a href="#b2b" class="btn btn-g">Request Commercial Quote <span class="arr">→</span></a>
-      </div>
-      <div class="fw-photo rev-r">
-        <span class="clbl">Commercial Agriculture</span>
-        <img src="https://arableone.com/cdn/shop/files/boost-crop-yields-200-percent.webp?v=1720570343&width=1600"
-             alt="200% crop yield boost with ArableONE™" loading="lazy"/>
-      </div>
+<section id="farms" style="background:var(--black);border-top:1px solid var(--border);overflow:hidden;position:relative">
+  <div class="fw-inner">
+    <!-- PHOTO — LEFT -->
+    <div class="fw-photo">
+      <span class="clbl">Commercial Agriculture</span>
+      <div class="fw-photo-overlay"></div>
+      <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=1600&q=85"
+           alt="Aerial view of irrigated farm fields" loading="lazy"/>
+    </div>
+    <!-- TEXT — RIGHT -->
+    <div class="fw-left rev">
+      <span class="snum">01</span>
+      <p class="lbl" style="margin-bottom:.75rem">01 — Big Agriculture</p>
+      <h2 class="stitle">More Yield.<br/>Less <em>Input.</em></h2>
+      <p class="sbody">ArableONE™ is proprietary Regenerative Soil Technology — not a fertilizer. It works by stimulating the microbes already in your soil to proliferate, restoring depleted ground and maximizing root zone development. Yield increases up to 150%+ documented. One application per season.</p>
+      <ul class="sbulls stg">
+        <li>Up to 150%+ documented yield improvement</li>
+        <li>Only 2 quarts needed per acre</li>
+        <li>Compatible with all irrigation methods</li>
+        <li>Dramatic improvement in even poorest soils</li>
+      </ul>
+      <a href="#b2b" class="btn btn-g">Request Commercial Quote <span class="arr">→</span></a>
     </div>
   </div>
   <div class="farms-stat-strip wrap">
@@ -671,13 +851,12 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
     <div class="farms-stat-item"><span class="fsi-n">80%+</span><span class="fsi-l">Fertilizer<br/>Reduction</span></div>
     <div class="farms-stat-item"><span class="fsi-n">&lt;2%</span><span class="fsi-l">Post-Harvest<br/>Spoilage</span></div>
   </div>
-  <div class="fw-ghost" aria-hidden="true">01</div>
 </section>
 
 <div class="div"></div>
 
 <!-- ══ 02 — CITIES ══ -->
-<section id="cities">
+<section id="cities" style="background:var(--s1);padding:0">
   <div class="cities-top rev">
     <p class="lbl" style="margin-bottom:1rem">02 — Cities, Parks &amp; Municipalities</p>
     <span class="snum" style="display:block">02</span>
@@ -693,43 +872,61 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
       <a href="#b2b" class="btn btn-g">Request Municipal Pricing <span class="arr">→</span></a>
     </div>
   </div>
-  <div class="cities-vis rev">
+  <!-- Full-bleed photo with stat overlays -->
+  <div class="cities-vis rev" style="position:relative">
     <div class="cities-vis-overlay"></div>
-    <img src="https://arableone.com/cdn/shop/files/50-percent-reduction-water-use-soil-enhancer.webp?v=1720570176&width=2560"
-         alt="50% water use reduction with ArableONE™" loading="lazy"/>
+    <!-- Real public park / turf image -->
+    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=2400&q=85"
+         alt="Public park green space" loading="lazy"
+         style="width:100%;height:100%;object-fit:cover;display:block"/>
+    <!-- Stat overlays pinned to bottom of image -->
+    <div style="position:absolute;bottom:0;left:0;right:0;z-index:2;display:flex;gap:0;border-top:1px solid rgba(255,255,255,.12)">
+      <div style="flex:1;padding:1.5rem 2rem;background:rgba(5,5,5,.72);border-right:1px solid rgba(255,255,255,.1);backdrop-filter:blur(8px)">
+        <div style="font-family:'Bebas Neue',cursive;font-size:2.4rem;color:#7AC429;line-height:1;margin-bottom:.25rem">↓ 40%</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6)">Water Usage</div>
+      </div>
+      <div style="flex:1;padding:1.5rem 2rem;background:rgba(5,5,5,.72);border-right:1px solid rgba(255,255,255,.1);backdrop-filter:blur(8px)">
+        <div style="font-family:'Bebas Neue',cursive;font-size:2.4rem;color:#7AC429;line-height:1;margin-bottom:.25rem">↓ 80%+</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6)">Maintenance Cost</div>
+      </div>
+      <div style="flex:1;padding:1.5rem 2rem;background:rgba(5,5,5,.72);backdrop-filter:blur(8px)">
+        <div style="font-family:'Bebas Neue',cursive;font-size:2.4rem;color:#7AC429;line-height:1;margin-bottom:.25rem">Healthier</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6)">Turf — Year Round</div>
+      </div>
+    </div>
   </div>
 </section>
 
 <div class="div"></div>
 
 <!-- ══ 03 — GOLF ══ -->
-<section id="golf">
-  <div class="wrap">
-    <div class="golf-split">
-      <div class="rev-l">
-        <span class="snum">03</span>
-        <p class="lbl" style="margin-bottom:.75rem">03 — Golf Courses &amp; Commercial Landscaping</p>
-        <h2 class="stitle">Consistent<br/><em>Conditions.</em><br/>Fewer Inputs.</h2>
-        <p class="sbody">Golf courses demand precision. ArableONE™ conditions soil at the root zone — reducing irrigation, limiting chemical dependency, and holding the color and firmness players expect all season.</p>
-        <ul class="sbulls stg">
-          <li>Root zone depth improvement documented</li>
-          <li>Significant irrigation days eliminated</li>
-          <li>80%+ fertilizer reduction possible</li>
-          <li>Works on greens, fairways, and rough</li>
-        </ul>
-        <a href="#b2b" class="btn btn-g">Golf &amp; Commercial Inquiry <span class="arr">→</span></a>
+<section id="golf" style="padding:0;background:var(--black)">
+  <div class="golf-split" style="max-width:100%;gap:0">
+    <!-- TEXT LEFT -->
+    <div class="rev-l" style="padding:6rem 5rem;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--border)">
+      <span class="snum">03</span>
+      <p class="lbl" style="margin-bottom:.75rem">03 — Golf Courses &amp; Commercial Landscaping</p>
+      <h2 class="stitle">Consistent<br/><em>Conditions.</em><br/>Fewer Inputs.</h2>
+      <p class="sbody">Golf courses demand precision. ArableONE™ conditions soil at the root zone — reducing irrigation, limiting chemical dependency, and holding the color and firmness players expect all season.</p>
+      <ul class="sbulls stg">
+        <li>Root zone depth improvement documented</li>
+        <li>Significant irrigation days eliminated</li>
+        <li>80%+ fertilizer reduction possible</li>
+        <li>Works on greens, fairways, and rough</li>
+      </ul>
+      <a href="#b2b" class="btn btn-g">Golf &amp; Commercial Inquiry <span class="arr">→</span></a>
+    </div>
+    <!-- PHOTOS RIGHT — stacked -->
+    <div class="golf-photos rev-r">
+      <div class="golf-photo-top">
+        <span class="clbl">Fairway Conditions</span>
+        <img src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=1200&q=80"
+             alt="Golf course fairway aerial view" loading="lazy"/>
       </div>
-      <div class="golf-photos rev-r">
-        <div class="golf-photo-top">
-          <span class="clbl">Fertilizer Reduction</span>
-          <img src="https://arableone.com/cdn/shop/files/80-percent-reduction-soil-fertilizer-green-clean.webp?v=1720570085&width=1200"
-               alt="80% fertilizer reduction with ArableONE™" loading="lazy"/>
-        </div>
-        <div class="golf-photo-btm">
-          <span class="clbl">Produce Quality</span>
-          <img src="https://arableone.com/cdn/shop/files/produce-flavor-aroma-booster.webp?v=1720570538&width=1200"
-               alt="Enhanced flavor and aroma with ArableONE™" loading="lazy"/>
-        </div>
+      <div class="golf-photo-btm">
+        <span class="clbl">Green Surface Health</span>
+        <img src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&w=1200&q=80"
+             alt="Golf course putting green" loading="lazy"/>
       </div>
     </div>
   </div>
@@ -741,8 +938,8 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
 <section id="hg">
   <div class="hg-vis">
     <span class="clbl" style="z-index:3;position:absolute">Home &amp; Garden</span>
-    <img src="https://arableone.com/cdn/shop/files/ArableONE_-_FARM_GARDEN_-_Mobile_6.jpg?v=1720568444&width=2160"
-         alt="Home and garden results with ArableONE™"/>
+    <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=2400&q=85"
+         alt="Lush home garden and lawn"/>
     <div style="position:absolute;bottom:0;left:0;right:0;height:140px;background:linear-gradient(to bottom,transparent,rgba(13,13,13,1));z-index:2;pointer-events:none"></div>
   </div>
   <div class="hg-bottom">
@@ -779,8 +976,8 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
       <div class="hoa-vis">
         <span class="clbl" style="z-index:2">Community Turf</span>
         <div class="hoa-overlay"></div>
-        <img src="https://arableone.com/cdn/shop/files/saving-the-earth-starts-with-you.webp?v=1720570888&width=1600"
-             alt="Sustainable community landscape with ArableONE™" loading="lazy"/>
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1600&q=80"
+             alt="Community neighborhood green space" loading="lazy"/>
       </div>
       <div class="hoa-text">
         <span class="snum">05</span>
@@ -1052,31 +1249,80 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
 </section>
 
 <!-- ══ BEFORE & AFTER ══ -->
-<section id="results" style="padding:8rem 0;background:var(--s1);border-top:1px solid var(--border)">
-  <div class="wrap">
-    <div class="results-header rev">
-      <p class="lbl">Real Results</p>
-      <h2 class="results-hl">It Works on Everything.</h2>
+<section id="results" style="padding:0;background:var(--black);border-top:1px solid var(--border)">
+
+  <!-- ── BEFORE / AFTER SLIDER ── -->
+  <div style="padding:6rem 0 0">
+    <div class="wrap">
+      <div class="results-header rev" style="margin-bottom:3rem">
+        <p class="lbl">Before &amp; After</p>
+        <h2 class="results-hl">One Application.<br/><span style="color:var(--green)">Proof in the Plant.</span></h2>
+        <p style="font-size:.9rem;font-weight:300;color:var(--g2);margin-top:.75rem">Drag the slider to compare untreated vs. ArableONE™ treated.</p>
+      </div>
     </div>
-    <div class="ba-grid stg">
-      <div class="ba-item">
-        <img src="https://arableone.com/cdn/shop/files/Bougainvillea.webp?v=1720570638&width=1200"
-             alt="Bougainvillea before and after ArableONE™" loading="lazy"/>
-        <div class="ba-caption">
-          <p class="ba-tag">Before &amp; After</p>
-          <p class="ba-desc">Bougainvillea — one application, visible transformation</p>
+    <!-- Full-width slider -->
+    <div class="ba-slider-wrap rev" id="baSlider">
+      <div class="ba-after">
+        <img src="https://arableone.com/cdn/shop/files/Bougainvillea.webp?v=1720570638&width=1600"
+             alt="After ArableONE™ treatment" draggable="false"/>
+        <span class="ba-label ba-label-after">AFTER</span>
+      </div>
+      <div class="ba-before" id="baBefore">
+        <img src="https://arableone.com/cdn/shop/files/Bougainvillea.webp?v=1720570638&width=1600"
+             alt="Before ArableONE™ treatment" draggable="false"
+             style="filter:saturate(0.25) brightness(0.7)"/>
+        <span class="ba-label ba-label-before">BEFORE</span>
+      </div>
+      <!-- Divider line + handle -->
+      <div class="ba-divider" id="baDivider">
+        <div class="ba-handle">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="white"><path d="M7 4l-4 6 4 6M13 4l4 6-4 6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
         </div>
       </div>
-      <div class="ba-item">
-        <img src="https://arableone.com/cdn/shop/files/Bougainvillea-close-up.webp?v=1720570690&width=1200"
-             alt="Close-up flower results with ArableONE™" loading="lazy"/>
-        <div class="ba-caption">
-          <p class="ba-tag">Close-Up Detail</p>
-          <p class="ba-desc">Flower density and color — untreated vs. treated</p>
+      <input class="ba-range" id="baRange" type="range" min="0" max="100" value="50" aria-label="Comparison slider"/>
+    </div>
+  </div>
+
+  <!-- ── FLOWER SHOWCASE ── -->
+  <div style="padding:6rem 0;border-top:1px solid var(--border)">
+    <div class="wrap" style="margin-bottom:3rem">
+      <div class="rev">
+        <p class="lbl" style="margin-bottom:.75rem">Results Across Every Plant Type</p>
+        <h2 style="font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);font-weight:900;text-transform:uppercase;color:var(--white);line-height:.96">Visible Results.<br/><span style="color:var(--green)">Real Growth.</span></h2>
+      </div>
+    </div>
+    <div class="showcase-grid stg">
+      <div class="showcase-item">
+        <img src="https://arableone.com/cdn/shop/files/Bougainvillea-close-up.webp?v=1720570690&width=800"
+             alt="Flower growth after ArableONE™ treatment" loading="lazy"/>
+        <div class="showcase-overlay">
+          <span class="showcase-label">Flowers &amp; Ornamentals</span>
+        </div>
+      </div>
+      <div class="showcase-item showcase-item-tall">
+        <img src="https://arableone.com/cdn/shop/files/produce-flavor-aroma-booster.webp?v=1720570538&width=800"
+             alt="Enhanced produce quality with ArableONE™" loading="lazy"/>
+        <div class="showcase-overlay">
+          <span class="showcase-label">Produce Quality</span>
+        </div>
+      </div>
+      <div class="showcase-item">
+        <img src="https://arableone.com/cdn/shop/files/ArableONE-soil-balancer-soil-repair-science.webp?v=1720569730&width=800"
+             alt="Soil science behind ArableONE™" loading="lazy"/>
+        <div class="showcase-overlay">
+          <span class="showcase-label">Root Zone Science</span>
+        </div>
+      </div>
+      <div class="showcase-item">
+        <img src="https://arableone.com/cdn/shop/files/saving-the-earth-starts-with-you.webp?v=1720570888&width=800"
+             alt="Sustainable landscape results" loading="lazy"/>
+        <div class="showcase-overlay">
+          <span class="showcase-label">Landscapes &amp; Turf</span>
         </div>
       </div>
     </div>
   </div>
+
 </section>
 
 <!-- ══ TRIAL EVIDENCE ══ -->
@@ -1235,9 +1481,14 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
 
 <!-- ══ PROOF / STATS ══ -->
 <section id="proof">
-  <div style="padding:8rem 0;background:var(--green-dk);position:relative;overflow:hidden">
-    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Bebas Neue',cursive;font-size:22vw;color:rgba(122,196,41,.05);white-space:nowrap;pointer-events:none;letter-spacing:.1em">RESULTS</div>
-    <div class="wrap">
+  <div style="padding:8rem 0;position:relative;overflow:hidden">
+    <!-- Real farm field aerial — darkened -->
+    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2400&q=60"
+         alt="" aria-hidden="true"
+         style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;filter:brightness(0.12) saturate(0.6)"/>
+    <div style="position:absolute;inset:0;background:rgba(27,61,9,.88);z-index:1"></div>
+    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Bebas Neue',cursive;font-size:22vw;color:rgba(122,196,41,.04);white-space:nowrap;pointer-events:none;letter-spacing:.1em;z-index:2">RESULTS</div>
+    <div class="wrap" style="position:relative;z-index:3">
       <div class="pr-hdr rev"><p class="lbl">Technology Performance</p><h2 class="pr-hl">The Numbers Don't Lie.</h2></div>
         <div class="stats stg">
         <div class="sc"><span class="sn">150%+</span><p class="sl">Maximum Yield<br/>Increase</p><p class="sd">Documented across commercial crop trials</p></div>
@@ -1245,63 +1496,53 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
         <div class="sc"><span class="sn">80%+</span><p class="sl">Fertilizer<br/>Reduction</p><p class="sd">Optimized root zone drives nutrient uptake</p></div>
         <div class="sc"><span class="sn">&lt;2%</span><p class="sl">Post-Harvest<br/>Spoilage</p><p class="sd">Optimal plant health reduces disease &amp; loss</p></div>
       </div>
-    </div>
+    </div><!-- /.wrap -->
   </div>
-</section>
-
-<!-- ══ TESTIMONIALS — 4 real, named, dated ══ -->
+</section> — 4 real, named, dated ══ -->
 <section id="testimonial">
   <div class="wrap">
     <div class="rev" style="text-align:center;margin-bottom:4rem">
       <p class="lbl" style="margin-bottom:.75rem">Field Testimonials</p>
       <h2 style="font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);font-weight:900;text-transform:uppercase;color:var(--black);line-height:.96">
-        Real Operators. Real Results.
+        Real Operators. Real Numbers.
       </h2>
     </div>
-    <div class="stg" style="display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:rgba(0,0,0,.06)">
+    <div class="stg" style="display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:rgba(0,0,0,.08)">
 
-      <!-- Strawberries -->
-      <div style="background:var(--white);padding:3rem">
-        <p style="font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green-lo);margin-bottom:1.25rem">
-          Strawberries · Santa Cruz, CA · September 2011
-        </p>
-        <blockquote style="font-family:var(--fd);font-size:clamp(1.1rem,2vw,1.55rem);font-weight:700;line-height:1.25;color:var(--black);margin-bottom:1.5rem">
-          "I have been able to harvest <mark style="background:none;color:var(--green-lo)">84 bins from the treated fields and only 24 bins from the untreated</mark> — a 350% increase in production. The treated plants grew faster and had a healthier dark green color."
+      <div style="background:var(--white);padding:2.5rem">
+        <p style="font-family:'Bebas Neue',cursive;font-size:2.8rem;color:var(--green-lo);line-height:1;margin-bottom:.5rem">+350% Production</p>
+        <p style="font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g2);margin-bottom:1.1rem">Strawberries · Santa Cruz, CA</p>
+        <blockquote style="font-size:.92rem;font-weight:400;line-height:1.7;color:#444;margin-bottom:1.25rem;font-style:italic">
+          "84 bins treated vs. 24 bins untreated. Plants grew faster with healthier dark green color."
         </blockquote>
-        <p style="font-family:var(--fd);font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--g2)">Armando R. — Field Manager, Santa Cruz Berry</p>
+        <p style="font-family:var(--fd);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g3)">Armando R. — Field Manager, Santa Cruz Berry</p>
       </div>
 
-      <!-- Alfalfa -->
-      <div style="background:#f8f8f6;padding:3rem">
-        <p style="font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green-lo);margin-bottom:1.25rem">
-          Alfalfa · Ruby Valley, Utah · September 2018
-        </p>
-        <blockquote style="font-family:var(--fd);font-size:clamp(1.1rem,2vw,1.55rem);font-weight:700;line-height:1.25;color:var(--black);margin-bottom:1.5rem">
-          "After 10 days the treated field had grown 12–18 in., reaching 2–3 feet when cut. The <mark style="background:none;color:var(--green-lo)">75-acre treated field produced 15 extra (1-ton) bales of supreme quality alfalfa</mark> more than the 125 untreated acres."
+      <div style="background:#f5f5f2;padding:2.5rem">
+        <p style="font-family:'Bebas Neue',cursive;font-size:2.8rem;color:var(--green-lo);line-height:1;margin-bottom:.5rem">+15 Extra Tons</p>
+        <p style="font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g2);margin-bottom:1.1rem">Alfalfa · Ruby Valley, Utah</p>
+        <blockquote style="font-size:.92rem;font-weight:400;line-height:1.7;color:#444;margin-bottom:1.25rem;font-style:italic">
+          "75-acre treated field produced 15 additional 1-ton bales of supreme quality — vs. 125 untreated acres."
         </blockquote>
-        <p style="font-family:var(--fd);font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--g2)">Francisco — Field Supervisor, Ruby Valley</p>
+        <p style="font-family:var(--fd);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g3)">Francisco — Field Supervisor, Ruby Valley</p>
       </div>
 
-      <!-- Landscaping -->
-      <div style="background:#f8f8f6;padding:3rem">
-        <p style="font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green-lo);margin-bottom:1.25rem">
-          Commercial Landscaping · Sacramento, CA · November 2011
-        </p>
-        <blockquote style="font-family:var(--fd);font-size:clamp(1.1rem,2vw,1.55rem);font-weight:700;line-height:1.25;color:var(--black);margin-bottom:1.5rem">
-          "<mark style="background:none;color:var(--green-lo)">The turf was much more thick and lush</mark> — same irrigation, same fertilization. We will be incorporating this product into all our future applications. Thank you for introducing our firm to this wonderful product."
+      <div style="background:#f5f5f2;padding:2.5rem">
+        <p style="font-family:'Bebas Neue',cursive;font-size:2.8rem;color:var(--green-lo);line-height:1;margin-bottom:.5rem">Visibly Lush</p>
+        <p style="font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g2);margin-bottom:1.1rem">Commercial Landscaping · Sacramento, CA</p>
+        <blockquote style="font-size:.92rem;font-weight:400;line-height:1.7;color:#444;margin-bottom:1.25rem;font-style:italic">
+          "Turf much more thick and lush — same irrigation, same fertilization. Incorporating into all future applications."
         </blockquote>
-        <p style="font-family:var(--fd);font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--g2)">Todd M. — President, California Landscape Associates Inc.</p>
+        <p style="font-family:var(--fd);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g3)">Todd M. — President, California Landscape Associates Inc.</p>
       </div>
 
-      <!-- Almonds -->
-      <div style="background:var(--white);padding:3rem">
-        <p style="font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green-lo);margin-bottom:1.25rem">
-          Almonds · California · 2020
-        </p>
-        <blockquote style="font-family:var(--fd);font-size:clamp(1.1rem,2vw,1.55rem);font-weight:700;line-height:1.25;color:var(--black);margin-bottom:1.5rem">
-          "Last year my trees only had 2–3 buds per branch, and this year there are <mark style="background:none;color:var(--green-lo)">5–6 buds per branch</mark>. I had an excellent harvest and the Blue Diamond representative was also impressed with the dramatic improvement."
+      <div style="background:var(--white);padding:2.5rem">
+        <p style="font-family:'Bebas Neue',cursive;font-size:2.8rem;color:var(--green-lo);line-height:1;margin-bottom:.5rem">2× Bud Growth</p>
+        <p style="font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g2);margin-bottom:1.1rem">Almonds · California · 2020</p>
+        <blockquote style="font-size:.92rem;font-weight:400;line-height:1.7;color:#444;margin-bottom:1.25rem;font-style:italic">
+          "2–3 buds per branch last year. 5–6 buds this year. Blue Diamond rep was also impressed with the improvement."
         </blockquote>
-        <p style="font-family:var(--fd);font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--g2)">Carlos DeMatos — Almond Grower, California</p>
+        <p style="font-family:var(--fd);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g3)">Carlos DeMatos — Almond Grower, California</p>
       </div>
 
     </div>
@@ -1314,9 +1555,9 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
     <div class="wrap">
       <div class="how-hdr rev"><p class="lbl">The Process</p><h2 class="how-hl">Three Steps. That's It.</h2></div>
       <div class="hsteps stg">
-        <div class="hstep"><div class="hnum"><span class="hnum-t">1</span></div><h3 class="htitle">Apply to Soil</h3><p class="hdesc">Broadcast, inject, or drip-apply ArableONE™ using a standard hose-end sprayer or existing irrigation setup. Only 2 quarts per acre needed. No special equipment required.</p></div>
-        <div class="hstep"><div class="hnum"><span class="hnum-t">2</span></div><h3 class="htitle">Technology Activates</h3><p class="hdesc">ArableONE™ is Regenerative Soil Technology — not a fertilizer. It stimulates the beneficial bacteria already in your soil to proliferate, restoring root zone biology, nutrient uptake, and moisture retention naturally.</p></div>
-        <div class="hstep"><div class="hnum"><span class="hnum-t">3</span></div><h3 class="htitle">Measure Results</h3><p class="hdesc">Visible improvement in 30 days. Documented yield increases, water reduction, and enhanced produce quality across a full season — with no repeat applications required.</p></div>
+        <div class="hstep"><div class="hnum"><span class="hnum-t">1</span></div><h3 class="htitle">Apply Once</h3><p class="hdesc">Works with your existing irrigation. Standard hose-end sprayer or injection. Max 2 quarts per acre. No new equipment.</p></div>
+        <div class="hstep"><div class="hnum"><span class="hnum-t">2</span></div><h3 class="htitle">Biology Activates</h3><p class="hdesc">Stimulates microbes already in your soil. Deeper roots. Better nutrient uptake. Improved moisture retention. No fertilizer dependency.</p></div>
+        <div class="hstep"><div class="hnum"><span class="hnum-t">3</span></div><h3 class="htitle">Results in 30 Days</h3><p class="hdesc">Visible improvement within a month. Full-season performance documented. No second application needed.</p></div>
       </div>
     </div>
   </div>
@@ -1333,12 +1574,12 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
     </div>
     <div class="faq-grid">
 
-      <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-item open" onclick="toggleFaq(this)">
         <p class="faq-q">How does ArableONE™ work? <span class="faq-icon">+</span></p>
         <p class="faq-a">ArableONE™ increases the efficiency with which plants absorb nutrients by creating a soil environment that enhances root zone development. This is accomplished through fostering increased growth of beneficial microorganisms and fungi which occur naturally in soil.</p>
       </div>
 
-      <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-item open" onclick="toggleFaq(this)">
         <p class="faq-q">Is ArableONE™ a fertilizer? <span class="faq-icon">+</span></p>
         <p class="faq-a">No. ArableONE™ is not a fertilizer. Instead of adding external nutrients, it works by feeding the bacteria already in the soil. It does not contain live microbes — it stimulates the microbes naturally present in your soil to proliferate at a much faster rate than they would on their own.</p>
       </div>
@@ -1389,17 +1630,19 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
 
 <!-- ══ FINAL CTA ══ -->
 <section id="cta">
-  <div style="padding:9rem 0;background:var(--black);position:relative;overflow:hidden;text-align:center">
-    <div class="cta-grid"></div><div class="cta-glow"></div>
-    <div class="wrap cta-cnt rev">
-      <p class="lbl" style="display:block;margin-bottom:.5rem">Get Started Today</p>
-      <h2 class="cta-hl">Stop Stacking.<br/><strong>Start Performing.</strong></h2>
-      <p class="cta-sub">ArableONE™ Regenerative Soil Technology — available in sizes for every operation, from backyard gardens to 100,000-acre commercial farms.</p>
+  <div style="padding:9rem 0;position:relative;overflow:hidden;text-align:center">
+    <!-- Aerial field photo — very dark overlay so text reads cleanly -->
+    <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=2400&q=60"
+         alt="" aria-hidden="true"
+         style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;filter:brightness(0.18)"/>
+    <div style="position:absolute;inset:0;background:rgba(5,5,5,.55);z-index:1"></div>
+    <div class="wrap cta-cnt rev" style="position:relative;z-index:2">
+      <p class="lbl" style="display:block;margin-bottom:1rem">Start This Season</p>
+      <h2 class="cta-hl">Ready to Increase<br/><strong>Yield This Season?</strong></h2>
+      <p class="cta-sub">Commercial operators: request a direct quote with volume pricing and coverage details.<br/>Residential and small-scale: available now on Amazon.</p>
       <div class="cta-btns">
-        <!-- ▸ SWAP: replace # with Amazon storefront URL when live -->
-        <a href="#" class="btn btn-a" style="font-size:.9rem;padding:1rem 2.2rem">Shop on Amazon <span class="arr">→</span></a>
-        <a href="#b2b" class="btn btn-og" style="font-size:.9rem;padding:1rem 2.2rem">Commercial Inquiry</a>
-        <a href="https://arableone.com/pages/results" target="_blank" class="btn btn-ol" style="font-size:.9rem;padding:1rem 2.2rem">View Results</a>
+        <a href="#b2b" class="btn btn-a" style="font-size:1rem;padding:1.1rem 2.6rem;font-weight:900">Request Commercial Quote <span class="arr">→</span></a>
+        <a href="#products" class="btn btn-g" style="font-size:.9rem;padding:1rem 2rem">Shop Consumer Sizes</a>
       </div>
     </div>
   </div>
@@ -1460,6 +1703,20 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* Before/After slider */
+const baRange=document.getElementById('baRange');
+const baBefore=document.getElementById('baBefore');
+const baDivider=document.getElementById('baDivider');
+if(baRange&&baBefore){
+  function updateSlider(v){
+    const pct=v+'%';
+    baBefore.style.clipPath='inset(0 '+(100-v)+'% 0 0)';
+    baDivider.style.left=pct;
+  }
+  baRange.addEventListener('input',e=>updateSlider(e.target.value));
+  updateSlider(50);
+}
+
 /* FAQ accordion */
 function toggleFaq(el){
   const isOpen=el.classList.contains('open');
