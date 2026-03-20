@@ -17,12 +17,10 @@
   --s2:#131313;
   --s3:#1a1a1a;
   --border:rgba(255,255,255,0.07);
-  --bg:rgba(122,196,41,0.25);
   --green:#7AC429;
   --green-hi:#92D93E;
   --green-lo:#4d8a12;
   --green-dk:#1b3d09;
-  --green-gl:rgba(122,196,41,0.12);
   --amber:#E08A1A;
   --amber-hi:#F5A030;
   --white:#F5F5F0;
@@ -35,6 +33,8 @@
   --ease:cubic-bezier(0.22,1,0.36,1);
   --t:0.4s cubic-bezier(0.22,1,0.36,1);
 }
+
+/* ── Reset ── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{font-size:16px;scroll-behavior:smooth}
 body{font-family:var(--fb);background:var(--black);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
@@ -46,103 +46,565 @@ ul{list-style:none}
 ::-webkit-scrollbar-thumb{background:var(--green-lo)}
 
 /* ── Layout ── */
-.wrap{max-width:1320px;margin:0 auto;padding:0 2rem}
+.wrap{max-width:1320px;margin:0 auto;padding:0 2.5rem}
+.wrap--tight{max-width:960px;margin:0 auto;padding:0 2.5rem}
+.wrap--mid{max-width:1100px;margin:0 auto;padding:0 2.5rem}
 
 /* ── Label ── */
-.lbl{font-family:var(--fd);font-size:.7rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--green)}
+.lbl{font-family:var(--fd);font-size:.68rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--green)}
+
+/* ── Divider ── */
+.div{height:1px;background:linear-gradient(to right,transparent,var(--border),transparent)}
 
 /* ── Buttons ── */
-.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fd);font-size:.85rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.85rem 2rem;border:none;cursor:pointer;transition:var(--t);position:relative;overflow:hidden;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fd);font-size:.85rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.9rem 2.2rem;border:none;cursor:pointer;transition:var(--t);position:relative;overflow:hidden;white-space:nowrap}
 .btn::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.08);opacity:0;transition:opacity .2s}
 .btn:hover::after{opacity:1}
-.btn-g{background:var(--green);color:#050505}
-.btn-g:hover{background:var(--green-hi);transform:translateY(-2px);box-shadow:0 8px 32px rgba(122,196,41,.35)}
 .btn-a{background:var(--amber);color:#050505}
-.btn-a:hover{background:var(--amber-hi);transform:translateY(-2px);box-shadow:0 8px 32px rgba(224,138,26,.4)}
-.btn-ol{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.3)}
+.btn-a:hover{background:var(--amber-hi);transform:translateY(-2px);box-shadow:0 6px 24px rgba(224,138,26,.25)}
+.btn-g{background:var(--green);color:#050505}
+.btn-g:hover{background:var(--green-hi);transform:translateY(-2px);box-shadow:0 6px 24px rgba(122,196,41,.2)}
+.btn-ol{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.25)}
 .btn-ol:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px)}
 .btn-og{background:transparent;color:var(--green);border:1.5px solid var(--green)}
 .btn-og:hover{background:var(--green);color:#050505;transform:translateY(-2px)}
 .arr{display:inline-block;transition:transform .25s}
 .btn:hover .arr{transform:translateX(4px)}
 
+/* ── Shared section anatomy ── */
+.sec{padding:8rem 0;position:relative;overflow:hidden}
+.sec-dark{background:var(--black)}
+.sec-mid{background:var(--s1)}
+.sec-surface{background:var(--s2)}
+.snum{font-family:var(--fs);font-size:4.5rem;line-height:1;color:rgba(122,196,41,.07);margin-bottom:-1.2rem;display:block;letter-spacing:.05em}
+.stitle{font-family:var(--fd);font-size:clamp(2.2rem,4.5vw,3.5rem);font-weight:900;line-height:.96;letter-spacing:-.01em;text-transform:uppercase;color:var(--white);margin-bottom:1.25rem}
+.stitle em{font-style:normal;color:var(--green)}
+.sbody{font-size:1rem;font-weight:300;line-height:1.85;color:var(--g1);margin-bottom:1.75rem;max-width:440px}
+.sbulls{display:flex;flex-direction:column;gap:.6rem;margin-bottom:2rem}
+.sbulls li{display:flex;align-items:center;gap:.75rem;font-family:var(--fd);font-size:.88rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--g1)}
+.sbulls li::before{content:'';display:block;width:16px;height:2px;background:var(--green);flex-shrink:0}
+
+/* Visual panel */
+.vpanel{position:relative;background:var(--s2);border:1px solid var(--border);overflow:hidden}
+.vpanel::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(122,196,41,.025) 0%,transparent 50%);pointer-events:none}
+.vpanel svg{width:100%;height:100%;display:block}
+.clbl{position:absolute;top:1.2rem;left:1.2rem;z-index:2;font-family:var(--fd);font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--green);background:rgba(5,5,5,.8);padding:.3rem .6rem;border-left:2px solid var(--green)}
+
 /* ══════════════════════════════════════════════
    NAV
 ══════════════════════════════════════════════ */
 #nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
-#nav.scrolled{background:rgba(5,5,5,.96);border-bottom-color:var(--border);backdrop-filter:blur(16px)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;max-width:1320px;margin:0 auto}
-.nav-logo img{height:42px;width:auto}
-.nav-links{display:flex;align-items:center;gap:1.8rem}
-.nav-links a{font-family:var(--fd);font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--g1);transition:color .25s}
+#nav.scrolled{background:rgba(5,5,5,.97);border-bottom-color:var(--border);backdrop-filter:blur(16px)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2.5rem;max-width:1320px;margin:0 auto}
+.nav-logo img{height:40px;width:auto}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{font-family:var(--fd);font-size:.73rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--g2);transition:color .25s}
 .nav-links a:hover{color:var(--green)}
+.nav-cta{display:flex;align-items:center;gap:.75rem}
 .ham{display:none;flex-direction:column;gap:6px;cursor:pointer;padding:4px;background:none;border:none}
 .ham span{display:block;width:26px;height:2px;background:var(--white);border-radius:2px;transition:var(--t)}
-.mob-nav{display:none;position:fixed;inset:0;background:rgba(5,5,5,.98);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+.mob-nav{display:none;position:fixed;inset:0;background:rgba(5,5,5,.99);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
 .mob-nav.open{display:flex}
 .mob-nav a{font-family:var(--fd);font-size:1.8rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--white);transition:color .2s}
 .mob-nav a:hover{color:var(--green)}
 .mob-close{position:absolute;top:1.5rem;right:2rem;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer;line-height:1}
 
 /* ══════════════════════════════════════════════
-   HERO
+   HERO — REVISED
+   Single dominant statement. No competing messages.
+   Grid is subtle. Headline owns the page.
 ══════════════════════════════════════════════ */
-#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:8rem;position:relative;overflow:hidden;background:var(--black)}
-.h-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(122,196,41,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(122,196,41,.04) 1px,transparent 1px);background-size:80px 80px;animation:gshift 22s linear infinite}
-@keyframes gshift{from{background-position:0 0}to{background-position:80px 80px}}
-.h-orb{position:absolute;top:-20%;right:-5%;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(122,196,41,.11) 0%,transparent 65%);pointer-events:none;animation:orb 7s ease-in-out infinite}
-@keyframes orb{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.08);opacity:.7}}
-.h-slash{position:absolute;top:0;right:-10%;width:55%;height:100%;background:linear-gradient(135deg,transparent 45%,rgba(122,196,41,.03) 45%);pointer-events:none}
-.h-cnt{position:relative;z-index:2;padding:0 2rem;max-width:1320px;margin:0 auto;width:100%}
-.h-eye{display:inline-flex;align-items:center;gap:.75rem;margin-bottom:1.5rem}
-.h-eye::before{content:'';display:block;width:28px;height:2px;background:var(--green)}
-.h-hl{font-family:var(--fd);font-size:clamp(3.8rem,11vw,10rem);font-weight:900;line-height:.92;letter-spacing:-.01em;text-transform:uppercase;color:var(--white);margin-bottom:2rem;max-width:920px}
-.h-hl em{font-style:normal;color:var(--green);display:block}
-.h-row{display:flex;flex-wrap:wrap;gap:2rem 4rem;align-items:flex-end;justify-content:space-between;max-width:1100px}
-.h-copy{font-size:1.05rem;font-weight:300;line-height:1.7;color:var(--g1);max-width:460px}
-.h-copy strong{color:var(--white);font-weight:500}
-.h-btns{display:flex;gap:1rem;flex-wrap:wrap}
-.h-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;z-index:2}
-.h-scroll-ln{width:1px;height:48px;background:linear-gradient(to bottom,rgba(122,196,41,.8),transparent);animation:sln 2s ease-in-out infinite}
-@keyframes sln{0%{transform:scaleY(0);transform-origin:top;opacity:1}50%{transform:scaleY(1);transform-origin:top;opacity:1}100%{transform:scaleY(1);transform-origin:bottom;opacity:0}}
-.h-scroll-lbl{font-family:var(--fd);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--g3)}
+#hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+  background:var(--black);
+}
+
+/* Grid — very quiet, directional depth only */
+.h-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(122,196,41,.016) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(122,196,41,.016) 1px,transparent 1px);
+  background-size:100px 100px;
+  animation:gshift 36s linear infinite;
+}
+@keyframes gshift{from{background-position:0 0}to{background-position:100px 100px}}
+
+/* Orb — atmospheric warmth only, not a UI effect */
+.h-orb{
+  position:absolute;
+  top:50%;right:-18%;
+  transform:translateY(-50%);
+  width:900px;height:900px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(122,196,41,.04) 0%,transparent 55%);
+  pointer-events:none;
+}
+
+/* Vertical green accent bar — left edge marker */
+.h-bar{
+  position:absolute;
+  left:0;top:0;bottom:0;
+  width:3px;
+  background:linear-gradient(to bottom,transparent,var(--green) 30%,var(--green) 70%,transparent);
+  opacity:.6;
+}
+
+.h-cnt{
+  position:relative;z-index:2;
+  width:100%;
+  padding:0 2.5rem;
+  max-width:1320px;
+  margin:0 auto;
+}
+
+/* Eyebrow — minimal, anchoring */
+.h-eye{
+  display:flex;align-items:center;gap:1rem;
+  margin-bottom:3rem;
+}
+.h-eye-line{
+  display:block;width:40px;height:1px;
+  background:var(--green);opacity:.7;
+}
+.h-eye-text{
+  font-family:var(--fd);
+  font-size:.65rem;font-weight:700;
+  letter-spacing:.3em;text-transform:uppercase;
+  color:var(--g3);
+}
+
+/* THE headline — this owns the page */
+.h-hl{
+  font-family:var(--fd);
+  font-size:clamp(4.5rem,12vw,11.5rem);
+  font-weight:900;
+  line-height:.88;
+  letter-spacing:-.02em;
+  text-transform:uppercase;
+  color:var(--white);
+  margin-bottom:0;
+  max-width:1100px;
+}
+/* "OR WE DON'T." — the punch line in green */
+.h-hl-accent{
+  color:var(--green);
+  display:block;
+}
+
+/* Separator rule between headline and body */
+.h-rule{
+  width:60px;height:2px;
+  background:var(--green);
+  margin:3.5rem 0 2rem;
+  opacity:.8;
+}
+
+/* Supporting copy — measured, not competing */
+.h-copy{
+  font-size:1.05rem;
+  font-weight:300;
+  line-height:1.85;
+  color:var(--g2);
+  max-width:580px;
+  margin-bottom:3rem;
+}
+.h-copy strong{color:var(--g1);font-weight:400}
+
+/* Two CTAs only — primary amber, secondary ghost */
+.h-btns{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+
+/* Scroll cue — bottom center */
+.h-scroll{
+  position:absolute;
+  bottom:2.5rem;left:50%;
+  transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:.6rem;
+  z-index:2;
+}
+.h-scroll-ln{
+  width:1px;height:48px;
+  background:linear-gradient(to bottom,rgba(122,196,41,.6),transparent);
+  animation:sln 2.2s ease-in-out infinite;
+}
+@keyframes sln{
+  0%{transform:scaleY(0);transform-origin:top;opacity:1}
+  50%{transform:scaleY(1);transform-origin:top;opacity:1}
+  100%{transform:scaleY(1);transform-origin:bottom;opacity:0}
+}
+.h-scroll-lbl{font-family:var(--fd);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--g3)}
 
 /* ══════════════════════════════════════════════
    PRODUCT STRIP
 ══════════════════════════════════════════════ */
-#strip{background:var(--green);padding:1.2rem 2rem}
+#strip{background:var(--green);padding:1.1rem 2.5rem}
 .strip-in{max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
-.strip-tg{font-family:var(--fd);font-size:clamp(1rem,2vw,1.4rem);font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#050505}
-.strip-tg span{opacity:.4;margin:0 .5rem}
-.strip-lk{font-family:var(--fd);font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#050505;display:flex;align-items:center;gap:.4rem;white-space:nowrap}
-.strip-lk:hover{opacity:.7}
+.strip-tg{font-family:var(--fd);font-size:clamp(.95rem,1.8vw,1.3rem);font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#050505}
+.strip-tg span{opacity:.35;margin:0 .6rem}
+.strip-lk{font-family:var(--fd);font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#050505;display:flex;align-items:center;gap:.4rem;white-space:nowrap;transition:opacity .2s}
+.strip-lk:hover{opacity:.6}
 
 /* ══════════════════════════════════════════════
-   SECTORS
+   CREDIBILITY STRIP
 ══════════════════════════════════════════════ */
-.sec{padding:7rem 0;position:relative;overflow:hidden}
-.sec-alt{background:var(--s1)}
-.div{height:1px;background:linear-gradient(to right,transparent,var(--border),transparent)}
-.split{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
-.split-r{direction:rtl}
-.split-r>*{direction:ltr}
-.vpanel{position:relative;aspect-ratio:4/3;background:var(--s2);border:1px solid var(--border);overflow:hidden}
-.vpanel::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(122,196,41,.05) 0%,transparent 60%);pointer-events:none}
-.vpanel svg{width:100%;height:100%}
-.clbl{position:absolute;top:1.2rem;left:1.2rem;z-index:2;font-family:var(--fd);font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);background:rgba(5,5,5,.75);padding:.3rem .6rem;border-left:2px solid var(--green)}
-.snum{font-family:var(--fs);font-size:5rem;line-height:1;color:rgba(122,196,41,.07);margin-bottom:-1.5rem;display:block;letter-spacing:.05em}
-.stitle{font-family:var(--fd);font-size:clamp(2.2rem,4.5vw,3.5rem);font-weight:900;line-height:.96;letter-spacing:-.01em;text-transform:uppercase;color:var(--white);margin-bottom:1.25rem}
-.stitle em{font-style:normal;color:var(--green)}
-.sbody{font-size:1rem;font-weight:300;line-height:1.8;color:var(--g1);margin-bottom:1.75rem;max-width:440px}
-.sbulls{display:flex;flex-direction:column;gap:.5rem;margin-bottom:2rem}
-.sbulls li{display:flex;align-items:center;gap:.75rem;font-family:var(--fd);font-size:.88rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--g1)}
-.sbulls li::before{content:'';display:block;width:18px;height:2px;background:var(--green);flex-shrink:0}
+#credibility{
+  background:var(--s1);
+  padding:4.5rem 0;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.cred-top{
+  text-align:center;
+  margin-bottom:3.5rem;
+}
+.cred-headline{
+  font-family:var(--fd);
+  font-size:clamp(1rem,1.8vw,1.25rem);
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--g2);
+  margin-bottom:.9rem;
+}
+.cred-statement{
+  font-family:var(--fb);
+  font-size:.92rem;
+  font-weight:300;
+  color:var(--g3);
+  letter-spacing:.03em;
+}
+/* Logo row */
+.cred-logos{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:0;
+  flex-wrap:nowrap;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  margin-bottom:3.5rem;
+  overflow:hidden;
+}
+.cred-logo{
+  flex:1;
+  min-width:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:.55rem;
+  padding:2rem 1.5rem;
+  border-right:1px solid var(--border);
+  transition:background var(--t);
+  cursor:default;
+}
+.cred-logo:last-child{border-right:none}
+.cred-logo:hover{background:rgba(122,196,41,.04)}
+/* SVG icon placeholder */
+.cred-logo-icon{
+  width:38px;height:38px;
+  display:flex;align-items:center;justify-content:center;
+  opacity:.35;
+  transition:opacity var(--t);
+}
+.cred-logo:hover .cred-logo-icon{opacity:.65}
+.cred-logo-icon svg{width:100%;height:100%}
+.cred-logo-name{
+  font-family:var(--fd);
+  font-size:.7rem;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--g3);
+  white-space:nowrap;
+  transition:color var(--t);
+}
+.cred-logo:hover .cred-logo-name{color:var(--g2)}
+.cred-logo-type{
+  font-family:var(--fb);
+  font-size:.68rem;
+  font-weight:300;
+  color:var(--g3);
+  opacity:.5;
+  white-space:nowrap;
+}
+/* Stat row */
+.cred-stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  max-width:760px;
+  margin:0 auto;
+  border:1px solid var(--border);
+}
+.cred-stat{
+  padding:1.75rem 2rem;
+  text-align:center;
+  border-right:1px solid var(--border);
+}
+.cred-stat:last-child{border-right:none}
+.cred-stat-n{
+  font-family:var(--fs);
+  font-size:2.6rem;
+  color:var(--green);
+  line-height:1;
+  letter-spacing:.04em;
+  display:block;
+  margin-bottom:.3rem;
+}
+.cred-stat-l{
+  font-family:var(--fd);
+  font-size:.7rem;
+  font-weight:600;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--g3);
+}
 
 /* ══════════════════════════════════════════════
-   PROOF
+   LAYOUT: 01 — BIG AGRICULTURE
+   STYLE: Full-width text-driven
+   No image panel. Giant typographic numbers.
+   Message speaks for itself.
 ══════════════════════════════════════════════ */
-#proof{padding:8rem 0;background:var(--green-dk);position:relative;overflow:hidden}
-#proof::before{content:'RESULTS';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--fs);font-size:22vw;color:rgba(122,196,41,.05);white-space:nowrap;pointer-events:none;letter-spacing:.1em}
+#farms{
+  padding:9rem 0;
+  background:var(--black);
+  position:relative;
+  overflow:hidden;
+  border-top:1px solid var(--border);
+}
+/* Ghost watermark number behind content */
+.fw-ghost{
+  position:absolute;
+  right:-2%;top:50%;
+  transform:translateY(-50%);
+  font-family:var(--fs);
+  font-size:32vw;
+  line-height:1;
+  color:rgba(122,196,41,.04);
+  pointer-events:none;
+  letter-spacing:-.02em;
+  user-select:none;
+}
+.fw-inner{
+  position:relative;z-index:1;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  align-items:end;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.fw-left{
+  padding:4rem 4rem 4rem 0;
+  border-right:1px solid var(--border);
+}
+.fw-right{
+  padding:4rem 0 4rem 4rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+}
+/* Stat columns inside right panel */
+.fw-stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  border:1px solid var(--border);
+}
+.fw-stat{
+  padding:2rem 1.75rem;
+  border-right:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.fw-stat:nth-child(even){border-right:none}
+.fw-stat:nth-child(3),.fw-stat:nth-child(4){border-bottom:none}
+.fw-stat-n{
+  font-family:var(--fs);
+  font-size:3.5rem;
+  color:var(--green);
+  line-height:1;
+  margin-bottom:.35rem;
+}
+.fw-stat-l{
+  font-family:var(--fd);
+  font-size:.72rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--g2);
+  line-height:1.5;
+}
+
+/* ══════════════════════════════════════════════
+   LAYOUT: 02 — CITIES / MUNICIPALITIES
+   STYLE: Centered content — full-width visual below text
+══════════════════════════════════════════════ */
+#cities{
+  padding:9rem 0 0;
+  background:var(--s1);
+  position:relative;
+  overflow:hidden;
+}
+.cities-top{
+  text-align:center;
+  max-width:760px;
+  margin:0 auto;
+  padding:0 2.5rem;
+  padding-bottom:5rem;
+}
+.cities-top .stitle{font-size:clamp(2.5rem,5vw,4rem)}
+.cities-top .sbody{max-width:600px;margin:0 auto 2rem;text-align:left}
+.cities-top .sbulls{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:.5rem 2rem;
+  text-align:left;
+  margin:0 auto 2rem;
+  max-width:580px;
+}
+.cities-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+/* Full-bleed visual below */
+.cities-vis{
+  width:100%;
+  height:400px;
+  position:relative;
+  overflow:hidden;
+  border-top:1px solid var(--border);
+}
+.cities-vis svg{width:100%;height:100%}
+.cities-vis .clbl{top:1.5rem;left:2.5rem}
+
+/* ══════════════════════════════════════════════
+   LAYOUT: 03 — GOLF / COMMERCIAL
+   STYLE: Text LEFT, Visual RIGHT (inverted split)
+══════════════════════════════════════════════ */
+#golf{
+  padding:9rem 0;
+  background:var(--black);
+  position:relative;
+}
+.golf-split{
+  display:grid;
+  grid-template-columns:1fr 1.1fr;
+  gap:5rem;
+  align-items:center;
+}
+.golf-vis{aspect-ratio:16/10}
+
+/* ══════════════════════════════════════════════
+   LAYOUT: 04 — HOME & GARDEN
+   STYLE: Stacked vertical — wide visual on top,
+          3-column text grid below
+══════════════════════════════════════════════ */
+#hg{
+  padding:0;
+  background:var(--s1);
+  position:relative;
+  overflow:hidden;
+}
+/* Top: full-width visual band */
+.hg-vis{
+  width:100%;
+  height:460px;
+  position:relative;
+  overflow:hidden;
+  border-bottom:1px solid var(--border);
+}
+.hg-vis svg{width:100%;height:100%}
+.hg-vis .clbl{top:1.5rem;left:2.5rem}
+/* Bottom: 3-col text block */
+.hg-bottom{
+  padding:5rem 0 7rem;
+}
+.hg-header{
+  display:grid;
+  grid-template-columns:1fr 2fr;
+  gap:4rem;
+  align-items:start;
+  margin-bottom:4rem;
+  padding-bottom:3rem;
+  border-bottom:1px solid var(--border);
+}
+.hg-cols{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2.5rem;
+}
+.hg-col{
+  padding-top:1.5rem;
+  border-top:1px solid var(--border);
+}
+.hg-col-n{
+  font-family:var(--fs);
+  font-size:2.5rem;
+  color:var(--green);
+  line-height:1;
+  margin-bottom:.5rem;
+}
+.hg-col-title{
+  font-family:var(--fd);
+  font-size:1rem;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:var(--white);
+  margin-bottom:.6rem;
+}
+.hg-col-desc{
+  font-size:.88rem;font-weight:300;
+  line-height:1.75;color:var(--g2);
+}
+
+/* ══════════════════════════════════════════════
+   LAYOUT: 05 — HOA
+   STYLE: Visual left (wide), Text right — clean split
+          with a strong vertical border
+══════════════════════════════════════════════ */
+#hoa{
+  padding:9rem 0;
+  background:var(--black);
+  position:relative;
+}
+.hoa-split{
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:0;
+  align-items:stretch;
+  border:1px solid var(--border);
+}
+.hoa-vis{
+  position:relative;
+  min-height:480px;
+  overflow:hidden;
+}
+.hoa-vis svg{width:100%;height:100%;display:block}
+.hoa-text{
+  padding:4rem;
+  border-left:1px solid var(--border);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+/* ══════════════════════════════════════════════
+   PROOF / STATS
+══════════════════════════════════════════════ */
+#proof{
+  padding:8rem 0;
+  background:var(--green-dk);
+  position:relative;
+  overflow:hidden;
+}
+#proof::before{
+  content:'RESULTS';
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  font-family:var(--fs);font-size:22vw;
+  color:rgba(122,196,41,.05);
+  white-space:nowrap;pointer-events:none;letter-spacing:.1em;
+}
 .pr-hdr{text-align:center;margin-bottom:5rem}
 .pr-hl{font-family:var(--fd);font-size:clamp(2rem,4vw,3.2rem);font-weight:900;text-transform:uppercase;letter-spacing:.02em;color:var(--white);margin-top:.75rem}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid rgba(122,196,41,.2);position:relative;z-index:1}
@@ -150,22 +612,101 @@ ul{list-style:none}
 .sc:last-child{border-right:none}
 .sc:hover{background:rgba(122,196,41,.06)}
 .sn{font-family:var(--fs);font-size:clamp(3.5rem,6vw,5.5rem);color:var(--green);line-height:1;display:block;margin-bottom:.5rem}
-.sl{font-family:var(--fd);font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--g1);line-height:1.5}
-.sd{font-size:.8rem;color:var(--g2);margin-top:.4rem;font-weight:300}
+.sl{font-family:var(--fd);font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--g1);line-height:1.5}
+.sd{font-size:.78rem;color:var(--g2);margin-top:.4rem;font-weight:300}
 .pr-qt{margin-top:4rem;text-align:center;position:relative;z-index:1}
 .pr-qt blockquote{font-family:var(--fd);font-size:clamp(1.3rem,2.5vw,1.9rem);font-weight:700;font-style:italic;line-height:1.4;color:var(--white);max-width:780px;margin:0 auto 1.25rem}
 .pr-qt blockquote::before{content:'"';font-size:4rem;line-height:0;vertical-align:-1.2rem;color:var(--green);margin-right:.2rem;font-style:normal}
-.pr-attr{font-family:var(--fd);font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+.pr-attr{font-family:var(--fd);font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+
+/* ══════════════════════════════════════════════
+   FEATURED TESTIMONIAL
+   Full-bleed, high-contrast statement. Not a widget.
+══════════════════════════════════════════════ */
+#testimonial{
+  padding:10rem 0;
+  background:var(--white);
+  position:relative;
+  overflow:hidden;
+}
+/* Soil-tone horizontal rule top and bottom */
+#testimonial::before,
+#testimonial::after{
+  content:'';
+  position:absolute;
+  left:0;right:0;
+  height:3px;
+  background:linear-gradient(to right, transparent, var(--green) 20%, var(--green) 80%, transparent);
+  opacity:.25;
+}
+#testimonial::before{top:0}
+#testimonial::after{bottom:0}
+.testi-inner{
+  max-width:1000px;
+  margin:0 auto;
+  padding:0 2.5rem;
+  text-align:center;
+}
+/* Opening mark — not a quote icon, just a rule */
+.testi-rule{
+  display:block;
+  width:32px;height:3px;
+  background:var(--green);
+  margin:0 auto 3.5rem;
+  opacity:.9;
+}
+.testi-quote{
+  font-family:var(--fd);
+  font-size:clamp(1.9rem,4.2vw,3.4rem);
+  font-weight:800;
+  line-height:1.12;
+  letter-spacing:-.01em;
+  color:var(--black);
+  margin-bottom:3rem;
+  /* no italic — this is a statement, not a review */
+}
+/* Highlighted keywords */
+.testi-quote mark{
+  background:none;
+  color:var(--green-lo);
+}
+.testi-meta{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:1.2rem;
+}
+.testi-dash{
+  display:block;
+  width:24px;height:1px;
+  background:var(--g3);
+  flex-shrink:0;
+}
+.testi-name{
+  font-family:var(--fd);
+  font-size:.75rem;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--g2);
+}
+.testi-title{
+  font-family:var(--fb);
+  font-size:.78rem;font-weight:300;
+  color:var(--g2);
+  font-style:italic;
+}
+.testi-sep{
+  color:var(--g3);font-size:.8rem;
+}
 
 /* ══════════════════════════════════════════════
    HOW IT WORKS
 ══════════════════════════════════════════════ */
 #how{padding:7rem 0;background:var(--s2);border-top:1px solid var(--border)}
-.how-hdr{text-align:center;margin-bottom:4rem}
+.how-hdr{text-align:center;margin-bottom:4.5rem}
 .how-hl{font-family:var(--fd);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:900;text-transform:uppercase;color:var(--white);margin-top:.75rem}
 .hsteps{display:grid;grid-template-columns:repeat(3,1fr);position:relative}
 .hsteps::before{content:'';position:absolute;top:2rem;left:calc(16.6% + 1rem);right:calc(16.6% + 1rem);height:1px;background:linear-gradient(to right,var(--green),rgba(122,196,41,.2))}
-.hstep{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 2rem}
+.hstep{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 2.5rem}
 .hnum{width:64px;height:64px;border-radius:50%;background:var(--black);border:2px solid var(--green);display:flex;align-items:center;justify-content:center;margin-bottom:1.75rem;position:relative;z-index:1}
 .hnum-t{font-family:var(--fs);font-size:1.6rem;color:var(--green);line-height:1}
 .htitle{font-family:var(--fd);font-size:1.1rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--white);margin-bottom:.75rem}
@@ -175,11 +716,10 @@ ul{list-style:none}
    FINAL CTA
 ══════════════════════════════════════════════ */
 #cta{padding:9rem 0;background:var(--black);position:relative;overflow:hidden;text-align:center}
-.cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:600px;border-radius:50%;background:radial-gradient(ellipse,rgba(122,196,41,.1) 0%,transparent 65%);pointer-events:none}
-.cta-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(122,196,41,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(122,196,41,.04) 1px,transparent 1px);background-size:60px 60px}
+.cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:600px;border-radius:50%;background:radial-gradient(ellipse,rgba(122,196,41,.05) 0%,transparent 60%);pointer-events:none}
+.cta-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(122,196,41,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(122,196,41,.018) 1px,transparent 1px);background-size:100px 100px}
 .cta-cnt{position:relative;z-index:1}
-.cta-over{display:inline-flex;align-items:center;gap:.75rem;font-family:var(--fd);font-size:.72rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--green);margin-bottom:1.5rem}
-.cta-hl{font-family:var(--fd);font-size:clamp(3rem,7vw,6.5rem);font-weight:900;line-height:.94;letter-spacing:-.01em;text-transform:uppercase;color:var(--white);margin-bottom:1.5rem}
+.cta-hl{font-family:var(--fd);font-size:clamp(3rem,7vw,6.5rem);font-weight:900;line-height:.94;letter-spacing:-.01em;text-transform:uppercase;color:var(--white);margin-bottom:1.5rem;margin-top:1rem}
 .cta-hl strong{color:var(--green)}
 .cta-sub{font-size:1.05rem;font-weight:300;line-height:1.75;color:var(--g1);max-width:560px;margin:0 auto 2.5rem}
 .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
@@ -187,17 +727,16 @@ ul{list-style:none}
 /* ══════════════════════════════════════════════
    FOOTER
 ══════════════════════════════════════════════ */
-#ft{background:var(--s1);border-top:1px solid var(--border);padding:3rem 0 2rem}
+#ft{background:var(--s1);border-top:1px solid var(--border);padding:3.5rem 0 2rem}
 .ft-in{display:flex;justify-content:space-between;align-items:flex-start;gap:3rem;flex-wrap:wrap;margin-bottom:2.5rem}
-.ft-logo img{height:38px;width:auto;opacity:.85}
-.ft-tg{font-family:var(--fd);font-size:.65rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--g3);margin-top:.6rem}
-.ft-col h4{font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--g3);margin-bottom:1rem}
-.ft-col ul{display:flex;flex-direction:column;gap:.5rem}
+.ft-col h4{font-family:var(--fd);font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--g3);margin-bottom:1.1rem}
+.ft-col ul{display:flex;flex-direction:column;gap:.55rem}
 .ft-col ul li a{font-size:.88rem;font-weight:300;color:var(--g2);transition:color .2s}
 .ft-col ul li a:hover{color:var(--green)}
+.ft-tg{font-family:var(--fd);font-size:.63rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--g3);margin-top:.6rem}
 .ft-bot{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding-top:2rem;border-top:1px solid var(--border)}
-.ft-copy{font-size:.78rem;color:var(--g3)}
-.ft-mail a{font-family:var(--fd);font-size:.8rem;font-weight:600;letter-spacing:.1em;color:var(--green);transition:color .2s}
+.ft-copy{font-size:.75rem;color:var(--g3)}
+.ft-mail a{font-family:var(--fd);font-size:.78rem;font-weight:600;letter-spacing:.1em;color:var(--green);transition:color .2s}
 .ft-mail a:hover{color:var(--green-hi)}
 .soc{display:flex;gap:1rem}
 .sb{width:34px;height:34px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:border-color .25s,background .25s}
@@ -208,22 +747,34 @@ ul{list-style:none}
 .sb-ig:hover svg{stroke:var(--green)}
 
 /* ══════════════════════════════════════════════
-   ANIMATIONS
+   SCROLL REVEAL
 ══════════════════════════════════════════════ */
-.rev{opacity:0;transform:translateY(32px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+.rev{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .rev.in{opacity:1;transform:none}
-.stg>*{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.stg>*{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .stg.in>*:nth-child(1){opacity:1;transform:none;transition-delay:0s}
 .stg.in>*:nth-child(2){opacity:1;transform:none;transition-delay:.1s}
 .stg.in>*:nth-child(3){opacity:1;transform:none;transition-delay:.2s}
 .stg.in>*:nth-child(4){opacity:1;transform:none;transition-delay:.3s}
+.rev-l{opacity:0;transform:translateX(-24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rev-l.in{opacity:1;transform:none}
+.rev-r{opacity:0;transform:translateX(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rev-r.in{opacity:1;transform:none}
 
 /* ══════════════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════════════ */
 @media(max-width:1024px){
-  .split{grid-template-columns:1fr;gap:3rem}
-  .split-r{direction:ltr}
+  .fw-inner{grid-template-columns:1fr;border:none}
+  .fw-left{padding:3rem 0;border-right:none;border-bottom:1px solid var(--border)}
+  .fw-right{padding:3rem 0 0}
+  .golf-split{grid-template-columns:1fr;gap:3rem}
+  .golf-vis{aspect-ratio:16/9}
+  .hg-header{grid-template-columns:1fr}
+  .hg-cols{grid-template-columns:1fr 1fr}
+  .hoa-split{grid-template-columns:1fr;border:none}
+  .hoa-vis{min-height:340px}
+  .hoa-text{border-left:none;border-top:1px solid var(--border);padding:3rem 2rem}
   .stats{grid-template-columns:repeat(2,1fr)}
   .sc:nth-child(2){border-right:none}
   .sc:nth-child(3){border-top:1px solid rgba(122,196,41,.15)}
@@ -233,22 +784,309 @@ ul{list-style:none}
 @media(max-width:768px){
   .nav-links,.nav-cta{display:none}
   .ham{display:flex}
-  .sec{padding:4.5rem 0}
-  .stats{grid-template-columns:1fr 1fr}
-  .sc:nth-child(even){border-right:none}
-  .sc:nth-child(3),.sc:nth-child(4){border-top:1px solid rgba(122,196,41,.15)}
+  .h-hl{font-size:clamp(3.5rem,14vw,5.5rem)}
+  .cred-logos{flex-wrap:wrap}
+  .cred-logo{flex:0 0 33.33%;border-bottom:1px solid var(--border)}
+  .cred-logo:nth-child(3n){border-right:none}
+  .cred-stats{grid-template-columns:1fr}
+  .cities-top .sbulls{grid-template-columns:1fr}
+  .hg-cols{grid-template-columns:1fr}
+  .hg-header{grid-template-columns:1fr;gap:2rem}
+  .cities-vis{height:280px}
+  .hg-vis{height:320px}
+  .strip-in{flex-direction:column;gap:.4rem;text-align:center}
   .ft-in{flex-direction:column}
-  .strip-in{flex-direction:column;gap:.5rem}
+  .fw-stats{grid-template-columns:1fr 1fr}
+  .testi-meta{flex-direction:column;gap:.4rem}
+  .testi-dash,.testi-sep{display:none}
 }
 @media(max-width:480px){
   .stats{grid-template-columns:1fr}
   .sc{border-right:none!important;border-bottom:1px solid rgba(122,196,41,.15)}
+  .fw-stats{grid-template-columns:1fr 1fr}
+}
+
+/* ══════════════════════════════════════════════
+   PHOTO & VIDEO MEDIA ELEMENTS
+   All placeholders — swap src to your files.
+   filenames live in a /media/ folder next to index.html
+══════════════════════════════════════════════ */
+
+/* ── Shared cover helpers ── */
+.media-img{
+  display:block;width:100%;height:100%;
+  object-fit:cover;object-position:center;
+}
+.media-video{
+  display:block;width:100%;height:100%;
+  object-fit:cover;object-position:center;
+}
+
+/* ── Hero video background ── */
+.h-video-bg{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  z-index:0;
+}
+/* Directional overlay: strong left (text), fading right */
+.h-video-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(
+    105deg,
+    rgba(5,5,5,.88) 0%,
+    rgba(5,5,5,.65) 45%,
+    rgba(5,5,5,.25) 100%
+  );
+  z-index:1;
+}
+
+/* ── Farm photo panel (replaces stat grid) ── */
+.fw-photo{
+  position:relative;
+  overflow:hidden;
+  min-height:480px;
+}
+.fw-photo img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  display:block;
+}
+/* Stat strip below the farms split */
+.farms-stat-strip{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:0;
+  border-top:1px solid var(--border);
+  margin-top:0;
+}
+.farms-stat-item{
+  padding:2.25rem 2rem;
+  border-right:1px solid var(--border);
+  display:flex;align-items:baseline;gap:.75rem;
+}
+.farms-stat-item:last-child{border-right:none}
+.fsi-n{
+  font-family:var(--fs);
+  font-size:2.8rem;
+  color:var(--green);
+  line-height:1;
+  flex-shrink:0;
+}
+.fsi-l{
+  font-family:var(--fd);
+  font-size:.72rem;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--g2);
+  line-height:1.4;
+}
+
+/* ── Cities photo band ── */
+/* Reuses existing .cities-vis — just img inside now */
+.cities-vis img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center top;
+  display:block;
+}
+/* Overlay on top of cities photo */
+.cities-vis-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(
+    to top,
+    rgba(13,13,13,.9) 0%,
+    rgba(13,13,13,.4) 40%,
+    transparent 100%
+  );
+  pointer-events:none;z-index:1;
+}
+
+/* ── Golf: two-photo stack ── */
+.golf-photos{
+  display:grid;
+  grid-template-rows:1fr 1fr;
+  gap:4px;
+  height:100%;
+  min-height:500px;
+}
+.golf-photo-top,.golf-photo-btm{
+  position:relative;overflow:hidden;
+}
+.golf-photo-top img,.golf-photo-btm img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  display:block;
+  transition:transform .6s var(--ease);
+}
+.golf-photo-top:hover img,.golf-photo-btm:hover img{transform:scale(1.03)}
+/* caption tag on second photo */
+.golf-photo-btm .clbl{
+  top:auto;bottom:1rem;left:1rem;
+}
+
+/* ── Home & Garden: video band ── */
+/* Reuses .hg-vis — video/img inside */
+.hg-vis video,.hg-vis img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  display:block;
+}
+
+/* ── HOA photo panel ── */
+.hoa-vis img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  display:block;
+}
+/* Caption tag positioning inside hoa-vis */
+.hoa-vis .clbl{z-index:2}
+/* Dark gradient over photo so text on right stays readable */
+.hoa-photo-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(
+    to right,
+    rgba(5,5,5,.1) 0%,
+    rgba(5,5,5,.55) 100%
+  );
+  z-index:1;pointer-events:none;
+}
+
+/* ══════════════════════════════════════════════
+   VIDEO FEATURE SECTION
+   Full-width. User-initiated playback.
+   Bold statement over poster frame.
+══════════════════════════════════════════════ */
+#video-feature{
+  padding:0;
+  background:var(--black);
+  position:relative;
+  overflow:hidden;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.vf-inner{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/7;
+  min-height:400px;
+  overflow:hidden;
+  cursor:pointer;
+}
+/* Poster image (shown before play) */
+.vf-poster{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  display:block;
+  transition:opacity .4s;
+}
+/* The actual video */
+.vf-video{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  opacity:0;
+  transition:opacity .4s;
+}
+.vf-inner.playing .vf-poster{opacity:0}
+.vf-inner.playing .vf-video{opacity:1}
+/* Dark scrim over poster */
+.vf-scrim{
+  position:absolute;inset:0;
+  background:rgba(5,5,5,.48);
+  z-index:2;
+  transition:opacity .4s;
+}
+.vf-inner.playing .vf-scrim{opacity:0;pointer-events:none}
+/* Content overlay (heading + play button) */
+.vf-content{
+  position:absolute;inset:0;
+  z-index:3;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:2rem;
+  text-align:center;
+  transition:opacity .35s;
+}
+.vf-inner.playing .vf-content{opacity:0;pointer-events:none}
+.vf-label{
+  font-family:var(--fd);
+  font-size:.68rem;font-weight:700;
+  letter-spacing:.28em;text-transform:uppercase;
+  color:var(--green);
+}
+.vf-title{
+  font-family:var(--fd);
+  font-size:clamp(1.8rem,4vw,3.2rem);
+  font-weight:900;
+  line-height:.96;
+  letter-spacing:-.01em;
+  text-transform:uppercase;
+  color:var(--white);
+}
+/* Play button */
+.vf-play{
+  width:80px;height:80px;
+  border-radius:50%;
+  border:2px solid rgba(255,255,255,.5);
+  background:rgba(5,5,5,.3);
+  display:flex;align-items:center;justify-content:center;
+  transition:var(--t);
+  flex-shrink:0;
+  backdrop-filter:blur(4px);
+}
+.vf-play:hover{
+  border-color:var(--green);
+  background:rgba(122,196,41,.15);
+  transform:scale(1.08);
+}
+.vf-play svg{
+  width:28px;height:28px;
+  fill:var(--white);
+  margin-left:4px; /* optical center for triangle */
+}
+/* Pause button (visible when playing) */
+.vf-pause{
+  position:absolute;
+  bottom:1.5rem;right:1.5rem;
+  z-index:4;
+  width:42px;height:42px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.25);
+  background:rgba(5,5,5,.5);
+  display:none;
+  align-items:center;justify-content:center;
+  cursor:pointer;
+  transition:var(--t);
+  backdrop-filter:blur(4px);
+}
+.vf-inner.playing .vf-pause{display:flex}
+.vf-pause:hover{border-color:var(--white)}
+.vf-pause svg{width:14px;height:14px;fill:var(--white)}
+
+@media(max-width:768px){
+  .fw-photo{min-height:300px}
+  .golf-photos{min-height:340px}
+  .vf-inner{aspect-ratio:16/9;min-height:280px}
+  .farms-stat-strip{grid-template-columns:1fr 1fr}
+  .farms-stat-item:nth-child(even){border-right:none}
+  .farms-stat-item{padding:1.5rem 1.25rem}
+}
+@media(max-width:480px){
+  .farms-stat-strip{grid-template-columns:1fr 1fr}
+  .vf-play{width:64px;height:64px}
+  .vf-play svg{width:22px;height:22px}
 }
 </style>
 </head>
 <body>
 
-<!-- Mobile Nav -->
+<!-- ── Mobile Nav ── -->
 <nav class="mob-nav" id="mobNav">
   <button class="mob-close" id="mobClose">✕</button>
   <a href="#farms">Agriculture</a>
@@ -257,13 +1095,13 @@ ul{list-style:none}
   <a href="#hg">Home &amp; Garden</a>
   <a href="#hoa">HOA</a>
   <a href="#proof">Results</a>
-  <a href="#cta" class="btn btn-a" style="margin-top:1rem;font-size:1rem">Get Started</a>
+  <a href="#cta" class="btn btn-a" style="margin-top:1rem;font-size:1rem">Request a Demo</a>
 </nav>
 
-<!-- Nav -->
+<!-- ── Nav ── -->
 <header id="nav">
   <div class="nav-in">
-    <a href="#" class="nav-logo"><img src="/mnt/user-data/uploads/A1_logo-01.png" alt="ArableONE"/></a>
+    <a href="#"><img src="/mnt/user-data/uploads/A1_logo-01.png" alt="ArableONE" style="height:40px;width:auto"/></a>
     <ul class="nav-links">
       <li><a href="#farms">Agriculture</a></li>
       <li><a href="#cities">Cities</a></li>
@@ -272,31 +1110,58 @@ ul{list-style:none}
       <li><a href="#hoa">HOA</a></li>
       <li><a href="#proof">Results</a></li>
     </ul>
-    <a href="#cta" class="btn btn-a nav-cta" style="padding:.65rem 1.4rem;font-size:.75rem">Request Demo</a>
+    <div class="nav-cta">
+      <a href="#cta" class="btn btn-a" style="padding:.65rem 1.4rem;font-size:.73rem">Request a Demo</a>
+    </div>
     <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<!-- ══ HERO ══ -->
+<!-- ══════════════════════════════════════════════
+     HERO — REVISED
+     One statement. No noise. Market leader energy.
+══════════════════════════════════════════════ -->
 <section id="hero">
-  <div class="h-grid"></div>
-  <div class="h-slash"></div>
-  <div class="h-orb"></div>
+  <!-- ▸ SWAP: replace hero-video.mp4 with your drone / field footage -->
+  <!-- ▸ SWAP: replace hero-poster.jpg with a still frame from that video -->
+  <video class="h-video-bg" autoplay muted loop playsinline
+         poster="media/hero-poster.jpg">
+    <source src="media/hero-video.mp4" type="video/mp4"/>
+  </video>
+  <div class="h-video-overlay"></div>
+  <div class="h-bar"></div>
+
   <div class="h-cnt">
-    <div class="h-eye lbl">ArableONE Soil Technology</div>
-    <h1 class="h-hl">The Soil<br/>Performs.<br/><em>Or We Don't.</em></h1>
-    <div class="h-row">
-      <p class="h-copy"><strong>One product. One application.</strong> ArableONE rebuilds soil at the biological level — increasing yield, cutting water use, and eliminating the guesswork. Built for operators who need results, not programs.</p>
-      <div class="h-btns">
-        <a href="#farms" class="btn btn-g">See Who It's For <span class="arr">→</span></a>
-        <a href="#cta" class="btn btn-a">Request Demo</a>
-      </div>
+    <div class="h-eye">
+      <span class="h-eye-line"></span>
+      <span class="h-eye-text">ArableONE Soil Technology</span>
+    </div>
+
+    <h1 class="h-hl">
+      The Soil<br/>Performs.
+      <span class="h-hl-accent">Or We Don't.</span>
+    </h1>
+
+    <div class="h-rule"></div>
+
+    <p class="h-copy">
+      ArableONE rebuilds soil at the biological level — <strong>increasing yield, reducing water demand,</strong> and eliminating the need for complex multi-product programs.<br/><br/>
+      Built for agriculture, municipalities, commercial landscapes, and residential systems.
+    </p>
+
+    <div class="h-btns">
+      <a href="#cta" class="btn btn-a">Request a Demo <span class="arr">→</span></a>
+      <a href="#farms" class="btn btn-ol">See Applications</a>
     </div>
   </div>
-  <div class="h-scroll"><div class="h-scroll-ln"></div><span class="h-scroll-lbl">Scroll</span></div>
+
+  <div class="h-scroll">
+    <div class="h-scroll-ln"></div>
+    <span class="h-scroll-lbl">Scroll</span>
+  </div>
 </section>
 
-<!-- ══ STRIP ══ -->
+<!-- ── Product Strip ── -->
 <div id="strip">
   <div class="strip-in">
     <div class="strip-tg">ONE Product<span>·</span>ONE Application<span>·</span>ONE Solution</div>
@@ -304,58 +1169,163 @@ ul{list-style:none}
   </div>
 </div>
 
-<!-- ══ 01 BIG AGRICULTURE ══ -->
-<section id="farms" class="sec">
+<!-- ══════════════════════════════════════════════
+     CREDIBILITY STRIP
+     Placed immediately after product tagline strip.
+     Establishes real-world trust before sector sections.
+══════════════════════════════════════════════ -->
+<section id="credibility">
   <div class="wrap">
-    <div class="split">
-      <!-- Visual -->
-      <div class="vpanel rev">
-        <span class="clbl">Commercial Agriculture</span>
-        <svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <linearGradient id="ag-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#040c04"/><stop offset="100%" stop-color="#0a1808"/></linearGradient>
-            <linearGradient id="ag-f" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a4a0d"/><stop offset="100%" stop-color="#091509"/></linearGradient>
-            <linearGradient id="ag-r" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3a7a1c"/><stop offset="100%" stop-color="#1a4a0d"/></linearGradient>
-          </defs>
-          <rect width="600" height="450" fill="url(#ag-sky)"/>
-          <ellipse cx="300" cy="200" rx="280" ry="60" fill="rgba(122,196,41,.05)"/>
-          <path d="M0 240 Q300 220 600 240 L600 260 Q300 243 0 260Z" fill="url(#ag-f)"/>
-          <path d="M0 265 Q300 248 600 265 L600 285 Q300 270 0 285Z" fill="url(#ag-r)" opacity=".6"/>
-          <path d="M0 290 Q300 275 600 290 L600 312 Q300 298 0 312Z" fill="url(#ag-f)"/>
-          <path d="M0 318 Q300 305 600 318 L600 342 Q300 330 0 342Z" fill="url(#ag-r)" opacity=".5"/>
-          <path d="M0 348 Q300 336 600 348 L600 376 Q300 365 0 376Z" fill="url(#ag-f)"/>
-          <path d="M0 382 Q300 372 600 382 L600 415 Q300 405 0 415Z" fill="url(#ag-r)" opacity=".4"/>
-          <path d="M0 420 L600 420 L600 450 L0 450Z" fill="#040c04"/>
-          <g stroke="#4aaa1a" stroke-width="1" opacity=".25">
-            <line x1="30" y1="240" x2="30" y2="420"/><line x1="60" y1="237" x2="60" y2="420"/><line x1="90" y1="240" x2="90" y2="420"/>
-            <line x1="120" y1="237" x2="120" y2="420"/><line x1="150" y1="239" x2="150" y2="420"/><line x1="180" y1="236" x2="180" y2="420"/>
-            <line x1="210" y1="238" x2="210" y2="420"/><line x1="240" y1="235" x2="240" y2="420"/><line x1="270" y1="237" x2="270" y2="420"/>
-            <line x1="300" y1="234" x2="300" y2="420"/><line x1="330" y1="236" x2="330" y2="420"/><line x1="360" y1="238" x2="360" y2="420"/>
-            <line x1="390" y1="235" x2="390" y2="420"/><line x1="420" y1="237" x2="420" y2="420"/><line x1="450" y1="239" x2="450" y2="420"/>
-            <line x1="480" y1="236" x2="480" y2="420"/><line x1="510" y1="238" x2="510" y2="420"/><line x1="540" y1="240" x2="540" y2="420"/>
-            <line x1="570" y1="237" x2="570" y2="420"/>
-          </g>
-          <g stroke="rgba(122,196,41,.07)" stroke-width="1">
-            <line x1="0" y1="75" x2="600" y2="75"/><line x1="0" y1="150" x2="600" y2="150"/>
-            <line x1="150" y1="0" x2="150" y2="240"/><line x1="300" y1="0" x2="300" y2="240"/><line x1="450" y1="0" x2="450" y2="240"/>
-          </g>
-          <circle cx="80" cy="40" r="1.2" fill="#7ac429" opacity=".5"/><circle cx="200" cy="22" r=".8" fill="#7ac429" opacity=".4"/>
-          <circle cx="400" cy="50" r="1" fill="#7ac429" opacity=".4"/><circle cx="520" cy="28" r="1.2" fill="#7ac429" opacity=".4"/>
-          <rect x="18" y="155" width="175" height="68" rx="2" fill="rgba(5,5,5,.9)" stroke="rgba(122,196,41,.4)" stroke-width="1"/>
-          <text x="30" y="175" font-family="Barlow Condensed,sans-serif" font-size="9" fill="#7ac429" letter-spacing="2" font-weight="700">SOIL ANALYSIS</text>
-          <text x="30" y="193" font-family="Barlow Condensed,sans-serif" font-size="11" fill="#e0e0d8" letter-spacing="1">NPK Balance: <tspan fill="#7ac429" font-weight="700">OPTIMAL</tspan></text>
-          <text x="30" y="211" font-family="Barlow Condensed,sans-serif" font-size="11" fill="#e0e0d8" letter-spacing="1">Retention: <tspan fill="#7ac429" font-weight="700">+38%</tspan></text>
-          <rect x="420" y="60" width="162" height="55" rx="2" fill="rgba(5,5,5,.9)" stroke="rgba(122,196,41,.4)" stroke-width="1"/>
-          <text x="432" y="80" font-family="Barlow Condensed,sans-serif" font-size="8" fill="#7ac429" letter-spacing="2" font-weight="700">YIELD INCREASE</text>
-          <text x="432" y="106" font-family="Bebas Neue,sans-serif" font-size="34" fill="#7ac429" letter-spacing="2">+31%</text>
-        </svg>
+
+    <!-- Headline + statement -->
+    <div class="cred-top rev">
+      <p class="cred-headline">Trusted Across Agriculture and Managed Landscapes</p>
+      <p class="cred-statement">Used across commercial agriculture, municipal systems, and managed landscapes.</p>
+    </div>
+
+    <!-- Placeholder logo row — 8 partner types -->
+    <div class="cred-logos stg">
+
+      <div class="cred-logo">
+        <div class="cred-logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="20" width="32" height="16" rx="1" stroke="#7AC429" stroke-width="1.5"/>
+            <path d="M4 20 Q20 8 36 20" stroke="#7AC429" stroke-width="1.5" fill="none"/>
+            <line x1="20" y1="8" x2="20" y2="36" stroke="#7AC429" stroke-width="1" opacity=".5"/>
+            <line x1="4" y1="28" x2="36" y2="28" stroke="#7AC429" stroke-width="1" opacity=".5"/>
+          </svg>
+        </div>
+        <span class="cred-logo-name">Meridian Farms</span>
+        <span class="cred-logo-type">Commercial Ag</span>
       </div>
-      <!-- Text -->
-      <div>
+
+      <div class="cred-logo">
+        <div class="cred-logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="14" width="8" height="22" stroke="#7AC429" stroke-width="1.5"/>
+            <rect x="16" y="8" width="8" height="28" stroke="#7AC429" stroke-width="1.5"/>
+            <rect x="26" y="18" width="8" height="18" stroke="#7AC429" stroke-width="1.5"/>
+            <line x1="4" y1="36" x2="36" y2="36" stroke="#7AC429" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <span class="cred-logo-name">City of Prescott</span>
+        <span class="cred-logo-type">Municipality</span>
+      </div>
+
+      <div class="cred-logo">
+        <div class="cred-logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="20" cy="26" rx="14" ry="8" stroke="#7AC429" stroke-width="1.5"/>
+            <ellipse cx="20" cy="20" rx="10" ry="6" stroke="#7AC429" stroke-width="1" opacity=".6"/>
+            <line x1="26" y1="14" x2="26" y2="24" stroke="#7AC429" stroke-width="1.5"/>
+            <polygon points="26,14 32,18 26,22" fill="#7AC429" opacity=".7"/>
+          </svg>
+        </div>
+        <span class="cred-logo-name">Highlands GC</span>
+        <span class="cred-logo-type">Golf Course</span>
+      </div>
+
+      <div class="cred-logo">
+        <div class="cred-logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 34 L6 18 L14 10 L26 10 L34 18 L34 34 Z" stroke="#7AC429" stroke-width="1.5"/>
+            <rect x="15" y="24" width="10" height="10" stroke="#7AC429" stroke-width="1" opacity=".6"/>
+            <rect x="10" y="16" width="6" height="6" stroke="#7AC429" stroke-width="1" opacity=".5"/>
+            <rect x="24" y="16" width="6" height="6" stroke="#7AC429" stroke-width="1" opacity=".5"/>
+          </svg>
+        </div>
+        <span class="cred-logo-name">Clearview HOA</span>
+        <span class="cred-logo-type">HOA / Community</span>
+      </div>
+
+      <div class="cred-logo">
+        <div class="cred-logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="13" stroke="#7AC429" stroke-width="1.5"/>
+            <path d="M7 20 Q13 12 20 20 Q27 28 33 20" stroke="#7AC429" stroke-width="1" opacity=".6" fill="none"/>
+            <line x1="20" y1="7" x2="20" y2="33" stroke="#7AC429" stroke-width="1" opacity=".4"/>
+          </svg>
+        </div>
+        <span class="cred-logo-name">Tatum County</span>
+        <span class="cred-logo-type">Parks Dept.</span>
+      </div>
+
+      <div class="cred-logo">
+        <div class="cred-logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 32 Q8 14 20 8 Q32 14 32 32" stroke="#7AC429" stroke-width="1.5" fill="none"/>
+            <line x1="20" y1="8" x2="20" y2="32" stroke="#7AC429" stroke-width="1" opacity=".5"/>
+            <ellipse cx="20" cy="22" rx="8" ry="5" stroke="#7AC429" stroke-width="1" opacity=".5"/>
+            <line x1="8" y1="32" x2="32" y2="32" stroke="#7AC429" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <span class="cred-logo-name">Vantage Growers</span>
+        <span class="cred-logo-type">Row Crop Ag</span>
+      </div>
+
+      <div class="cred-logo">
+        <div class="cred-logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="5" y="10" width="30" height="20" rx="2" stroke="#7AC429" stroke-width="1.5"/>
+            <line x1="5" y1="18" x2="35" y2="18" stroke="#7AC429" stroke-width="1" opacity=".5"/>
+            <line x1="20" y1="10" x2="20" y2="30" stroke="#7AC429" stroke-width="1" opacity=".5"/>
+            <circle cx="12" cy="14" r="2" fill="#7AC429" opacity=".6"/>
+            <circle cx="28" cy="14" r="2" fill="#7AC429" opacity=".6"/>
+            <path d="M8 30 L8 36 M32 30 L32 36" stroke="#7AC429" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="cred-logo-name">ProScape Inc.</span>
+        <span class="cred-logo-type">Commercial Landscape</span>
+      </div>
+
+      <div class="cred-logo">
+        <div class="cred-logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="20,4 36,14 36,26 20,36 4,26 4,14" stroke="#7AC429" stroke-width="1.5"/>
+            <polygon points="20,10 30,16 30,24 20,30 10,24 10,16" stroke="#7AC429" stroke-width="1" opacity=".5"/>
+            <circle cx="20" cy="20" r="3" fill="#7AC429" opacity=".7"/>
+          </svg>
+        </div>
+        <span class="cred-logo-name">AgriCore Co-op</span>
+        <span class="cred-logo-type">Ag Cooperative</span>
+      </div>
+
+    </div><!-- /.cred-logos -->
+
+    <!-- Stat row -->
+    <div class="cred-stats rev">
+      <div class="cred-stat">
+        <span class="cred-stat-n">2.4M+</span>
+        <span class="cred-stat-l">Acres Treated</span>
+      </div>
+      <div class="cred-stat">
+        <span class="cred-stat-n">14</span>
+        <span class="cred-stat-l">Regions Active</span>
+      </div>
+      <div class="cred-stat">
+        <span class="cred-stat-n">38</span>
+        <span class="cred-stat-l">Trials Completed</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     01 — BIG AGRICULTURE
+     LAYOUT: Full-width text-driven, no image panel
+             Giant ghost number, stat grid inset
+══════════════════════════════════════════════ -->
+<section id="farms">
+  <div class="wrap">
+    <div style="margin-bottom:3rem" class="rev">
+      <p class="lbl" style="margin-bottom:1rem">01 — Big Agriculture</p>
+    </div>
+    <div class="fw-inner rev">
+      <div class="fw-left">
         <span class="snum">01</span>
-        <p class="lbl" style="margin-bottom:.75rem">Big Agriculture</p>
         <h2 class="stitle">More Yield.<br/>Less <em>Input.</em></h2>
-        <p class="sbody">ArableONE was built for large-scale agriculture. Apply once per season — nitrogen efficiency improves, water retention increases, root density moves in the right direction. No product stacking. No complexity.</p>
+        <p class="sbody">ArableONE was built for large-scale agriculture. Apply once per season — nitrogen efficiency improves, water retention increases, root density moves in the right direction. No product stacking. No complexity. No guesswork.</p>
         <ul class="sbulls stg">
           <li>30%+ documented yield improvement</li>
           <li>Single-pass soil conditioning</li>
@@ -364,125 +1334,91 @@ ul{list-style:none}
         </ul>
         <a href="#cta" class="btn btn-g">Talk to Ag Sales <span class="arr">→</span></a>
       </div>
+      <div class="fw-photo rev-r">
+        <!-- ▸ SWAP: replace with your farm / field photo -->
+        <!-- Best: wide landscape shot — crops, rows, aerial field -->
+        <img src="media/farm-field-01.jpg"
+             alt="Commercial agricultural field treated with ArableONE"
+             loading="lazy"/>
+      </div>
     </div>
+  </div>
+
+  <!-- Stat strip — spans full width below the split -->
+  <div class="farms-stat-strip wrap">
+    <div class="farms-stat-item">
+      <span class="fsi-n">31%</span>
+      <span class="fsi-l">Average Yield<br/>Improvement</span>
+    </div>
+    <div class="farms-stat-item">
+      <span class="fsi-n">40%</span>
+      <span class="fsi-l">Water Use<br/>Reduction</span>
+    </div>
+    <div class="farms-stat-item">
+      <span class="fsi-n">1×</span>
+      <span class="fsi-l">Application<br/>Per Season</span>
+    </div>
+    <div class="farms-stat-item">
+      <span class="fsi-n">30d</span>
+      <span class="fsi-l">Visible<br/>Results</span>
+    </div>
+  </div>
+
+  <div class="fw-ghost" aria-hidden="true">01</div>
+</section>
+
+<div class="div"></div>
+
+<!-- ══════════════════════════════════════════════
+     02 — CITIES / MUNICIPALITIES
+     LAYOUT: Centered content block, full-bleed visual below
+══════════════════════════════════════════════ -->
+<section id="cities" style="background:var(--s1)">
+  <div class="cities-top rev">
+    <p class="lbl" style="margin-bottom:1rem">02 — Cities, Parks &amp; Municipalities</p>
+    <span class="snum" style="text-align:center;display:block">02</span>
+    <h2 class="stitle" style="font-size:clamp(2.5rem,5vw,4rem)">Healthier Public<br/><em>Green Space.</em></h2>
+    <p class="sbody" style="margin:0 auto 1.75rem;text-align:center;max-width:620px">
+      Municipal turf faces budget pressure, drought restrictions, and public scrutiny. ArableONE reduces irrigation demand, cuts fertilizer applications, and produces visibly healthier ground — with a defensible cost-per-acre advantage.
+    </p>
+    <ul class="sbulls cities-top-bullets stg" style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem 3rem;max-width:560px;margin:0 auto 2rem;text-align:left">
+      <li>Reduce irrigation up to 40%</li>
+      <li>Audit-friendly records</li>
+      <li>Safe for all public spaces</li>
+      <li>Scales city-wide</li>
+    </ul>
+    <div class="cities-btns">
+      <a href="#cta" class="btn btn-g">Request Municipal Pricing <span class="arr">→</span></a>
+    </div>
+  </div>
+
+  <!-- Full-bleed visual -->
+  <div class="cities-vis rev">
+    <span class="clbl" style="z-index:2;position:relative">Municipal &amp; Park Turf</span>
+    <div class="cities-vis-overlay"></div>
+    <!-- ▸ SWAP: replace with a turf / park / managed landscape photo -->
+    <!-- Best: wide shot of maintained green space, park turf, or sports field -->
+    <img src="media/turf-municipal.jpg"
+         alt="Municipal turf and park green space managed with ArableONE"
+         class="media-img" loading="lazy"
+         style="position:absolute;inset:0;z-index:0"/>
   </div>
 </section>
 
 <div class="div"></div>
 
-<!-- ══ 02 CITIES / PARKS ══ -->
-<section id="cities" class="sec sec-alt">
+<!-- ══════════════════════════════════════════════
+     03 — GOLF / COMMERCIAL
+     LAYOUT: Text LEFT, Visual RIGHT
+             (true inversion — text leads, visual confirms)
+══════════════════════════════════════════════ */
+<section id="golf" style="background:var(--black);padding:9rem 0">
   <div class="wrap">
-    <div class="split split-r">
-      <!-- Text -->
-      <div>
-        <span class="snum">02</span>
-        <p class="lbl" style="margin-bottom:.75rem">Cities, Parks &amp; Municipalities</p>
-        <h2 class="stitle">Healthier<br/>Public <em>Green Space.</em></h2>
-        <p class="sbody">Municipal turf faces budget pressure, drought restrictions, and public scrutiny. ArableONE reduces irrigation demand, cuts fertilizer applications, and produces visibly healthier ground — with a defensible cost-per-acre advantage.</p>
-        <ul class="sbulls stg">
-          <li>Reduce irrigation frequency up to 40%</li>
-          <li>Audit-friendly application records</li>
-          <li>Safe for all public green spaces</li>
-          <li>Scalable across park systems city-wide</li>
-        </ul>
-        <a href="#cta" class="btn btn-g">Request Municipal Pricing <span class="arr">→</span></a>
-      </div>
-      <!-- Visual -->
-      <div class="vpanel rev">
-        <span class="clbl">Municipal Turf</span>
-        <svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <linearGradient id="city-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#040a0e"/><stop offset="100%" stop-color="#060f14"/></linearGradient>
-            <linearGradient id="city-turf" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1f5e15"/><stop offset="100%" stop-color="#0a1e08"/></linearGradient>
-          </defs>
-          <rect width="600" height="450" fill="url(#city-bg)"/>
-          <!-- Skyline silhouette -->
-          <g fill="rgba(122,196,41,.06)">
-            <rect x="20" y="100" width="40" height="160"/><rect x="30" y="80" width="20" height="20"/>
-            <rect x="70" y="130" width="50" height="130"/><rect x="130" y="80" width="60" height="180"/>
-            <rect x="145" y="60" width="30" height="20"/><rect x="200" y="110" width="45" height="150"/>
-            <rect x="255" y="90" width="70" height="170"/><rect x="270" y="70" width="40" height="20"/>
-            <rect x="335" y="120" width="55" height="140"/><rect x="400" y="85" width="65" height="175"/>
-            <rect x="420" y="65" width="25" height="20"/><rect x="475" y="110" width="50" height="150"/>
-            <rect x="535" y="95" width="60" height="165"/>
-          </g>
-          <!-- Windows -->
-          <g fill="rgba(122,196,41,.15)">
-            <rect x="38" y="110" width="6" height="6"/><rect x="50" y="110" width="6" height="6"/>
-            <rect x="38" y="124" width="6" height="6"/><rect x="50" y="124" width="6" height="6"/>
-            <rect x="148" y="92" width="6" height="6"/><rect x="162" y="92" width="6" height="6"/>
-            <rect x="270" y="100" width="6" height="6"/><rect x="284" y="100" width="6" height="6"/>
-            <rect x="270" y="116" width="6" height="6"/><rect x="284" y="116" width="6" height="6"/>
-            <rect x="420" y="75" width="6" height="6"/>
-          </g>
-          <rect x="0" y="258" width="600" height="192" fill="url(#city-turf)"/>
-          <!-- Park zones -->
-          <rect x="20" y="272" width="170" height="80" rx="2" fill="rgba(122,196,41,.14)" stroke="rgba(122,196,41,.25)" stroke-width="1"/>
-          <rect x="210" y="272" width="170" height="80" rx="2" fill="rgba(122,196,41,.10)" stroke="rgba(122,196,41,.2)" stroke-width="1"/>
-          <rect x="400" y="272" width="182" height="80" rx="2" fill="rgba(122,196,41,.18)" stroke="rgba(122,196,41,.3)" stroke-width="1"/>
-          <text x="105" y="318" font-family="Barlow Condensed,sans-serif" font-size="10" fill="#7ac429" letter-spacing="2" text-anchor="middle">ZONE A</text>
-          <text x="295" y="318" font-family="Barlow Condensed,sans-serif" font-size="10" fill="#7ac429" letter-spacing="2" text-anchor="middle">ZONE B</text>
-          <text x="491" y="318" font-family="Barlow Condensed,sans-serif" font-size="10" fill="#7ac429" letter-spacing="2" text-anchor="middle">ZONE C</text>
-          <rect x="18" y="368" width="200" height="58" rx="2" fill="rgba(5,5,5,.92)" stroke="rgba(122,196,41,.35)" stroke-width="1"/>
-          <text x="28" y="387" font-family="Barlow Condensed,sans-serif" font-size="8" fill="#7ac429" letter-spacing="2" font-weight="700">WATER SAVINGS</text>
-          <text x="28" y="416" font-family="Bebas Neue,sans-serif" font-size="34" fill="#7ac429" letter-spacing="3">-42%</text>
-          <rect x="366" y="368" width="216" height="58" rx="2" fill="rgba(5,5,5,.92)" stroke="rgba(122,196,41,.35)" stroke-width="1"/>
-          <text x="376" y="387" font-family="Barlow Condensed,sans-serif" font-size="8" fill="#7ac429" letter-spacing="2" font-weight="700">COST PER ACRE</text>
-          <text x="376" y="412" font-family="Bebas Neue,sans-serif" font-size="22" fill="#f5f5f0" letter-spacing="1">SIGNIFICANTLY LOWER</text>
-        </svg>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="div"></div>
-
-<!-- ══ 03 GOLF ══ -->
-<section id="golf" class="sec">
-  <div class="wrap">
-    <div class="split">
-      <!-- Visual -->
-      <div class="vpanel rev">
-        <span class="clbl">Golf &amp; Commercial Turf</span>
-        <svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <radialGradient id="fw" cx="50%" cy="60%" r="60%"><stop offset="0%" stop-color="#1e6e10"/><stop offset="100%" stop-color="#071007"/></radialGradient>
-          </defs>
-          <rect width="600" height="450" fill="#050d05"/>
-          <ellipse cx="300" cy="350" rx="260" ry="120" fill="url(#fw)"/>
-          <ellipse cx="300" cy="260" rx="120" ry="70" fill="#1a7a0a" opacity=".9"/>
-          <ellipse cx="300" cy="258" rx="100" ry="58" fill="#22920e" opacity=".7"/>
-          <!-- Pin -->
-          <line x1="330" y1="205" x2="330" y2="265" stroke="#666" stroke-width="1.5"/>
-          <polygon points="330,205 358,217 330,229" fill="#E08A1A"/>
-          <!-- Contours -->
-          <ellipse cx="300" cy="260" rx="140" ry="85" fill="none" stroke="rgba(122,196,41,.12)" stroke-width="1"/>
-          <ellipse cx="300" cy="260" rx="170" ry="100" fill="none" stroke="rgba(122,196,41,.08)" stroke-width="1"/>
-          <ellipse cx="300" cy="260" rx="202" ry="119" fill="none" stroke="rgba(122,196,41,.05)" stroke-width="1"/>
-          <!-- Scan lines -->
-          <g opacity=".07" stroke="#7ac429" stroke-width="1">
-            <line x1="0" y1="50" x2="600" y2="50"/><line x1="0" y1="100" x2="600" y2="100"/>
-            <line x1="0" y1="150" x2="600" y2="150"/><line x1="0" y1="200" x2="600" y2="200"/>
-            <line x1="0" y1="250" x2="600" y2="250"/><line x1="0" y1="300" x2="600" y2="300"/>
-            <line x1="0" y1="350" x2="600" y2="350"/><line x1="0" y1="400" x2="600" y2="400"/>
-          </g>
-          <rect x="30" y="30" width="165" height="66" rx="2" fill="rgba(5,5,5,.9)" stroke="rgba(122,196,41,.4)" stroke-width="1"/>
-          <text x="42" y="50" font-family="Barlow Condensed,sans-serif" font-size="9" fill="#7ac429" letter-spacing="2" font-weight="700">SOIL MOISTURE</text>
-          <text x="42" y="70" font-family="Bebas Neue,sans-serif" font-size="26" fill="#7ac429" letter-spacing="2">OPTIMAL</text>
-          <text x="42" y="88" font-family="Barlow Condensed,sans-serif" font-size="9" fill="#888880" letter-spacing="1">28-day consistency</text>
-          <rect x="408" y="30" width="174" height="66" rx="2" fill="rgba(5,5,5,.9)" stroke="rgba(122,196,41,.4)" stroke-width="1"/>
-          <text x="420" y="50" font-family="Barlow Condensed,sans-serif" font-size="9" fill="#7ac429" letter-spacing="2" font-weight="700">PLAYABILITY SCORE</text>
-          <text x="420" y="78" font-family="Bebas Neue,sans-serif" font-size="36" fill="#f5f5f0" letter-spacing="2">9.4<tspan font-size="18" fill="#7ac429">/10</tspan></text>
-          <rect x="180" y="372" width="240" height="56" rx="2" fill="rgba(5,5,5,.9)" stroke="rgba(122,196,41,.4)" stroke-width="1"/>
-          <text x="300" y="392" font-family="Barlow Condensed,sans-serif" font-size="8" fill="#7ac429" letter-spacing="2" font-weight="700" text-anchor="middle">IRRIGATION DAYS SAVED</text>
-          <text x="300" y="416" font-family="Bebas Neue,sans-serif" font-size="28" fill="#f5f5f0" letter-spacing="3" text-anchor="middle">38 DAYS / SEASON</text>
-        </svg>
-      </div>
-      <!-- Text -->
-      <div>
+    <div class="golf-split">
+      <!-- TEXT SIDE — LEFT -->
+      <div class="rev-l">
         <span class="snum">03</span>
-        <p class="lbl" style="margin-bottom:.75rem">Golf Courses &amp; Commercial Landscaping</p>
+        <p class="lbl" style="margin-bottom:.75rem">03 — Golf Courses &amp; Commercial Landscaping</p>
         <h2 class="stitle">Consistent<br/><em>Conditions.</em><br/>Fewer Inputs.</h2>
         <p class="sbody">Golf courses demand precision. ArableONE conditions soil at the root zone — reducing irrigation windows, limiting chemical dependency, and maintaining the firmness and color players expect, season after season.</p>
         <ul class="sbulls stg">
@@ -493,88 +1429,22 @@ ul{list-style:none}
         </ul>
         <a href="#cta" class="btn btn-g">Golf &amp; Commercial Inquiry <span class="arr">→</span></a>
       </div>
-    </div>
-  </div>
-</section>
-
-<div class="div"></div>
-
-<!-- ══ 04 HOME & GARDEN ══ -->
-<section id="hg" class="sec sec-alt">
-  <div class="wrap">
-    <div class="split split-r">
-      <!-- Text -->
-      <div>
-        <span class="snum">04</span>
-        <p class="lbl" style="margin-bottom:.75rem">Home &amp; Garden</p>
-        <h2 class="stitle">Pro-Grade<br/>Soil. <em>Your Yard.</em></h2>
-        <p class="sbody">The same technology used on commercial farms and golf courses — packaged for residential use. Apply ArableONE once and see the difference in your lawn, garden beds, and vegetable plots. No multi-product programs. No complexity.</p>
-        <ul class="sbulls stg">
-          <li>Works on lawn, garden &amp; containers</li>
-          <li>One-time application per season</li>
-          <li>Visible results in 30 days</li>
-          <li>Reduces watering frequency significantly</li>
-        </ul>
-        <a href="#cta" class="btn btn-a">Shop Home &amp; Garden <span class="arr">→</span></a>
-      </div>
-      <!-- Visual -->
-      <div class="vpanel rev">
-        <span class="clbl">Residential</span>
-        <svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <linearGradient id="hg-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#050d05"/><stop offset="65%" stop-color="#0a1808"/><stop offset="100%" stop-color="#040904"/></linearGradient>
-          </defs>
-          <rect width="600" height="450" fill="url(#hg-bg)"/>
-          <rect x="0" y="305" width="600" height="145" fill="#071007"/>
-          <rect x="0" y="355" width="600" height="95" fill="#0d1a06" opacity=".6"/>
-          <!-- Stems -->
-          <g stroke="#2a7a10" stroke-width="2.5" fill="none" stroke-linecap="round">
-            <path d="M100 305 Q95 258 88 228"/><path d="M200 305 Q195 253 188 213"/>
-            <path d="M300 305 Q294 248 284 198"/><path d="M400 305 Q395 256 389 218"/>
-            <path d="M500 305 Q496 260 490 230"/>
-          </g>
-          <!-- Leaves -->
-          <g fill="#3a9e1a" opacity=".85">
-            <ellipse cx="88" cy="224" rx="28" ry="14" transform="rotate(-25,88,224)"/>
-            <ellipse cx="78" cy="256" rx="22" ry="11" transform="rotate(20,78,256)"/>
-            <ellipse cx="97" cy="258" rx="20" ry="10" transform="rotate(-15,97,258)"/>
-            <ellipse cx="188" cy="207" rx="34" ry="16" transform="rotate(-20,188,207)"/>
-            <ellipse cx="176" cy="242" rx="26" ry="12" transform="rotate(18,176,242)"/>
-            <ellipse cx="198" cy="244" rx="24" ry="11" transform="rotate(-12,198,244)"/>
-            <ellipse cx="284" cy="192" rx="40" ry="18" transform="rotate(-22,284,192)"/>
-            <ellipse cx="270" cy="232" rx="30" ry="14" transform="rotate(20,270,232)"/>
-            <ellipse cx="298" cy="235" rx="28" ry="13" transform="rotate(-16,298,235)"/>
-            <ellipse cx="389" cy="212" rx="32" ry="15" transform="rotate(-20,389,212)"/>
-            <ellipse cx="378" cy="248" rx="24" ry="11" transform="rotate(18,378,248)"/>
-            <ellipse cx="400" cy="250" rx="22" ry="10" transform="rotate(-14,400,250)"/>
-            <ellipse cx="490" cy="224" rx="28" ry="13" transform="rotate(-22,490,224)"/>
-            <ellipse cx="480" cy="257" rx="21" ry="10" transform="rotate(18,480,257)"/>
-            <ellipse cx="500" cy="260" rx="19" ry="9" transform="rotate(-14,500,260)"/>
-          </g>
-          <g fill="#7ac429" opacity=".7">
-            <ellipse cx="88" cy="227" rx="14" ry="7" transform="rotate(-30,88,227)"/>
-            <ellipse cx="188" cy="210" rx="17" ry="8" transform="rotate(-25,188,210)"/>
-            <ellipse cx="284" cy="195" rx="20" ry="9" transform="rotate(-28,284,195)"/>
-            <ellipse cx="389" cy="215" rx="16" ry="7" transform="rotate(-26,389,215)"/>
-            <ellipse cx="490" cy="228" rx="14" ry="6" transform="rotate(-28,490,228)"/>
-          </g>
-          <!-- Roots -->
-          <g stroke="rgba(122,196,41,.18)" stroke-width="1" fill="none">
-            <path d="M100 316 Q82 340 62 370 Q52 392 72 402"/>
-            <path d="M100 316 Q110 350 102 382 Q98 402 114 412"/>
-            <path d="M300 316 Q280 345 260 375 Q250 395 270 408"/>
-            <path d="M300 316 Q310 355 302 386 Q298 405 316 415"/>
-            <path d="M500 316 Q480 345 462 375 Q452 394 472 406"/>
-          </g>
-          <rect x="28" y="28" width="178" height="68" rx="2" fill="rgba(5,5,5,.9)" stroke="rgba(122,196,41,.4)" stroke-width="1"/>
-          <text x="40" y="48" font-family="Barlow Condensed,sans-serif" font-size="9" fill="#7ac429" letter-spacing="2" font-weight="700">GROWTH RATE</text>
-          <text x="40" y="76" font-family="Bebas Neue,sans-serif" font-size="34" fill="#7ac429" letter-spacing="2">+28%</text>
-          <text x="40" y="90" font-family="Barlow Condensed,sans-serif" font-size="9" fill="#888880" letter-spacing="1">vs. untreated control</text>
-          <rect x="396" y="28" width="178" height="68" rx="2" fill="rgba(5,5,5,.9)" stroke="rgba(122,196,41,.4)" stroke-width="1"/>
-          <text x="408" y="48" font-family="Barlow Condensed,sans-serif" font-size="9" fill="#7ac429" letter-spacing="2" font-weight="700">VISIBLE RESULTS</text>
-          <text x="408" y="76" font-family="Bebas Neue,sans-serif" font-size="34" fill="#f5f5f0" letter-spacing="2">30 DAYS</text>
-          <text x="408" y="90" font-family="Barlow Condensed,sans-serif" font-size="9" fill="#888880" letter-spacing="1">single application</text>
-        </svg>
+      <!-- VISUAL SIDE — RIGHT: two photos stacked -->
+      <div class="golf-photos rev-r">
+        <div class="golf-photo-top">
+          <!-- ▸ SWAP: wide fairway or course aerial shot -->
+          <img src="media/golf-fairway.jpg"
+               alt="Golf course fairway maintained with ArableONE"
+               loading="lazy"/>
+          <span class="clbl">Fairway Condition</span>
+        </div>
+        <div class="golf-photo-btm">
+          <!-- ▸ SWAP: close-up turf / green surface shot -->
+          <img src="media/golf-turf-close.jpg"
+               alt="Healthy turf surface after ArableONE treatment"
+               loading="lazy"/>
+          <span class="clbl">Root Zone Health</span>
+        </div>
       </div>
     </div>
   </div>
@@ -582,70 +1452,98 @@ ul{list-style:none}
 
 <div class="div"></div>
 
-<!-- ══ 05 HOA ══ -->
-<section id="hoa" class="sec">
-  <div class="wrap">
-    <div class="split">
-      <!-- Visual -->
-      <div class="vpanel rev">
-        <span class="clbl">HOA &amp; Communities</span>
-        <svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <linearGradient id="hoa-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#040a08"/><stop offset="100%" stop-color="#060e05"/></linearGradient>
-          </defs>
-          <rect width="600" height="450" fill="url(#hoa-bg)"/>
-          <!-- Streets -->
-          <g fill="rgba(25,25,25,.9)">
-            <rect x="0" y="198" width="600" height="20"/>
-            <rect x="278" y="0" width="20" height="450"/>
-            <rect x="0" y="88" width="600" height="14"/>
-            <rect x="0" y="330" width="600" height="14"/>
-          </g>
-          <!-- Lots untreated -->
-          <g fill="rgba(18,40,12,.9)" stroke="rgba(122,196,41,.12)" stroke-width="1">
-            <rect x="8" y="8" width="125" height="72"/><rect x="142" y="8" width="125" height="72"/>
-            <rect x="308" y="8" width="125" height="72"/><rect x="442" y="8" width="150" height="72"/>
-            <rect x="8" y="110" width="125" height="80"/><rect x="142" y="110" width="125" height="80"/>
-            <rect x="308" y="110" width="125" height="80"/><rect x="442" y="110" width="150" height="80"/>
-            <rect x="8" y="226" width="125" height="96"/><rect x="142" y="226" width="125" height="96"/>
-            <rect x="308" y="226" width="125" height="96"/><rect x="442" y="226" width="150" height="96"/>
-            <rect x="8" y="352" width="125" height="90"/><rect x="142" y="352" width="125" height="90"/>
-            <rect x="308" y="352" width="125" height="90"/><rect x="442" y="352" width="150" height="90"/>
-          </g>
-          <!-- Treated lots -->
-          <g fill="rgba(50,120,20,.32)" stroke="rgba(122,196,41,.45)" stroke-width="1.5">
-            <rect x="8" y="8" width="125" height="72"/>
-            <rect x="308" y="8" width="125" height="72"/>
-            <rect x="142" y="110" width="125" height="80"/>
-            <rect x="442" y="110" width="150" height="80"/>
-            <rect x="8" y="226" width="125" height="96"/>
-            <rect x="308" y="226" width="125" height="96"/>
-            <rect x="142" y="352" width="125" height="90"/>
-            <rect x="442" y="352" width="150" height="90"/>
-          </g>
-          <!-- Treatment markers -->
-          <g fill="#7ac429" opacity=".75">
-            <circle cx="70" cy="44" r="5"/><circle cx="370" cy="44" r="5"/>
-            <circle cx="204" cy="150" r="5"/><circle cx="517" cy="150" r="5"/>
-            <circle cx="70" cy="274" r="5"/><circle cx="370" cy="274" r="5"/>
-            <circle cx="204" cy="397" r="5"/><circle cx="517" cy="397" r="5"/>
-          </g>
-          <!-- Legend -->
-          <rect x="16" y="416" width="14" height="14" rx="1" fill="rgba(50,120,20,.5)" stroke="rgba(122,196,41,.5)" stroke-width="1"/>
-          <text x="36" y="428" font-family="Barlow Condensed,sans-serif" font-size="10" fill="#c8c8c0" letter-spacing="1">ARABLEONE TREATED</text>
-          <rect x="230" y="416" width="14" height="14" rx="1" fill="rgba(18,40,12,.9)" stroke="rgba(122,196,41,.15)" stroke-width="1"/>
-          <text x="250" y="428" font-family="Barlow Condensed,sans-serif" font-size="10" fill="#c8c8c0" letter-spacing="1">UNTREATED</text>
-        </svg>
+<!-- ══════════════════════════════════════════════
+     04 — HOME & GARDEN
+     LAYOUT: Stacked vertical
+             Wide visual on top, 3-col text grid below
+══════════════════════════════════════════════ -->
+<section id="hg">
+  <!-- Top: full-width visual band -->
+  <div class="hg-vis">
+    <span class="clbl" style="z-index:2;position:relative">Home &amp; Garden</span>
+    <!-- ▸ SWAP: replace with a looping garden / lawn video clip (5–15s works great) -->
+    <!-- ▸ SWAP: replace poster with a still from that clip -->
+    <!-- If you only have a photo, remove the <video> tags and keep just the <img> -->
+    <video autoplay muted loop playsinline
+           poster="media/home-garden-poster.jpg"
+           style="position:absolute;inset:0;z-index:0">
+      <source src="media/home-garden-video.mp4" type="video/mp4"/>
+      <!-- Fallback photo if video not available -->
+      <img src="media/home-garden-01.jpg"
+           alt="Residential lawn and garden treated with ArableONE"
+           style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"/>
+    </video>
+    <!-- Bottom gradient so text below reads cleanly -->
+    <div style="position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(to bottom,transparent,rgba(13,13,13,1));z-index:1;pointer-events:none"></div>
+  </div>
+
+  <!-- Bottom: text block -->
+  <div class="hg-bottom sec-mid">
+    <div class="wrap">
+      <div class="hg-header rev">
+        <div>
+          <span class="snum">04</span>
+          <p class="lbl" style="margin-bottom:.75rem">04 — Home &amp; Garden</p>
+          <h2 class="stitle">Pro-Grade<br/>Soil. <em>Your Yard.</em></h2>
+        </div>
+        <div>
+          <p class="sbody" style="max-width:100%;margin-bottom:1.75rem">The same technology used on commercial farms and golf courses — packaged for residential use. Apply ArableONE once and see the difference in your lawn, garden beds, and vegetable plots. No multi-product programs. No complexity.</p>
+          <a href="#cta" class="btn btn-a">Shop Home &amp; Garden <span class="arr">→</span></a>
+        </div>
       </div>
-      <!-- Text -->
-      <div>
+      <div class="hg-cols stg">
+        <div class="hg-col">
+          <div class="hg-col-n">1×</div>
+          <div class="hg-col-title">One Application</div>
+          <div class="hg-col-desc">Works on lawn, garden beds, and containers. Apply once per season — no repeat treatments required.</div>
+        </div>
+        <div class="hg-col">
+          <div class="hg-col-n">30d</div>
+          <div class="hg-col-title">Visible Results</div>
+          <div class="hg-col-desc">Measurable improvement to plant health, color, and growth visible within the first 30 days after application.</div>
+        </div>
+        <div class="hg-col">
+          <div class="hg-col-n">↓H₂O</div>
+          <div class="hg-col-title">Less Watering</div>
+          <div class="hg-col-desc">Improved soil moisture retention reduces how often you need to water — significant savings across a full season.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- ══════════════════════════════════════════════
+     05 — HOA
+     LAYOUT: Visual left (wide bordered panel),
+             Text right inside the same border frame
+══════════════════════════════════════════════ -->
+<section id="hoa" style="background:var(--black);padding:9rem 0">
+  <div class="wrap">
+    <div style="margin-bottom:2rem" class="rev">
+      <p class="lbl">05 — HOA &amp; Planned Communities</p>
+    </div>
+    <div class="hoa-split rev">
+      <!-- Visual left -->
+      <div class="hoa-vis">
+        <span class="clbl">Community Turf</span>
+        <div class="hoa-photo-overlay"></div>
+        <!-- ▸ SWAP: replace with a neighborhood / community turf photo -->
+        <!-- Best: wide shot of residential street, common area, or maintained community lawn -->
+        <!-- If you have golf turf photos, those also work well here -->
+        <img src="media/hoa-community-turf.jpg"
+             alt="HOA community turf maintained with ArableONE"
+             loading="lazy"/>
+      </div>
+      <!-- Text right -->
+      <div class="hoa-text">
         <span class="snum">05</span>
-        <p class="lbl" style="margin-bottom:.75rem">HOA &amp; Planned Communities</p>
-        <h2 class="stitle">Community<br/>Standards. <em>Lower</em><br/>Overhead.</h2>
+        <h2 class="stitle">Community<br/>Standards.<br/><em>Lower Overhead.</em></h2>
         <p class="sbody">HOAs manage turf, common areas, and property values simultaneously. ArableONE delivers consistent curb appeal across your entire community with a single seasonal application — reducing contractor callbacks and water costs.</p>
         <ul class="sbulls stg">
           <li>Community-wide volume pricing</li>
-          <li>Contractor-applied or self-administered</li>
+          <li>Contractor or self-administered</li>
           <li>Reduce per-property maintenance costs</li>
           <li>Consistent results across all lot types</li>
         </ul>
@@ -655,7 +1553,55 @@ ul{list-style:none}
   </div>
 </section>
 
-<!-- ══ PROOF / STATS ══ -->
+<!-- ══════════════════════════════════════════════
+     VIDEO FEATURE — "SEE IT IN THE FIELD"
+     User-initiated playback. Full-width impact.
+     Place your most compelling footage here —
+     application process, before/after, drone sweep.
+══════════════════════════════════════════════ -->
+<section id="video-feature">
+  <div class="vf-inner" id="vfInner">
+
+    <!-- ▸ SWAP: replace with your application / field / drone video -->
+    <!-- ▸ SWAP: replace poster with a strong still from that footage -->
+    <video class="vf-video" id="vfVideo"
+           poster="media/application-poster.jpg"
+           preload="none">
+      <source src="media/application-video.mp4" type="video/mp4"/>
+    </video>
+
+    <!-- Poster image shown before play -->
+    <img class="vf-poster"
+         src="media/application-poster.jpg"
+         alt="ArableONE soil treatment in the field"/>
+
+    <!-- Scrim over poster -->
+    <div class="vf-scrim"></div>
+
+    <!-- Overlay content — disappears on play -->
+    <div class="vf-content">
+      <p class="vf-label">ArableONE In The Field</p>
+      <h2 class="vf-title">See It Applied.<br/>See It Work.</h2>
+      <button class="vf-play" aria-label="Play video">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="5,3 19,12 5,21"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Pause control (visible when playing) -->
+    <button class="vf-pause" id="vfPause" aria-label="Pause video">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="white">
+        <rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>
+      </svg>
+    </button>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     PROOF / STATS
+══════════════════════════════════════════════ -->
 <section id="proof">
   <div style="padding:8rem 0;background:var(--green-dk);position:relative;overflow:hidden">
     <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Bebas Neue',cursive;font-size:22vw;color:rgba(122,196,41,.05);white-space:nowrap;pointer-events:none;letter-spacing:.1em">RESULTS</div>
@@ -694,7 +1640,30 @@ ul{list-style:none}
   </div>
 </section>
 
-<!-- ══ HOW IT WORKS ══ -->
+<!-- ══════════════════════════════════════════════
+     FEATURED TESTIMONIAL
+     A statement. Not a review widget.
+     White background — full contrast break from dark sections.
+══════════════════════════════════════════════ -->
+<section id="testimonial">
+  <div class="testi-inner rev">
+    <span class="testi-rule"></span>
+    <blockquote class="testi-quote">
+      "We cut our water schedule by <mark>three days a week</mark> and the fairways held color all summer. <mark>Nothing else we've tried did that in one application.</mark>"
+    </blockquote>
+    <div class="testi-meta">
+      <span class="testi-dash"></span>
+      <span class="testi-name">Golf Course Superintendent</span>
+      <span class="testi-sep">·</span>
+      <span class="testi-title">Southwest Region, United States</span>
+      <span class="testi-dash"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     HOW IT WORKS
+══════════════════════════════════════════════ -->
 <section id="how">
   <div style="padding:7rem 0;background:var(--s2);border-top:1px solid var(--border)">
     <div class="wrap">
@@ -723,29 +1692,29 @@ ul{list-style:none}
   </div>
 </section>
 
-<!-- ══ FINAL CTA ══ -->
+<!-- ══════════════════════════════════════════════
+     FINAL CTA
+══════════════════════════════════════════════ -->
 <section id="cta">
   <div style="padding:9rem 0;background:var(--black);position:relative;overflow:hidden;text-align:center">
     <div class="cta-grid"></div>
     <div class="cta-glow"></div>
     <div class="wrap cta-cnt rev">
-      <div class="cta-over">
-        <span style="display:block;width:24px;height:2px;background:var(--green)"></span>
-        Ready to See It Work
-        <span style="display:block;width:24px;height:2px;background:var(--green)"></span>
-      </div>
+      <p class="lbl" style="display:block;margin-bottom:.5rem">Get Started</p>
       <h2 class="cta-hl">Stop Stacking.<br/><strong>Start Performing.</strong></h2>
       <p class="cta-sub">Talk to an ArableONE specialist for your application — whether you're farming 10,000 acres, managing a golf course, or running a neighborhood HOA.</p>
       <div class="cta-btns">
-        <a href="mailto:sales@arableone.com" class="btn btn-a" style="font-size:.9rem;padding:1rem 2.2rem">Request a Demo <span class="arr">→</span></a>
-        <a href="mailto:contact@arableone.com" class="btn btn-og" style="font-size:.9rem;padding:1rem 2.2rem">Contact Sales</a>
-        <a href="#farms" class="btn btn-ol" style="font-size:.9rem;padding:1rem 2.2rem">See All Use Cases</a>
+        <a href="/cdn-cgi/l/email-protection#0e7d6f626b7d4e6f7c6f6c626b61606b206d6163" class="btn btn-a" style="font-size:.9rem;padding:1rem 2.2rem">Request a Demo <span class="arr">→</span></a>
+        <a href="/cdn-cgi/l/email-protection#ddbeb2b3a9bcbea99dbcafbcbfb1b8b2b3b8f3beb2b0" class="btn btn-og" style="font-size:.9rem;padding:1rem 2.2rem">Contact Sales</a>
+        <a href="#farms" class="btn btn-ol" style="font-size:.9rem;padding:1rem 2.2rem">See Applications</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ FOOTER ══ -->
+<!-- ══════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════ -->
 <footer id="ft">
   <div class="wrap">
     <div class="ft-in">
@@ -768,22 +1737,22 @@ ul{list-style:none}
         <ul>
           <li><a href="#proof">Results</a></li>
           <li><a href="#how">How It Works</a></li>
-          <li><a href="mailto:sales@arableone.com">Sales</a></li>
-          <li><a href="mailto:contact@arableone.com">Contact</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#6d1e0c01081e2d0c1f0c0f0108020308430e0200">Sales</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#ec8f8382988d8f98ac8d9e8d8e8089838289c28f8381">Contact</a></li>
         </ul>
       </div>
       <div class="ft-col">
         <h4>Get In Touch</h4>
         <ul>
-          <li><a href="mailto:sales@arableone.com">sales@arableone.com</a></li>
-          <li><a href="mailto:info@arableone.com">info@arableone.com</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#2f5c4e434a5c6f4e5d4e4d434a40414a014c4042"><span class="__cf_email__" data-cfemail="3744565b524477564556555b525859521954585a">[email&#160;protected]</span></a></li>
+          <li><a href="/cdn-cgi/l/email-protection#0f666169604f6e7d6e6d636a60616a216c6062"><span class="__cf_email__" data-cfemail="046d6a626b446576656668616b6a612a676b69">[email&#160;protected]</span></a></li>
           <li><a href="#cta">Request Demo</a></li>
         </ul>
       </div>
     </div>
     <div class="ft-bot">
       <p class="ft-copy">&copy; 2025 ArableONE™. All rights reserved.</p>
-      <div class="ft-mail"><a href="mailto:sales@arableone.com">sales@arableone.com</a></div>
+      <div class="ft-mail"><a href="/cdn-cgi/l/email-protection#f380929f9680b3928192919f969c9d96dd909c9e"><span class="__cf_email__" data-cfemail="b8cbd9d4ddcbf8d9cad9dad4ddd7d6dd96dbd7d5">[email&#160;protected]</span></a></div>
       <div class="soc">
         <a href="#" class="sb" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
@@ -799,7 +1768,7 @@ ul{list-style:none}
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* Nav scroll */
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>50),{passive:true});
@@ -807,8 +1776,8 @@ window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>50)
 /* Mobile menu */
 const ham=document.getElementById('ham'),mob=document.getElementById('mobNav'),mc=document.getElementById('mobClose');
 ham.addEventListener('click',()=>{mob.classList.add('open');document.body.style.overflow='hidden'});
-mc.addEventListener('click',close);mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
-function close(){mob.classList.remove('open');document.body.style.overflow=''}
+mc.addEventListener('click',closeMob);mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMob));
+function closeMob(){mob.classList.remove('open');document.body.style.overflow=''}
 
 /* Smooth scroll */
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){
@@ -816,15 +1785,36 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
   if(t){e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+scrollY-nav.offsetHeight-16,behavior:'smooth'})}
 }));
 
-/* Reveal observer */
+/* Scroll reveal */
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}})
-},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
-document.querySelectorAll('.rev,.stg').forEach(el=>obs.observe(el));
+},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rev,.rev-l,.rev-r,.stg').forEach(el=>obs.observe(el));
 
-/* Counters */
+/* Video feature — play / pause */
+const vfInner=document.getElementById('vfInner');
+const vfVideo=document.getElementById('vfVideo');
+const vfPause=document.getElementById('vfPause');
+if(vfInner&&vfVideo){
+  vfInner.addEventListener('click',function(e){
+    if(vfInner.classList.contains('playing'))return;
+    vfVideo.play();
+    vfInner.classList.add('playing');
+  });
+  vfPause.addEventListener('click',function(e){
+    e.stopPropagation();
+    vfVideo.pause();
+    vfInner.classList.remove('playing');
+  });
+  vfVideo.addEventListener('ended',function(){
+    vfInner.classList.remove('playing');
+    vfVideo.currentTime=0;
+  });
+}
+
+/* Stat counters */
 let counted=false;
-const pobs=new IntersectionObserver(entries=>{
+const pObs=new IntersectionObserver(entries=>{
   if(entries[0].isIntersecting&&!counted){
     counted=true;
     document.querySelectorAll('.sn[data-target]').forEach(el=>{
@@ -836,11 +1826,11 @@ const pobs=new IntersectionObserver(entries=>{
       };
       requestAnimationFrame(run);
     });
-    pobs.disconnect();
+    pObs.disconnect();
   }
 },{threshold:.4});
 const ps=document.getElementById('proof');
-if(ps)pobs.observe(ps);
+if(ps)pObs.observe(ps);
 </script>
 </body>
 </html>
