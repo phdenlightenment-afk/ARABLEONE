@@ -807,7 +807,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
     </div>
   </div>
 </footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 var navEl=document.getElementById('nav');
 if(navEl){window.addEventListener('scroll',function(){navEl.classList.toggle('scrolled',window.pageYOffset>50);},{passive:true});}
 
@@ -819,6 +819,12 @@ window.closeMobileMenu=function(){
   var mob=document.getElementById('mobNav');
   if(mob){mob.classList.remove('open');document.body.style.overflow='';}
 };
+
+function toggleFaq(el){
+  var isOpen=el.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open');});
+  if(!isOpen)el.classList.add('open');
+}
 
 if(window.requestAnimationFrame){requestAnimationFrame(function(){
   var els=document.querySelectorAll('.rev,.rev-l,.rev-r,.stg');
@@ -832,6 +838,6 @@ if(window.requestAnimationFrame){requestAnimationFrame(function(){
     if(r.top>window.innerHeight*0.9){el.classList.add('ready');obs.observe(el);}else{el.classList.add('in');}
   });
 });}
-
-var b2bForm=document.getElementById('b2bForm');
-if(b2bForm){b2bForm.addEventListener('
+</script>
+</body>
+</html>

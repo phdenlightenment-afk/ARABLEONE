@@ -1151,7 +1151,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 var navEl=document.getElementById('nav');
 if(navEl){window.addEventListener('scroll',function(){navEl.classList.toggle('scrolled',window.pageYOffset>50);},{passive:true});}
 
@@ -1177,18 +1177,13 @@ if(window.requestAnimationFrame){requestAnimationFrame(function(){
   });
 });}
 
-var b2bForm=document.getElementById('b2bForm');
-if(b2bForm){b2bForm.addEventListener('submit',function(e){
-  e.preventDefault();
-  var btn=this.querySelector('.form-submit');
-  var wrap=document.getElementById('b2bFormWrap');
-  var succ=document.getElementById('b2bSuccess');
-  btn.textContent='Sending…';btn.disabled=true;
-  setTimeout(function(){if(wrap)wrap.style.display='none';if(succ)succ.classList.add('visible');},900);
-});}
-
 var jSecs=['agriculture','municipalities','golf','home-garden','hoa'];
 var jLinks=document.querySelectorAll('.app-jump-link');
 if(jLinks.length){window.addEventListener('scroll',function(){
   var pos=window.pageYOffset+200,active='agriculture';
-  jSe
+  jSecs.forEach(function(id){var el=document.getElementById(id);if(el&&el.offsetTop<=pos)active=id;});
+  jLinks.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')==='#'+active);});
+},{passive:true});}
+</script>
+</body>
+</html>

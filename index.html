@@ -1007,7 +1007,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 var navEl=document.getElementById('nav');
 if(navEl){window.addEventListener('scroll',function(){navEl.classList.toggle('scrolled',window.pageYOffset>50);},{passive:true});}
 
@@ -1037,4 +1037,11 @@ var b2bForm=document.getElementById('b2bForm');
 if(b2bForm){b2bForm.addEventListener('submit',function(e){
   e.preventDefault();
   var btn=this.querySelector('.form-submit');
-  var wrap=document.getElementById('b2bFormW
+  var wrap=document.getElementById('b2bFormWrap');
+  var succ=document.getElementById('b2bSuccess');
+  btn.textContent='Sending…';btn.disabled=true;
+  setTimeout(function(){if(wrap)wrap.style.display='none';if(succ)succ.classList.add('visible');},900);
+});}
+</script>
+</body>
+</html>
