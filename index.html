@@ -938,9 +938,13 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
 <section id="hg">
   <div class="hg-vis">
     <span class="clbl" style="z-index:3;position:absolute">Home &amp; Garden</span>
-    <img src="housebeforeaftercomp.png"
-         alt="Home and garden before and after ArableONE™ treatment"/>
-    <div style="position:absolute;bottom:0;left:0;right:0;height:140px;background:linear-gradient(to bottom,transparent,rgba(13,13,13,1));z-index:2;pointer-events:none"></div>
+    <img src="whiterosesky.jpg"
+         alt="Beautiful white roses after ArableONE™ treatment"
+         style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block"/>
+    <!-- Gradient: transparent top → dark bottom so content below reads cleanly -->
+    <div style="position:absolute;bottom:0;left:0;right:0;height:180px;background:linear-gradient(to bottom,transparent,rgba(13,13,13,1));z-index:2;pointer-events:none"></div>
+    <!-- Light overlay to deepen image slightly -->
+    <div style="position:absolute;inset:0;background:rgba(0,0,0,.18);z-index:1;pointer-events:none"></div>
   </div>
   <div class="hg-bottom">
     <div class="wrap">
@@ -1251,34 +1255,46 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
 <!-- ══ BEFORE & AFTER ══ -->
 <section id="results" style="padding:0;background:var(--black);border-top:1px solid var(--border)">
 
-  <!-- ── BEFORE / AFTER SLIDER ── -->
+  <!-- ── BEFORE / AFTER — SIDE BY SIDE ── -->
   <div style="padding:6rem 0 0">
     <div class="wrap">
       <div class="results-header rev" style="margin-bottom:3rem">
         <p class="lbl">Before &amp; After</p>
         <h2 class="results-hl">One Application.<br/><span style="color:var(--green)">Proof in the Plant.</span></h2>
-        <p style="font-size:.9rem;font-weight:300;color:var(--g2);margin-top:.75rem">Drag the slider to compare untreated vs. ArableONE™ treated.</p>
+        <p style="font-size:.9rem;font-weight:300;color:var(--g2);margin-top:.75rem">Real properties. Real plants. ArableONE™ — one application per season.</p>
       </div>
     </div>
-    <!-- Full-width slider — AFTER: house landscape, BEFORE: tree comparison -->
-    <div class="ba-slider-wrap rev" id="baSlider">
-      <div class="ba-after">
-        <img src="housebeforeaftercomp.png"
-             alt="After ArableONE™ — residential landscape results" draggable="false"/>
-        <span class="ba-label ba-label-after">TREATED</span>
-      </div>
-      <div class="ba-before" id="baBefore">
+    <!-- Side-by-side full-width split — both are real before/after composite photos -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;background:var(--border)">
+
+      <!-- LEFT — Tree / shrub result -->
+      <div style="position:relative;overflow:hidden;height:560px">
         <img src="treebeforeandaftercomp.png"
-             alt="Before ArableONE™ — tree and plant comparison" draggable="false"/>
-        <span class="ba-label ba-label-before">UNTREATED</span>
-      </div>
-      <!-- Divider line + handle -->
-      <div class="ba-divider" id="baDivider">
-        <div class="ba-handle">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="white"><path d="M7 4l-4 6 4 6M13 4l4 6-4 6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+             alt="Tree and shrub — treated vs. untreated with ArableONE™"
+             style="width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;transition:transform .8s cubic-bezier(0.22,1,0.36,1)"
+             onmouseover="this.style.transform='scale(1.04)'"
+             onmouseout="this.style.transform='scale(1)'"/>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:2rem 2.5rem;background:linear-gradient(to top,rgba(5,5,5,.92) 0%,transparent 100%)">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#7AC429;margin-bottom:.4rem">Trees &amp; Shrubs</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#F5F5F0;line-height:1.1">Treated vs. Untreated</div>
+          <div style="font-family:'Barlow',sans-serif;font-size:.82rem;font-weight:300;color:rgba(255,255,255,.55);margin-top:.4rem">One application. Dramatic canopy difference.</div>
         </div>
       </div>
-      <input class="ba-range" id="baRange" type="range" min="0" max="100" value="50" aria-label="Comparison slider"/>
+
+      <!-- RIGHT — Residential landscape result -->
+      <div style="position:relative;overflow:hidden;height:560px">
+        <img src="housebeforeaftercomp.png"
+             alt="Residential landscape before and after ArableONE™"
+             style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;transition:transform .8s cubic-bezier(0.22,1,0.36,1)"
+             onmouseover="this.style.transform='scale(1.04)'"
+             onmouseout="this.style.transform='scale(1)'"/>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:2rem 2.5rem;background:linear-gradient(to top,rgba(5,5,5,.92) 0%,transparent 100%)">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#7AC429;margin-bottom:.4rem">Residential Landscape</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#F5F5F0;line-height:1.1">Lawn &amp; Garden — Before &amp; After</div>
+          <div style="font-family:'Barlow',sans-serif;font-size:.82rem;font-weight:300;color:rgba(255,255,255,.55);margin-top:.4rem">Visible improvement. One season. One application.</div>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -1290,37 +1306,21 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
         <h2 style="font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);font-weight:900;text-transform:uppercase;color:var(--white);line-height:.96">Visible Results.<br/><span style="color:var(--green)">Real Growth.</span></h2>
       </div>
     </div>
-    <div class="showcase-grid stg">
+    <div class="showcase-grid stg" style="grid-template-columns:1fr 1fr;grid-template-rows:460px">
       <div class="showcase-item">
         <img src="whiterosesky.jpg"
-             alt="White roses after ArableONE™ — flowers and ornamentals" loading="lazy"
-             style="object-position:center"/>
+             alt="White roses after ArableONE™ treatment" loading="lazy"
+             style="object-position:center 20%"/>
         <div class="showcase-overlay">
           <span class="showcase-label">Flowers &amp; Ornamentals</span>
         </div>
       </div>
       <div class="showcase-item">
         <img src="pinkrosehand.jpg"
-             alt="Pink roses — visible growth results with ArableONE™" loading="lazy"
+             alt="Pink roses — real color and growth with ArableONE™" loading="lazy"
              style="object-position:center"/>
         <div class="showcase-overlay">
           <span class="showcase-label">Visible Results. Real Color.</span>
-        </div>
-      </div>
-      <div class="showcase-item">
-        <img src="treebeforeandaftercomp.png"
-             alt="Tree treated vs. untreated with ArableONE™" loading="lazy"
-             style="object-position:center top"/>
-        <div class="showcase-overlay">
-          <span class="showcase-label">Trees &amp; Shrubs — Treated vs. Untreated</span>
-        </div>
-      </div>
-      <div class="showcase-item">
-        <img src="housebeforeaftercomp.png"
-             alt="Residential landscape before and after ArableONE™" loading="lazy"
-             style="object-position:center top"/>
-        <div class="showcase-overlay">
-          <span class="showcase-label">Residential — Before &amp; After</span>
         </div>
       </div>
     </div>
