@@ -353,60 +353,98 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
 .rev-r.in{opacity:1;transform:none}
 
 /* RESPONSIVE */
+
 @media(max-width:1024px){
   .fw-inner,.tech-split,.b2b-inner{grid-template-columns:1fr}
-  .fw-left{padding:3rem 2.5rem;border-left:none;border-top:1px solid var(--border)}
-  .fw-photo{min-height:400px}
-  .tech-left{border-right:none;border-bottom:1px solid var(--border);padding:3rem 2.5rem}
-  .tech-right{padding:3rem 2.5rem}
-  .golf-split{grid-template-columns:1fr}
-  .golf-photos{min-height:380px}
-  .hg-header{grid-template-columns:1fr}
+  .fw-left{padding:3rem 2rem;border-left:none;border-top:1px solid var(--border)}
+  .fw-photo{min-height:380px}
+  .tech-left{border-right:none;border-bottom:1px solid var(--border);padding:3rem 2rem}
+  .tech-right{padding:3rem 2rem}
+  .golf-split{grid-template-columns:1fr;gap:0}
+  .golf-photos{min-height:360px}
+  .hg-header{grid-template-columns:1fr;gap:2rem}
   .hg-cols{grid-template-columns:1fr 1fr}
   .hoa-split{grid-template-columns:1fr}
-  .hoa-vis{min-height:340px}
+  .hoa-vis{min-height:320px}
   .hoa-text{border-left:none;border-top:1px solid var(--border);padding:3rem 2rem}
   .stats{grid-template-columns:repeat(2,1fr)}
   .sc:nth-child(2){border-right:none}
   .sc:nth-child(3){border-top:1px solid rgba(122,196,41,.15)}
-  .hsteps{grid-template-columns:1fr;gap:2.5rem}
-  .hsteps::before{display:none}
   .prod-grid{grid-template-columns:repeat(2,1fr)!important}
   .farms-stat-strip{grid-template-columns:repeat(2,1fr)}
   .farms-stat-item:nth-child(even){border-right:none}
-  .b2b-left{border-right:none;border-bottom:1px solid var(--border);padding:3rem 2.5rem}
-  .b2b-right{padding:3rem 2.5rem}
+  .b2b-left{border-right:none;border-bottom:1px solid var(--border);padding:3rem 2rem}
+  .b2b-right{padding:3rem 2rem}
   .form-row{grid-template-columns:1fr}
   .ev-grid{grid-template-columns:1fr 1fr}
   .who-grid{grid-template-columns:1fr 1fr}
   .tech-vs{grid-template-columns:1fr}
   .tech-col-bad{border-right:none;border-bottom:1px solid var(--border)}
+  .detail-split{grid-template-columns:1fr}
+  .detail-visual{min-height:300px}
 }
 @media(max-width:768px){
   .nav-links,#nav .btn{display:none}
   .ham{display:flex}
-  .h-hl{font-size:clamp(3.5rem,14vw,5.5rem)}
+  .h-hl{font-size:clamp(3rem,13vw,5rem)}
+  .h-cnt{padding:0 1.5rem}
+  .h-btns{flex-direction:column;align-items:stretch}
+  .h-btns .btn{justify-content:center;width:100%}
+  .h-rule{margin:2rem 0 1.5rem}
+  .wrap{padding:0 1.25rem}
+  .nav-in{padding:.75rem 1.5rem}
+  .strip-in{flex-direction:column;gap:.4rem;text-align:center}
+  .who-grid{grid-template-columns:1fr 1fr}
+  .who-card{padding:1.75rem 1.25rem}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .sc{padding:2rem 1.25rem}
+  .sn{font-size:clamp(2.8rem,10vw,4rem)}
+  .tech-left,.tech-right{padding:2rem 1.5rem}
+  .fw-photo{min-height:260px}
+  .fw-left{padding:2.5rem 1.5rem}
+  .farms-stat-strip{grid-template-columns:1fr 1fr}
+  .cities-vis{height:340px}
+  .cities-top{padding:3rem 1.5rem 2.5rem}
+  .golf-photos{min-height:280px}
+  .hg-vis{height:280px}
+  .hg-cols{grid-template-columns:1fr}
+  .hg-bottom{padding:3rem 0 4rem}
+  .hoa-vis{min-height:260px}
+  .hoa-text{padding:2.5rem 1.5rem}
+  .b2b-left,.b2b-right{padding:2.5rem 1.5rem}
+  .b2b-hl{font-size:clamp(1.8rem,6vw,2.4rem)}
+  .b2b-tier{flex-wrap:wrap;gap:.75rem}
+  .faq-grid{grid-template-columns:1fr}
+  .faq-item{border-right:none;padding:1.5rem 1.25rem}
+  .faq-item:nth-last-child(-n+2){border-bottom:1px solid var(--border)}
+  .faq-item:last-child{border-bottom:none}
+  .prod-grid{grid-template-columns:1fr 1fr!important}
+  .prod-header{flex-direction:column;align-items:flex-start}
+  .showcase-grid{grid-template-columns:1fr;grid-template-rows:280px 280px}
   .cred-logos{flex-wrap:wrap}
   .cred-logo{flex:0 0 33.33%;border-bottom:1px solid var(--border)}
   .cred-logo:nth-child(3n){border-right:none}
   .cred-stats{grid-template-columns:1fr}
-  .hg-cols{grid-template-columns:1fr}
-  .hg-vis{height:320px}
-  .cities-vis{height:300px}
-  .strip-in{flex-direction:column;gap:.4rem;text-align:center}
-  .ft-in{flex-direction:column}
-  .faq-grid{grid-template-columns:1fr}
-  .faq-item{border-right:none}
-  .faq-item:nth-last-child(-n+2){border-bottom:1px solid var(--border)}
-  .faq-item:last-child{border-bottom:none}
-  .showcase-grid{grid-template-rows:260px}
-  .prod-grid{grid-template-columns:1fr 1fr!important}
-  .who-grid{grid-template-columns:1fr 1fr}
+  .page-hero{padding:8rem 0 3.5rem}
+  .page-hero-hl{font-size:clamp(2.5rem,10vw,4rem)}
+  .page-hero-btns{flex-direction:column;align-items:flex-start}
+  .ft-in{flex-direction:column;gap:2rem}
+  .ft-bot{flex-direction:column;align-items:flex-start;gap:.75rem}
+  .btn{min-height:44px}
+  .comm-table th,.comm-table td{padding:.75rem 1rem;font-size:.8rem}
 }
 @media(max-width:480px){
   .stats{grid-template-columns:1fr}
   .sc{border-right:none!important;border-bottom:1px solid rgba(122,196,41,.15)}
+  .sc:last-child{border-bottom:none}
+  .who-grid{grid-template-columns:1fr}
   .prod-grid{grid-template-columns:1fr!important}
   .farms-stat-strip{grid-template-columns:1fr 1fr}
-  .showcase-grid{grid-template-columns:1fr;grid-template-rows:300px 300px}
+  .h-hl{font-size:clamp(2.8rem,12vw,4rem)}
+  .wrap{padding:0 1rem}
+  .nav-in{padding:.75rem 1rem}
+  .ev-grid{grid-template-columns:1fr}
+  .showcase-grid{grid-template-columns:1fr;grid-template-rows:260px 260px}
+  .tech-item{font-size:.75rem}
+  .hg-cols{grid-template-columns:1fr}
 }

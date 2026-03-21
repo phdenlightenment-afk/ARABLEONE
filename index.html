@@ -361,62 +361,199 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
 .stg.ready>*:nth-child(4){animation:fadeUp .6s .24s cubic-bezier(0.22,1,0.36,1) forwards}
 
 /* RESPONSIVE */
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE — TABLET (≤1024px)
+════════════════════════════════════════════════ */
 @media(max-width:1024px){
   .fw-inner,.tech-split,.b2b-inner{grid-template-columns:1fr}
-  .fw-left{padding:3rem 2.5rem;border-left:none;border-top:1px solid var(--border)}
-  .fw-photo{min-height:400px}
-  .tech-left{border-right:none;border-bottom:1px solid var(--border);padding:3rem 2.5rem}
-  .tech-right{padding:3rem 2.5rem}
-  .golf-split{grid-template-columns:1fr}
-  .golf-photos{min-height:380px}
-  .hg-header{grid-template-columns:1fr}
+  .fw-left{padding:3rem 2rem;border-left:none;border-top:1px solid var(--border)}
+  .fw-photo{min-height:380px}
+  .tech-left{border-right:none;border-bottom:1px solid var(--border);padding:3rem 2rem}
+  .tech-right{padding:3rem 2rem}
+  .golf-split{grid-template-columns:1fr;gap:0}
+  .golf-photos{min-height:360px}
+  .hg-header{grid-template-columns:1fr;gap:2rem}
   .hg-cols{grid-template-columns:1fr 1fr}
   .hoa-split{grid-template-columns:1fr}
-  .hoa-vis{min-height:340px}
+  .hoa-vis{min-height:320px}
   .hoa-text{border-left:none;border-top:1px solid var(--border);padding:3rem 2rem}
   .stats{grid-template-columns:repeat(2,1fr)}
   .sc:nth-child(2){border-right:none}
   .sc:nth-child(3){border-top:1px solid rgba(122,196,41,.15)}
-  .hsteps{grid-template-columns:1fr;gap:2.5rem}
-  .hsteps::before{display:none}
   .prod-grid{grid-template-columns:repeat(2,1fr)!important}
   .farms-stat-strip{grid-template-columns:repeat(2,1fr)}
   .farms-stat-item:nth-child(even){border-right:none}
-  .b2b-left{border-right:none;border-bottom:1px solid var(--border);padding:3rem 2.5rem}
-  .b2b-right{padding:3rem 2.5rem}
+  .b2b-left{border-right:none;border-bottom:1px solid var(--border);padding:3rem 2rem}
+  .b2b-right{padding:3rem 2rem}
   .form-row{grid-template-columns:1fr}
   .ev-grid{grid-template-columns:1fr 1fr}
   .who-grid{grid-template-columns:1fr 1fr}
   .tech-vs{grid-template-columns:1fr}
   .tech-col-bad{border-right:none;border-bottom:1px solid var(--border)}
+  .detail-split{grid-template-columns:1fr}
+  .detail-visual{min-height:300px}
+  .stat-cards{grid-template-columns:repeat(2,1fr)}
+  .use-cases{grid-template-columns:1fr 1fr}
 }
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE — MOBILE (≤768px)
+════════════════════════════════════════════════ */
 @media(max-width:768px){
+  /* Nav */
   .nav-links,#nav .btn{display:none}
   .ham{display:flex}
-  .h-hl{font-size:clamp(3.5rem,14vw,5.5rem)}
+
+  /* Global section padding */
+  section[style*="padding:9rem"]{padding-top:4rem!important;padding-bottom:4rem!important}
+  section[style*="padding:8rem"]{padding-top:4rem!important;padding-bottom:4rem!important}
+  section[style*="padding:7rem"]{padding-top:3.5rem!important;padding-bottom:3.5rem!important}
+  section[style*="padding:6rem"]{padding-top:3rem!important;padding-bottom:3rem!important}
+  section[style*="padding:5rem"]{padding-top:2.5rem!important;padding-bottom:2.5rem!important}
+
+  /* Hero */
+  .h-hl{font-size:clamp(3rem,13vw,5rem)}
+  .h-cnt{padding:0 1.5rem}
+  .h-btns{flex-direction:column;align-items:stretch}
+  .h-btns .btn{justify-content:center;width:100%}
+  .h-rule{margin:2rem 0 1.5rem}
+  .h-copy{margin-bottom:2rem;font-size:.95rem}
+
+  /* Strip */
+  .strip-in{flex-direction:column;gap:.4rem;text-align:center}
+  .strip-lk{justify-content:center}
+
+  /* Wrap padding */
+  .wrap{padding:0 1.25rem}
+
+  /* Who grid */
+  .who-grid{grid-template-columns:1fr 1fr}
+  .who-card{padding:1.75rem 1.25rem}
+
+  /* Stats */
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .sc{padding:2rem 1.25rem}
+  .sn{font-size:clamp(2.8rem,10vw,4rem)}
+
+  /* Tech section */
+  .tech-vs{grid-template-columns:1fr}
+  .tech-col-bad{border-right:none;border-bottom:1px solid var(--border)}
+  .tech-left,.tech-right{padding:2rem 1.5rem}
+
+  /* Agriculture */
+  .fw-photo{min-height:260px}
+  .fw-left{padding:2.5rem 1.5rem}
+  .farms-stat-strip{grid-template-columns:1fr 1fr}
+  .farms-stat-item{padding:1.5rem 1rem}
+
+  /* Cities */
+  .cities-vis{height:340px}
+  .cities-top{padding:3rem 1.5rem 2.5rem}
+
+  /* Golf */
+  .golf-photos{min-height:280px}
+  #golf [style*="padding:6rem 5rem"]{padding:3rem 1.5rem!important}
+
+  /* Home & garden */
+  .hg-vis{height:280px}
+  .hg-cols{grid-template-columns:1fr}
+  .hg-bottom{padding:3rem 0 4rem}
+
+  /* HOA */
+  .hoa-vis{min-height:260px}
+  .hoa-text{padding:2.5rem 1.5rem}
+
+  /* B2B */
+  .b2b-left,.b2b-right{padding:2.5rem 1.5rem}
+  .b2b-hl{font-size:clamp(1.8rem,6vw,2.4rem)}
+  .b2b-tier{flex-wrap:wrap;gap:.75rem}
+  .b2b-tier-vol{min-width:60px;font-size:1.3rem}
+
+  /* FAQ */
+  .faq-grid{grid-template-columns:1fr}
+  .faq-item{border-right:none;padding:1.5rem 1.25rem}
+  .faq-item:nth-last-child(-n+2){border-bottom:1px solid var(--border)}
+  .faq-item:last-child{border-bottom:none}
+
+  /* Products */
+  .prod-grid{grid-template-columns:1fr 1fr!important}
+  .prod-header{flex-direction:column;align-items:flex-start}
+
+  /* Before/after grid */
+  [style*="grid-template-columns:1fr 1fr;gap:3px"]{grid-template-columns:1fr!important}
+
+  /* Showcase */
+  .showcase-grid{grid-template-columns:1fr;grid-template-rows:280px 280px}
+
+  /* Credibility */
   .cred-logos{flex-wrap:wrap}
   .cred-logo{flex:0 0 33.33%;border-bottom:1px solid var(--border)}
   .cred-logo:nth-child(3n){border-right:none}
   .cred-stats{grid-template-columns:1fr}
-  .hg-cols{grid-template-columns:1fr}
-  .hg-vis{height:320px}
-  .cities-vis{height:380px}
-  .strip-in{flex-direction:column;gap:.4rem;text-align:center}
-  .ft-in{flex-direction:column}
-  .faq-grid{grid-template-columns:1fr}
-  .faq-item{border-right:none}
-  .faq-item:nth-last-child(-n+2){border-bottom:1px solid var(--border)}
-  .faq-item:last-child{border-bottom:none}
-  .showcase-grid{grid-template-rows:260px}
-  .prod-grid{grid-template-columns:1fr 1fr!important}
-  .who-grid{grid-template-columns:1fr 1fr}
+
+  /* Stat cards (applications page) */
+  .stat-cards{grid-template-columns:1fr 1fr}
+  .use-cases{grid-template-columns:1fr}
+
+  /* Page hero (inner pages) */
+  .page-hero{padding:8rem 0 3.5rem}
+  .page-hero-hl{font-size:clamp(2.5rem,10vw,4rem)}
+  .page-hero-btns{flex-direction:column;align-items:flex-start}
+
+  /* Footer */
+  .ft-in{flex-direction:column;gap:2rem}
+  .ft-bot{flex-direction:column;align-items:flex-start;gap:.75rem}
+
+  /* Buttons — ensure touch-friendly min height */
+  .btn{min-height:44px}
+
+  /* CTA sections — fix flex button rows */
+  [style*="display:flex;gap:1rem;justify-content:center"]{flex-direction:column;align-items:center}
+  [style*="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem"]{flex-direction:column;align-items:stretch}
 }
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE — SMALL PHONE (≤480px)
+════════════════════════════════════════════════ */
 @media(max-width:480px){
+  /* Further section padding reduction */
+  section[style*="padding:9rem"]{padding-top:3rem!important;padding-bottom:3rem!important}
+  section[style*="padding:8rem"]{padding-top:3rem!important;padding-bottom:3rem!important}
+
+  /* Full single column everywhere */
   .stats{grid-template-columns:1fr}
   .sc{border-right:none!important;border-bottom:1px solid rgba(122,196,41,.15)}
+  .sc:last-child{border-bottom:none}
+
+  .who-grid{grid-template-columns:1fr}
   .prod-grid{grid-template-columns:1fr!important}
   .farms-stat-strip{grid-template-columns:1fr 1fr}
-  .showcase-grid{grid-template-columns:1fr;grid-template-rows:300px 300px}
+  .stat-cards{grid-template-columns:1fr}
+  .hg-cols{grid-template-columns:1fr}
+
+  /* Hero */
+  .h-hl{font-size:clamp(2.8rem,12vw,4rem)}
+  .h-eye{margin-bottom:2rem}
+
+  /* Wrap tighter */
+  .wrap{padding:0 1rem}
+  .nav-in{padding:.75rem 1rem}
+
+  /* B2B tiers */
+  .b2b-tiers{font-size:.85rem}
+
+  /* Tech comparison */
+  .tech-item{font-size:.75rem}
+
+  /* Evidence grid */
+  .ev-grid{grid-template-columns:1fr}
+
+  /* Showcase */
+  .showcase-grid{grid-template-columns:1fr;grid-template-rows:260px 260px}
+
+  /* Before/after labels */
+  [style*="padding:1.75rem 2.5rem"]{padding:1.25rem 1.25rem!important}
 }
 
 </style>
@@ -527,7 +664,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
 </section>
 
 <!-- TECHNOLOGY EXPLAINER -->
-<section id="technology" style="padding:9rem 0;background:var(--s1);border-top:1px solid var(--border)">
+<section id="technology" style="padding:clamp(4rem,8vw,9rem) 0;background:var(--s1);border-top:1px solid var(--border)">
   <div class="wrap">
     <div class="rev" style="margin-bottom:3.5rem">
       <p class="lbl" style="margin-bottom:.75rem">How It's Different</p>
@@ -636,7 +773,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
 <!-- 03 GOLF -->
 <section id="golf" style="padding:0;background:var(--black)">
   <div class="golf-split">
-    <div class="rev-l" style="padding:6rem 5rem;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--border)">
+    <div class="rev-l" style="padding:clamp(2.5rem,5vw,6rem) clamp(1.5rem,4vw,5rem);display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--border)">
       <span class="snum">03</span>
       <p class="lbl" style="margin-bottom:.75rem">Golf Courses &amp; Commercial Landscaping</p>
       <h2 class="stitle">Consistent<br/><em>Conditions.</em><br/>Fewer Inputs.</h2>
@@ -687,7 +824,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
 <div class="div"></div>
 
 <!-- 05 HOA -->
-<section id="hoa" style="padding:9rem 0;background:var(--black)">
+<section id="hoa" style="padding:clamp(4rem,8vw,9rem) 0;background:var(--black)">
   <div class="wrap">
     <div class="rev" style="margin-bottom:2rem"><p class="lbl">HOA &amp; Planned Communities</p></div>
     <div class="hoa-split rev">
@@ -747,7 +884,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
 </section>
 
 <!-- B2B CONTACT FORM -->
-<section id="b2b" style="padding:8rem 0;background:var(--black);border-top:1px solid var(--border)">
+<section id="b2b" style="padding:clamp(3.5rem,7vw,8rem) 0;background:var(--black);border-top:1px solid var(--border)">
   <div class="wrap">
     <div class="b2b-inner rev">
       <div class="b2b-left">
