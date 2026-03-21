@@ -55,9 +55,9 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
 .nav-links{display:flex;align-items:center;gap:1.8rem}
 .nav-links a{font-family:var(--fd);font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--g2);transition:color .25s}
 .nav-links a:hover,.nav-links a.active{color:var(--green)}
-.ham{display:none;flex-direction:column;gap:6px;cursor:pointer;padding:4px;background:none;border:none}
+.ham{display:none;flex-direction:column;gap:6px;cursor:pointer;padding:8px;background:none;border:none;z-index:101;position:relative}
 .ham span{display:block;width:26px;height:2px;background:var(--white);border-radius:2px;transition:var(--t)}
-.mob-nav{display:none;position:fixed;inset:0;background:rgba(5,5,5,.99);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+.mob-nav{display:none;position:fixed;inset:0;background:rgba(5,5,5,.99);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
 .mob-nav.open{display:flex}
 .mob-nav a{font-family:var(--fd);font-size:1.8rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--white);transition:color .2s}
 .mob-nav a:hover{color:var(--green)}
@@ -1139,7 +1139,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
     </div>
     <div class="ft-bot">
       <p class="ft-copy">© 2026 ArableONE™ | Arable Technology Inc. All rights reserved.</p>
-      <div class="ft-mail"><a href="/cdn-cgi/l/email-protection#036a6d656c43627162616f666c6d662d606c6e"><span class="__cf_email__" data-cfemail="89e0e7efe6c9e8fbe8ebe5ece6e7eca7eae6e4">[email&#160;protected]</span></a></div>
+      <div class="ft-mail"><a href="mailto:info@arableone.com">info@arableone.com</a></div>
       <div class="soc">
         <a href="https://instagram.com/arableone" target="_blank" class="sb sb-ig" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" style="stroke:none"/></svg></a>
         <a href="https://twitter.com/arableone" target="_blank" class="sb" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -1150,11 +1150,21 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>50)},{passive:true});
-const ham=document.getElementById('ham'),mob=document.getElementById('mobNav'),mc=document.getElementById('mobClose');
-if(ham){ham.addEventListener('click',()=>{mob.classList.add('open');document.body.style.overflow='hidden'});mc.addEventListener('click',closeMob);mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMob));function closeMob(){mob.classList.remove('open');document.body.style.overflow=''}}
+function initMobileMenu(){
+  var ham=document.getElementById('ham');
+  var mob=document.getElementById('mobNav');
+  var mc=document.getElementById('mobClose');
+  if(!ham||!mob||!mc)return;
+  function openMenu(){mob.classList.add('open');document.body.style.overflow='hidden';}
+  function closeMob(){mob.classList.remove('open');document.body.style.overflow='';}
+  ham.addEventListener('click',openMenu);
+  mc.addEventListener('click',closeMob);
+  mob.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMob);});
+}
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initMobileMenu);}else{initMobileMenu();}
 
 // Jump nav active state on scroll
 const sections=['agriculture','municipalities','golf','home-garden','hoa'];
