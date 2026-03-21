@@ -166,8 +166,8 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
 /* AGRICULTURE */
 .fw-inner{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:640px}
 .fw-left{padding:5rem 4.5rem;border-left:1px solid var(--border);display:flex;flex-direction:column;justify-content:center}
-.fw-photo{position:relative;overflow:hidden}
-.fw-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .9s var(--ease)}
+.fw-photo{position:relative;overflow:hidden;min-height:400px}
+.fw-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .9s cubic-bezier(0.22,1,0.36,1)}
 .fw-photo:hover img{transform:scale(1.03)}
 .fw-photo-overlay{position:absolute;inset:0;background:rgba(0,0,0,.35);z-index:1;pointer-events:none}
 .fw-photo .clbl{z-index:2}
@@ -186,8 +186,8 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
 /* GOLF */
 .golf-split{display:grid;grid-template-columns:1fr 1.1fr;gap:0;align-items:stretch}
 .golf-photos{display:grid;grid-template-rows:1fr 1fr;gap:4px;min-height:520px}
-.golf-photo-top,.golf-photo-btm{position:relative;overflow:hidden}
-.golf-photo-top img,.golf-photo-btm img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease)}
+.golf-photo-top,.golf-photo-btm{position:relative;overflow:hidden;min-height:256px}
+.golf-photo-top img,.golf-photo-btm img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(0.22,1,0.36,1)}
 .golf-photo-top:hover img,.golf-photo-btm:hover img{transform:scale(1.03)}
 
 /* HOME & GARDEN */
@@ -649,7 +649,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
       <a href="#b2b" class="btn btn-g">Golf &amp; Commercial Inquiry <span class="arr">→</span></a>
     </div>
     <div class="golf-photos rev-r">
-      <div class="golf-photo-top"><span class="clbl">Fairway Conditions</span><img src="golfcourse.jpg" alt="Lush golf course fairway" loading="lazy"/></div>
+      <div class="golf-photo-top"><span class="clbl">Fairway Conditions</span><img src="goflcourse.jpg" alt="Lush golf course fairway" loading="lazy"/></div>
       <div class="golf-photo-btm"><span class="clbl">Plant Health</span><img src="whiterosesky.jpg" alt="Healthy plant growth" loading="lazy"/></div>
     </div>
   </div>
