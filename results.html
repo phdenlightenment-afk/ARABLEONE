@@ -579,6 +579,32 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
   [style*="padding:1.75rem 2.5rem"]{padding:1.25rem 1.25rem!important}
 }
 
+
+/* ── VIDEO SECTIONS ── */
+.vid-wrap{position:relative;width:100%;background:#000;overflow:hidden}
+.vid-wrap video{width:100%;height:100%;display:block;object-fit:cover}
+.vid-placeholder{width:100%;aspect-ratio:16/7;min-height:340px;background:var(--s2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;border:1px dashed rgba(122,196,41,.2);position:relative;cursor:pointer}
+.vid-play-btn{width:80px;height:80px;border-radius:50%;border:2px solid var(--green);background:rgba(122,196,41,.1);display:flex;align-items:center;justify-content:center;transition:all .3s}
+.vid-play-btn:hover{background:rgba(122,196,41,.2);transform:scale(1.08)}
+.vid-play-btn svg{width:28px;height:28px;fill:var(--green);margin-left:5px}
+.vid-swap-label{font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--green);text-align:center}
+.vid-swap-sub{font-family:var(--fd);font-size:.6rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--g3);text-align:center}
+.vid-html5{width:100%;aspect-ratio:16/7;min-height:340px;display:block;background:#000;outline:none}
+.vid-html5:focus{outline:none}
+.vid-caption{padding:1.25rem 2rem;background:var(--s2);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.vid-caption-title{font-family:var(--fd);font-size:.85rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--white)}
+.vid-caption-sub{font-size:.78rem;font-weight:300;color:var(--g3)}
+/* Full-width feature video */
+.vid-feature{position:relative;width:100%;overflow:hidden}
+.vid-feature video{width:100%;display:block}
+.vid-feature-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.75) 0%,rgba(0,0,0,.2) 60%,transparent 100%);pointer-events:none;z-index:1}
+.vid-feature-cnt{position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:2;padding:3rem 4rem;max-width:560px}
+@media(max-width:768px){
+  .vid-placeholder{aspect-ratio:16/9;min-height:260px}
+  .vid-html5{aspect-ratio:16/9;min-height:220px}
+  .vid-feature-cnt{padding:2rem 1.5rem;max-width:100%}
+}
+
 </style>
 </head>
 <body>
@@ -883,6 +909,66 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
     </div><!-- /.wrap -->
   </div>
 </section> — 4 real, named, dated ══ -->
+
+<!-- ══ VIDEO EVIDENCE ══ -->
+<section style="padding:clamp(3.5rem,7vw,8rem) 0;background:var(--s1);border-top:1px solid var(--border)">
+  <div class="wrap">
+    <div class="rev" style="margin-bottom:3rem">
+      <p class="lbl" style="margin-bottom:.75rem">Video Evidence</p>
+      <h2 style="font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);font-weight:900;text-transform:uppercase;color:var(--white);line-height:.96">See It<br/><span style="color:var(--green)">In the Field.</span></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;background:var(--border)">
+
+      <!-- Drone footage -->
+      <div style="background:var(--s2)">
+        <!-- ▸ SWAP: replace with your field results / photo montage video:
+             <video class="vid-html5" controls poster="dronefield.JPG">
+               <source src="field-results.mp4" type="video/mp4">
+             </video> -->
+        <div class="yt-player" data-id="TdZmBMK7204" style="position:relative;width:100%;aspect-ratio:16/9;background:#000;cursor:pointer;overflow:hidden" onclick="playYT(this)">
+        <span class="clbl" style="z-index:3">Field Evidence</span>
+        <img src="https://img.youtube.com/vi/TdZmBMK7204/maxresdefault.jpg" alt="Sugarcane: Treated vs Untreated" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"/>
+        <div style="position:absolute;inset:0;background:rgba(0,0,0,.38);z-index:1"></div>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center;padding:1rem">
+          <div style="width:80px;height:80px;border-radius:50%;border:2px solid var(--green);background:rgba(122,196,41,.12);display:flex;align-items:center;justify-content:center">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="var(--green)" style="margin-left:5px"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+          <span style="font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--white)">Sugarcane: Treated vs Untreated</span>
+        </div>
+      </div>
+      <div class="vid-caption">
+        <div><p class="vid-caption-title">Sugarcane Field Evidence</p><p class="vid-caption-sub">Aerial & ground footage — treated vs. untreated side by side</p></div>
+      </div>
+        </div>
+      </div>
+
+      <!-- Before/after time-lapse -->
+      <div style="background:var(--s2)">
+        <!-- ▸ SWAP: replace with your farmer interview / testimonial video:
+             <video class="vid-html5" controls poster="beforeafterplants.jpg">
+               <source src="farmer-interviews.mp4" type="video/mp4">
+             </video> -->
+        <div class="yt-player" data-id="4SIROiYRggo" style="position:relative;width:100%;aspect-ratio:16/9;background:#000;cursor:pointer;overflow:hidden" onclick="playYT(this)">
+        <span class="clbl" style="z-index:3">Farmer Testimonial</span>
+        <img src="https://img.youtube.com/vi/4SIROiYRggo/maxresdefault.jpg" alt="Alfalfa Farmer — Shocking Results" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"/>
+        <div style="position:absolute;inset:0;background:rgba(0,0,0,.38);z-index:1"></div>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center;padding:1rem">
+          <div style="width:80px;height:80px;border-radius:50%;border:2px solid var(--green);background:rgba(122,196,41,.12);display:flex;align-items:center;justify-content:center">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="var(--green)" style="margin-left:5px"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+          <span style="font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--white)">Alfalfa Farmer — Shocking Results</span>
+        </div>
+      </div>
+      <div class="vid-caption">
+        <div><p class="vid-caption-title">Farmer Testimonial — Alfalfa</p><p class="vid-caption-sub">Real operator, real numbers: yield increase documented in Ruby Valley</p></div>
+      </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <section id="testimonial">
   <div class="wrap">
     <div class="rev" style="text-align:center;margin-bottom:4rem">

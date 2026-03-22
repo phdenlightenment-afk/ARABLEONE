@@ -557,6 +557,32 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
   [style*="padding:1.75rem 2.5rem"]{padding:1.25rem 1.25rem!important}
 }
 
+
+/* ── VIDEO SECTIONS ── */
+.vid-wrap{position:relative;width:100%;background:#000;overflow:hidden}
+.vid-wrap video{width:100%;height:100%;display:block;object-fit:cover}
+.vid-placeholder{width:100%;aspect-ratio:16/7;min-height:340px;background:var(--s2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;border:1px dashed rgba(122,196,41,.2);position:relative;cursor:pointer}
+.vid-play-btn{width:80px;height:80px;border-radius:50%;border:2px solid var(--green);background:rgba(122,196,41,.1);display:flex;align-items:center;justify-content:center;transition:all .3s}
+.vid-play-btn:hover{background:rgba(122,196,41,.2);transform:scale(1.08)}
+.vid-play-btn svg{width:28px;height:28px;fill:var(--green);margin-left:5px}
+.vid-swap-label{font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--green);text-align:center}
+.vid-swap-sub{font-family:var(--fd);font-size:.6rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--g3);text-align:center}
+.vid-html5{width:100%;aspect-ratio:16/7;min-height:340px;display:block;background:#000;outline:none}
+.vid-html5:focus{outline:none}
+.vid-caption{padding:1.25rem 2rem;background:var(--s2);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.vid-caption-title{font-family:var(--fd);font-size:.85rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--white)}
+.vid-caption-sub{font-size:.78rem;font-weight:300;color:var(--g3)}
+/* Full-width feature video */
+.vid-feature{position:relative;width:100%;overflow:hidden}
+.vid-feature video{width:100%;display:block}
+.vid-feature-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.75) 0%,rgba(0,0,0,.2) 60%,transparent 100%);pointer-events:none;z-index:1}
+.vid-feature-cnt{position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:2;padding:3rem 4rem;max-width:560px}
+@media(max-width:768px){
+  .vid-placeholder{aspect-ratio:16/9;min-height:260px}
+  .vid-html5{aspect-ratio:16/9;min-height:220px}
+  .vid-feature-cnt{padding:2rem 1.5rem;max-width:100%}
+}
+
 </style>
 </head>
 <body>
@@ -711,6 +737,28 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
       </div>
     </div>
 
+
+    <!-- Agriculture grower testimonial video -->
+    <div class="wrap" style="margin-top:3rem">
+      <div style="border:1px solid var(--border);overflow:hidden">
+        <div style="padding:1.5rem 2rem;background:var(--s2);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between">
+          <div>
+            <p class="lbl" style="margin-bottom:.3rem">Grower Testimonial</p>
+            <p style="font-size:.8rem;font-weight:300;color:var(--g3)">Real operators. Real results. In their own words.</p>
+          </div>
+          <span style="font-family:var(--fd);font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);border:1px solid var(--amber);padding:.35rem .7rem">▸ SWAP VIDEO</span>
+        </div>
+        <!-- ▸ SWAP: replace with your grower testimonial video
+             <video class="vid-html5" controls poster="cornfield.JPG">
+               <source src="grower-testimonial.mp4" type="video/mp4">
+             </video> -->
+        <div class="vid-placeholder" style="aspect-ratio:16/6;min-height:260px">
+          <div class="vid-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          <span class="vid-swap-label">Grower Testimonial</span>
+          <span class="vid-swap-sub">▸ SWAP: grower-testimonial.mp4</span>
+        </div>
+      </div>
+    </div>
     <div style="margin-top:3rem;padding:2.5rem;border:1px solid rgba(122,196,41,.2);background:rgba(122,196,41,.04);display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap">
       <div>
         <p class="lbl" style="margin-bottom:.4rem">Commercial Pricing</p>
@@ -869,6 +917,26 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
       </div>
     </div>
 
+
+    <!-- Golf/turf results video -->
+    <div style="margin-top:3rem;border:1px solid var(--border);overflow:hidden">
+      <div style="padding:1.5rem 2rem;background:var(--s2);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between">
+        <div>
+          <p class="lbl" style="margin-bottom:.3rem">Turf Results</p>
+          <p style="font-size:.8rem;font-weight:300;color:var(--g3)">Superintendent or operator interview showing before &amp; after conditions</p>
+        </div>
+        <span style="font-family:var(--fd);font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);border:1px solid var(--amber);padding:.35rem .7rem">&#9658; SWAP VIDEO</span>
+      </div>
+      <!-- ▸ SWAP: replace with your turf results video when ready:
+           <video class="vid-html5" controls poster="goflcourse.jpg">
+             <source src="golf-results.mp4" type="video/mp4">
+           </video> -->
+      <div class="vid-placeholder" style="aspect-ratio:16/6;min-height:260px">
+        <div class="vid-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+        <span class="vid-swap-label">Golf &amp; Turf Results Video</span>
+        <span class="vid-swap-sub">&#9658; SWAP: golf-results.mp4</span>
+      </div>
+    </div>
     <div class="use-cases" style="margin-top:3rem">
       <div class="use-case">
         <div class="use-case-icon">⛳</div>
@@ -999,6 +1067,28 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
         <div class="use-case-icon">🏠</div>
         <h3 class="use-case-title">Indoor Plants</h3>
         <p class="use-case-desc">Works indoors too. A small diluted application to any potting soil activates the microorganisms already present — healthier, longer-lasting houseplants.</p>
+      </div>
+    </div>
+  
+    <!-- Morning glory time-lapse -->
+    <div style="margin-top:3rem;border:1px solid var(--border);overflow:hidden">
+      <div style="padding:1.5rem 2rem;background:var(--s2);border-bottom:1px solid var(--border)">
+        <p class="lbl" style="margin-bottom:.3rem">See the Results</p>
+        <p style="font-size:.8rem;font-weight:300;color:var(--g3)">Morning glory treated with ArableONE™ — time-lapse growth from seed</p>
+      </div>
+      <div class="yt-player" data-id="DLl336fMf7Q" style="position:relative;width:100%;aspect-ratio:16/7;background:#000;cursor:pointer;overflow:hidden" onclick="playYT(this)">
+        <span class="clbl" style="z-index:3">Time-lapse</span>
+        <img src="https://img.youtube.com/vi/DLl336fMf7Q/maxresdefault.jpg" alt="Morning Glory Growth — Time-lapse" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"/>
+        <div style="position:absolute;inset:0;background:rgba(0,0,0,.38);z-index:1"></div>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center;padding:1rem">
+          <div style="width:80px;height:80px;border-radius:50%;border:2px solid var(--green);background:rgba(122,196,41,.12);display:flex;align-items:center;justify-content:center">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="var(--green)" style="margin-left:5px"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+          <span style="font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--white)">Morning Glory Growth — Time-lapse</span>
+        </div>
+      </div>
+      <div class="vid-caption">
+        <div><p class="vid-caption-title">Morning Glory Time-lapse</p><p class="vid-caption-sub">ArableONE™ treated seeds — visible accelerated growth from day one</p></div>
       </div>
     </div>
   </div>
@@ -1184,6 +1274,19 @@ if(jLinks.length){window.addEventListener('scroll',function(){
   jSecs.forEach(function(id){var el=document.getElementById(id);if(el&&el.offsetTop<=pos)active=id;});
   jLinks.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')==='#'+active);});
 },{passive:true});}
+
+function playYT(el){
+  var id=el.getAttribute('data-id');
+  var iframe=document.createElement('iframe');
+  iframe.src='https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1';
+  iframe.setAttribute('frameborder','0');
+  iframe.setAttribute('allowfullscreen','');
+  iframe.setAttribute('allow','accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture');
+  iframe.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:none;z-index:10';
+  el.innerHTML='';
+  el.appendChild(iframe);
+  el.onclick=null;
+}
 </script>
 </body>
 </html>
