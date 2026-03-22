@@ -7,7 +7,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet"/>
 <style>
-
 :root{
   --black:#050505;--s1:#0d0d0d;--s2:#131313;--s3:#1a1a1a;
   --border:rgba(255,255,255,0.07);
@@ -180,7 +179,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
 
 /* CITIES */
 .cities-top{text-align:center;max-width:760px;margin:0 auto;padding:8rem 2.5rem 5rem}
-.cities-vis{width:100%;height:440px;position:relative;overflow:hidden;border-top:1px solid var(--border)}
+.cities-vis{width:100%;height:560px;position:relative;overflow:hidden;border-top:1px solid var(--border)}
 .cities-vis-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,13,13,.8) 0%,rgba(13,13,13,.2) 50%,transparent 100%);pointer-events:none;z-index:1}
 .cities-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-top:2rem}
 
@@ -406,6 +405,9 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
   .nav-links,#nav .btn{display:none}
   .ham{display:flex}
 
+  /* Hide decorative section numbers on mobile */
+  .snum{display:none!important}
+
   /* Global section padding */
   section[style*="padding:9rem"]{padding-top:4rem!important;padding-bottom:4rem!important}
   section[style*="padding:8rem"]{padding-top:4rem!important;padding-bottom:4rem!important}
@@ -583,6 +585,58 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
   .vid-feature-cnt{padding:2rem 1.5rem;max-width:100%}
 }
 
+
+/* ── APPLICATIONS PAGE EXTRAS ── */
+.app-jump-nav{background:var(--s2);border-bottom:1px solid var(--border);position:sticky;top:64px;z-index:50;overflow-x:auto}
+.app-jump-nav-in{display:flex;max-width:1320px;margin:0 auto;padding:0 2.5rem}
+.app-jump-link{font-family:var(--fd);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g3);padding:1.1rem 1.75rem;border-bottom:2px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s}
+.app-jump-link:hover{color:var(--green);border-bottom-color:rgba(122,196,41,.4)}
+.app-jump-link.active{color:var(--green);border-bottom-color:var(--green)}
+
+.sector-hero{position:relative;overflow:hidden;min-height:520px;display:flex;align-items:center}
+.sector-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
+.sector-hero-overlay{position:absolute;inset:0;z-index:1}
+.sector-hero-cnt{position:relative;z-index:2;padding:7rem 0}
+
+.stat-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-top:4rem}
+.stat-card{background:var(--s2);padding:2.5rem 2rem;text-align:center}
+.stat-card-n{font-family:'Bebas Neue',cursive;font-size:clamp(2.8rem,5vw,4.5rem);color:var(--green);line-height:1;display:block;margin-bottom:.4rem}
+.stat-card-l{font-family:var(--fd);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g2);line-height:1.4}
+.stat-card-d{font-size:.8rem;font-weight:300;color:var(--g3);margin-top:.35rem;line-height:1.55}
+
+.detail-split{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border)}
+.detail-text{padding:4rem}
+.detail-visual{position:relative;overflow:hidden;min-height:440px}
+.detail-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+
+.use-cases{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:3rem}
+.use-case{background:var(--s2);padding:2rem 1.75rem}
+.use-case-icon{font-family:'Bebas Neue',cursive;font-size:2rem;color:var(--green);line-height:1;margin-bottom:.75rem}
+.use-case-title{font-family:var(--fd);font-size:.85rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--white);margin-bottom:.5rem}
+.use-case-desc{font-size:.82rem;font-weight:300;line-height:1.7;color:var(--g2)}
+
+.sector-divider{height:4px;background:linear-gradient(to right,var(--green),rgba(122,196,41,.1))}
+
+/* YouTube player */
+.yt-player:hover img{transform:scale(1.03)}
+.yt-player img{transition:transform .4s ease}
+
+@media(max-width:1024px){
+  .stat-cards{grid-template-columns:repeat(2,1fr)}
+  .detail-split{grid-template-columns:1fr}
+  .detail-visual{min-height:300px}
+  .use-cases{grid-template-columns:1fr 1fr}
+  .detail-text{padding:2.5rem 2rem}
+}
+@media(max-width:768px){
+  .use-cases{grid-template-columns:1fr}
+  .app-jump-nav-in{gap:0}
+  .app-jump-link{padding:.9rem 1.1rem;font-size:.6rem}
+  .stat-cards{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .stat-cards{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
