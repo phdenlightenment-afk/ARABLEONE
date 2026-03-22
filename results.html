@@ -605,6 +605,10 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
   .vid-feature-cnt{padding:2rem 1.5rem;max-width:100%}
 }
 
+
+/* YouTube player hover */
+.yt-player:hover img{transform:scale(1.03);}
+.yt-player img{transition:transform .4s ease;}
 </style>
 </head>
 <body>
@@ -917,7 +921,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
       <p class="lbl" style="margin-bottom:.75rem">Video Evidence</p>
       <h2 style="font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);font-weight:900;text-transform:uppercase;color:var(--white);line-height:.96">See It<br/><span style="color:var(--green)">In the Field.</span></h2>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;background:var(--border)">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;background:var(--border)">
 
       <!-- Sugarcane field evidence -->
       <div style="background:var(--s2);display:flex;flex-direction:column">
@@ -1043,6 +1047,19 @@ if(window.requestAnimationFrame){requestAnimationFrame(function(){
     if(r.top>window.innerHeight*0.9){el.classList.add('ready');obs.observe(el);}else{el.classList.add('in');}
   });
 });}
+
+function playYT(el){
+  var id=el.getAttribute('data-id');
+  var iframe=document.createElement('iframe');
+  iframe.src='https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1';
+  iframe.setAttribute('frameborder','0');
+  iframe.setAttribute('allowfullscreen','');
+  iframe.setAttribute('allow','accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture');
+  iframe.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:none;z-index:10';
+  el.innerHTML='';
+  el.appendChild(iframe);
+  el.onclick=null;
+}
 </script>
 </body>
 </html>
