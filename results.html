@@ -919,100 +919,40 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;background:var(--border)">
 
-      <!-- Drone footage -->
-      <div style="background:var(--s2)">
-        <!-- ▸ SWAP: replace with your field results / photo montage video:
-             <video class="vid-html5" controls poster="dronefield.JPG">
-               <source src="field-results.mp4" type="video/mp4">
-             </video> -->
-        <div class="yt-player" data-id="TdZmBMK7204" style="position:relative;width:100%;aspect-ratio:16/9;background:#000;cursor:pointer;overflow:hidden" onclick="playYT(this)">
-        <span class="clbl" style="z-index:3">Field Evidence</span>
-        <img src="https://img.youtube.com/vi/TdZmBMK7204/maxresdefault.jpg" alt="Sugarcane: Treated vs Untreated" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"/>
-        <div style="position:absolute;inset:0;background:rgba(0,0,0,.38);z-index:1"></div>
-        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center;padding:1rem">
-          <div style="width:80px;height:80px;border-radius:50%;border:2px solid var(--green);background:rgba(122,196,41,.12);display:flex;align-items:center;justify-content:center">
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="var(--green)" style="margin-left:5px"><polygon points="5,3 19,12 5,21"/></svg>
+      <!-- Sugarcane field evidence -->
+      <div style="background:var(--s2);display:flex;flex-direction:column">
+        <div class="yt-player" data-id="TdZmBMK7204" style="position:relative;width:100%;aspect-ratio:16/9;background:#000;cursor:pointer;overflow:hidden;flex:1" onclick="playYT(this)">
+          <span class="clbl" style="z-index:3">Field Evidence</span>
+          <img src="https://img.youtube.com/vi/TdZmBMK7204/maxresdefault.jpg" alt="Sugarcane: Treated vs Untreated" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"/>
+          <div style="position:absolute;inset:0;background:rgba(0,0,0,.38);z-index:1"></div>
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center;padding:1rem">
+            <div style="width:80px;height:80px;border-radius:50%;border:2px solid var(--green);background:rgba(122,196,41,.12);display:flex;align-items:center;justify-content:center">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="var(--green)" style="margin-left:5px"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+            <span style="font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--white)">Sugarcane: Treated vs Untreated</span>
           </div>
-          <span style="font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--white)">Sugarcane: Treated vs Untreated</span>
         </div>
-      </div>
-      <div class="vid-caption">
-        <div><p class="vid-caption-title">Sugarcane Field Evidence</p><p class="vid-caption-sub">Aerial & ground footage — treated vs. untreated side by side</p></div>
-      </div>
+        <div class="vid-caption">
+          <div><p class="vid-caption-title">Sugarcane Field Evidence</p><p class="vid-caption-sub">Aerial &amp; ground footage — treated vs. untreated side by side</p></div>
         </div>
       </div>
 
-      <!-- Before/after time-lapse -->
-      <div style="background:var(--s2)">
-        <!-- ▸ SWAP: replace with your farmer interview / testimonial video:
-             <video class="vid-html5" controls poster="beforeafterplants.jpg">
-               <source src="farmer-interviews.mp4" type="video/mp4">
-             </video> -->
-        <div class="yt-player" data-id="4SIROiYRggo" style="position:relative;width:100%;aspect-ratio:16/9;background:#000;cursor:pointer;overflow:hidden" onclick="playYT(this)">
-        <span class="clbl" style="z-index:3">Farmer Testimonial</span>
-        <img src="https://img.youtube.com/vi/4SIROiYRggo/maxresdefault.jpg" alt="Alfalfa Farmer — Shocking Results" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"/>
-        <div style="position:absolute;inset:0;background:rgba(0,0,0,.38);z-index:1"></div>
-        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center;padding:1rem">
-          <div style="width:80px;height:80px;border-radius:50%;border:2px solid var(--green);background:rgba(122,196,41,.12);display:flex;align-items:center;justify-content:center">
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="var(--green)" style="margin-left:5px"><polygon points="5,3 19,12 5,21"/></svg>
+      <!-- Alfalfa farmer testimonial -->
+      <div style="background:var(--s2);display:flex;flex-direction:column">
+        <div class="yt-player" data-id="4SIROiYRggo" style="position:relative;width:100%;aspect-ratio:16/9;background:#000;cursor:pointer;overflow:hidden;flex:1" onclick="playYT(this)">
+          <span class="clbl" style="z-index:3">Farmer Testimonial</span>
+          <img src="https://img.youtube.com/vi/4SIROiYRggo/hqdefault.jpg" alt="Alfalfa Farmer — Shocking Results" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block"/>
+          <div style="position:absolute;inset:0;background:rgba(0,0,0,.38);z-index:1"></div>
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center;padding:1rem">
+            <div style="width:80px;height:80px;border-radius:50%;border:2px solid var(--green);background:rgba(122,196,41,.12);display:flex;align-items:center;justify-content:center">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="var(--green)" style="margin-left:5px"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+            <span style="font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--white)">Alfalfa Farmer — Shocking Results</span>
           </div>
-          <span style="font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--white)">Alfalfa Farmer — Shocking Results</span>
         </div>
-      </div>
-      <div class="vid-caption">
-        <div><p class="vid-caption-title">Farmer Testimonial — Alfalfa</p><p class="vid-caption-sub">Real operator, real numbers: yield increase documented in Ruby Valley</p></div>
-      </div>
+        <div class="vid-caption">
+          <div><p class="vid-caption-title">Farmer Testimonial — Alfalfa</p><p class="vid-caption-sub">Real operator, real numbers: yield increase documented in Ruby Valley</p></div>
         </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section id="testimonial">
-  <div class="wrap">
-    <div class="rev" style="text-align:center;margin-bottom:4rem">
-      <p class="lbl" style="margin-bottom:.75rem">Field Testimonials</p>
-      <h2 style="font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);font-weight:900;text-transform:uppercase;color:var(--black);line-height:.96">
-        Real Operators. Real Numbers.
-      </h2>
-    </div>
-    <div class="stg" style="display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:rgba(0,0,0,.08)">
-
-      <div style="background:var(--white);padding:2.5rem">
-        <p style="font-family:'Bebas Neue',cursive;font-size:2.8rem;color:var(--green-lo);line-height:1;margin-bottom:.5rem">+350% Production</p>
-        <p style="font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g2);margin-bottom:1.1rem">Strawberries · Santa Cruz, CA</p>
-        <blockquote style="font-size:.92rem;font-weight:400;line-height:1.7;color:#444;margin-bottom:1.25rem;font-style:italic">
-          "84 bins treated vs. 24 bins untreated. Plants grew faster with healthier dark green color."
-        </blockquote>
-        <p style="font-family:var(--fd);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g3)">Armando R. — Field Manager, Santa Cruz Berry</p>
-      </div>
-
-      <div style="background:#f5f5f2;padding:2.5rem">
-        <p style="font-family:'Bebas Neue',cursive;font-size:2.8rem;color:var(--green-lo);line-height:1;margin-bottom:.5rem">+15 Extra Tons</p>
-        <p style="font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g2);margin-bottom:1.1rem">Alfalfa · Ruby Valley, Utah</p>
-        <blockquote style="font-size:.92rem;font-weight:400;line-height:1.7;color:#444;margin-bottom:1.25rem;font-style:italic">
-          "75-acre treated field produced 15 additional 1-ton bales of supreme quality — vs. 125 untreated acres."
-        </blockquote>
-        <p style="font-family:var(--fd);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g3)">Francisco — Field Supervisor, Ruby Valley</p>
-      </div>
-
-      <div style="background:#f5f5f2;padding:2.5rem">
-        <p style="font-family:'Bebas Neue',cursive;font-size:2.8rem;color:var(--green-lo);line-height:1;margin-bottom:.5rem">Visibly Lush</p>
-        <p style="font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g2);margin-bottom:1.1rem">Commercial Landscaping · Sacramento, CA</p>
-        <blockquote style="font-size:.92rem;font-weight:400;line-height:1.7;color:#444;margin-bottom:1.25rem;font-style:italic">
-          "Turf much more thick and lush — same irrigation, same fertilization. Incorporating into all future applications."
-        </blockquote>
-        <p style="font-family:var(--fd);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g3)">Todd M. — President, California Landscape Associates Inc.</p>
-      </div>
-
-      <div style="background:var(--white);padding:2.5rem">
-        <p style="font-family:'Bebas Neue',cursive;font-size:2.8rem;color:var(--green-lo);line-height:1;margin-bottom:.5rem">2× Bud Growth</p>
-        <p style="font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g2);margin-bottom:1.1rem">Almonds · California · 2020</p>
-        <blockquote style="font-size:.92rem;font-weight:400;line-height:1.7;color:#444;margin-bottom:1.25rem;font-style:italic">
-          "2–3 buds per branch last year. 5–6 buds this year. Blue Diamond rep was also impressed with the improvement."
-        </blockquote>
-        <p style="font-family:var(--fd);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g3)">Carlos DeMatos — Almond Grower, California</p>
       </div>
 
     </div>
