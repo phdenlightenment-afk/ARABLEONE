@@ -179,7 +179,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
 .fw-photo{position:relative;overflow:hidden;min-height:400px}
 .fw-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .9s cubic-bezier(0.22,1,0.36,1)}
 .fw-photo:hover img{transform:scale(1.03)}
-.fw-photo-overlay{position:absolute;inset:0;background:rgba(0,0,0,.35);z-index:1;pointer-events:none}
+.fw-photo-overlay{position:absolute;inset:0;background:rgba(0,0,0,.15);z-index:1;pointer-events:none}
 .fw-photo .clbl{z-index:2}
 .farms-stat-strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border)}
 .farms-stat-item{padding:2.25rem 2rem;border-right:1px solid var(--border);display:flex;align-items:baseline;gap:.75rem}
@@ -190,7 +190,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
 /* CITIES */
 .cities-top{text-align:center;max-width:760px;margin:0 auto;padding:8rem 2.5rem 5rem}
 .cities-vis{width:100%;height:560px;position:relative;overflow:hidden;border-top:1px solid var(--border)}
-.cities-vis-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,13,13,.8) 0%,rgba(13,13,13,.2) 50%,transparent 100%);pointer-events:none;z-index:1}
+.cities-vis-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,13,13,.6) 0%,rgba(13,13,13,.1) 50%,transparent 100%);pointer-events:none;z-index:1}
 .cities-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-top:2rem}
 
 /* GOLF */
@@ -216,7 +216,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
 .hoa-vis{position:relative;min-height:480px;overflow:hidden}
 .hoa-vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .hoa-vis .clbl{z-index:2}
-.hoa-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(5,5,5,.05) 0%,rgba(5,5,5,.5) 100%);z-index:1;pointer-events:none}
+.hoa-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(5,5,5,.02) 0%,rgba(5,5,5,.25) 100%);z-index:1;pointer-events:none}
 .hoa-text{padding:4rem;border-left:1px solid var(--border);display:flex;flex-direction:column;justify-content:center}
 
 /* PRODUCTS */
@@ -616,7 +616,6 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
       <li><a href="#technology">How It Works</a></li>
       <li><a href="applications.html">Applications</a></li>
       <li><a href="results.html">Results</a></li>
-      <li><a href="calculator.html">Calculator</a></li>
       <li><a href="products.html">Products</a></li>
       <li><a href="#b2b">Business</a></li>
       <li><a href="faq.html">FAQ</a></li>
@@ -638,7 +637,6 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
     <div class="h-btns">
       <a href="#b2b" class="btn btn-a" style="font-size:1rem;padding:1.1rem 2.6rem;font-weight:900">Request Commercial Quote <span class="arr">→</span></a>
       <a href="products.html" class="btn btn-g" style="font-size:.88rem">Shop Consumer Sizes</a>
-      <a href="calculator.html" class="btn btn-og" style="font-size:.88rem">ROI Calculator <span class="arr">→</span></a>
       <a href="results.html" class="btn btn-ol" style="font-size:.82rem">View Field Results</a>
     </div>
   </div>
@@ -914,7 +912,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
     </div>
     <div class="golf-photos rev-r">
       <div class="golf-photo-top"><span class="clbl">Fairway Conditions</span><img src="goflcourse.jpg" alt="Lush golf course fairway" loading="lazy"/></div>
-      <div class="golf-photo-btm"><span class="clbl">Before &amp; After</span><img src="beforeafterrosebush.jpg" alt="Rose bush before and after ArableONE™" loading="lazy"/></div>
+      <div class="golf-photo-btm"><span class="clbl">Plant Health</span><img src="pinkrosehand.jpg" alt="Healthy plant growth with ArableONE™" loading="lazy" style="object-position:center 30%"/></div>
     </div>
   </div>
 </section>
@@ -927,7 +925,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
     <span class="clbl" style="z-index:3;position:absolute">Home &amp; Garden</span>
     <img src="pinkrosehand.jpg" alt="Flowers after ArableONE™ treatment" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block"/>
     <div style="position:absolute;bottom:0;left:0;right:0;height:160px;background:linear-gradient(to bottom,transparent,rgba(13,13,13,1));z-index:2;pointer-events:none"></div>
-    <div style="position:absolute;inset:0;background:rgba(0,0,0,.18);z-index:1;pointer-events:none"></div>
+    <div style="position:absolute;inset:0;background:rgba(0,0,0,.08);z-index:1;pointer-events:none"></div>
   </div>
   <div class="hg-bottom">
     <div class="wrap">
