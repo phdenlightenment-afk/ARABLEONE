@@ -619,27 +619,52 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
 /* YouTube player hover */
 .yt-player:hover img{transform:scale(1.03);}
 .yt-player img{transition:transform .4s ease;}
+
+/* ── DOCUMENTED STUDIES ── */
+.study-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.study-card{background:var(--s2);padding:2.5rem;display:flex;flex-direction:column;gap:0;transition:background var(--t)}
+.study-card:hover{background:var(--s3)}
+.study-institution{font-family:var(--fd);font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--green);margin-bottom:.5rem}
+.study-crop{font-family:var(--fd);font-size:1.5rem;font-weight:900;letter-spacing:.02em;text-transform:uppercase;color:var(--white);line-height:1;margin-bottom:.25rem}
+.study-loc{font-size:.78rem;font-weight:300;color:var(--g3);margin-bottom:1.75rem}
+.study-metrics{display:flex;flex-direction:column;gap:.85rem;margin-bottom:1.75rem}
+.study-metric{display:flex;flex-direction:column;gap:.35rem}
+.study-metric-label{font-family:var(--fd);font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g3)}
+.study-metric-bars{display:flex;flex-direction:column;gap:.2rem}
+.study-bar-row{display:flex;align-items:center;gap:.75rem}
+.study-bar-label{font-family:var(--fd);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;width:70px;flex-shrink:0}
+.study-bar-label.treated{color:var(--green)}
+.study-bar-label.control{color:var(--g3)}
+.study-bar-track{flex:1;height:5px;background:var(--border);position:relative;overflow:visible}
+.study-bar-fill{height:100%;transition:width 1.2s var(--ease)}
+.study-bar-fill.treated{background:var(--green)}
+.study-bar-fill.control{background:var(--g3)}
+.study-bar-val{font-family:var(--fs);font-size:.95rem;color:var(--white);min-width:50px;text-align:right;flex-shrink:0}
+.study-bar-val.treated{color:var(--green)}
+.study-headline{font-family:var(--fs);font-size:2.2rem;color:var(--green);line-height:1;margin-bottom:.35rem}
+.study-headline-sub{font-size:.78rem;font-weight:300;color:var(--g2);line-height:1.6}
+.study-source{font-size:.68rem;font-weight:300;color:var(--g3);margin-top:auto;padding-top:1.5rem;border-top:1px solid var(--border);line-height:1.55}
+.study-source strong{color:var(--g2);font-weight:400}
+@media(max-width:1024px){.study-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-</style>
-</head>
-<body>
 <nav class="mob-nav" id="mobNav">
   <button class="mob-close" id="mobClose" onclick="closeMobileMenu()" aria-label="Close menu">✕</button>
   <a onclick="closeMobileMenu()" href="index.html">Home</a>
+  <a onclick="closeMobileMenu()" href="howitworks.html">How It Works</a>
   <a onclick="closeMobileMenu()" href="applications.html">Applications</a>
-  <a onclick="closeMobileMenu()" href="products.html">Shop</a>
   <a onclick="closeMobileMenu()" href="results.html" class="active">Results</a>
+  <a onclick="closeMobileMenu()" href="products.html">Products</a>
+  <a onclick="closeMobileMenu()" href="index.html#b2b">Business</a>
   <a onclick="closeMobileMenu()" href="faq.html">FAQ</a>
-  <a onclick="closeMobileMenu()" href="index.html#b2b">Business Sales</a>
 </nav>
 <header id="nav">
   <div class="nav-in">
     <a href="index.html" class="nav-logo"><img src="https://arableone.com/cdn/shop/files/ARABLEONE_LOGO_-_Email_Signature.png?v=1683342934&width=320" alt="ArableONE™" style="height:40px;width:auto"/></a>
         <ul class="nav-links">
-      <li><a href="index.html#technology">How It Works</a></li>
+      <li><a href="howitworks.html">How It Works</a></li>
       <li><a href="applications.html">Applications</a></li>
       <li><a href="results.html" class="active">Results</a></li>
       <li><a href="products.html">Products</a></li>
@@ -785,6 +810,197 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
   </div>
 
 </section>
+<!-- ══ DOCUMENTED FIELD STUDIES ══ -->
+<section id="studies" style="padding:clamp(3.5rem,7vw,8rem) 0;background:var(--s1);border-top:1px solid var(--border)">
+  <div class="wrap">
+    <div class="rev" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:3rem">
+      <div>
+        <p class="lbl" style="margin-bottom:.75rem">Sourced &amp; Cited</p>
+        <h2 style="font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);font-weight:900;text-transform:uppercase;color:var(--white);line-height:.96">Institutional<br/><span style="color:var(--green)">Field Studies</span></h2>
+        <p style="font-size:.88rem;font-weight:300;color:var(--g2);margin-top:.75rem;max-width:560px;line-height:1.75">These three trials were conducted by independent universities, research departments, and agro-industrial companies. Data available on request.</p>
+      </div>
+      <div style="display:flex;align-items:center;gap:.75rem;background:rgba(122,196,41,.06);border:1px solid rgba(122,196,41,.15);padding:1rem 1.5rem">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L12.4 7.6H18L13.3 11.2L15.1 17L10 13.5L4.9 17L6.7 11.2L2 7.6H7.6Z" stroke="#7AC429" stroke-width="1.5" fill="none"/></svg>
+        <div><p style="font-family:var(--fd);font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--green)">3 Cited Institutions</p><p style="font-size:.75rem;font-weight:300;color:var(--g2)">University · Sugar Co. · Ag Research Dept</p></div>
+      </div>
+    </div>
+    <div class="study-grid stg">
+
+      <!-- STUDY 1: KNUST GHANA CUCUMBER 2022 -->
+      <div class="study-card">
+        <p class="study-institution">Dept. of Horticulture · KNUST · Ghana · 2022</p>
+        <p class="study-crop">Cucumber</p>
+        <p class="study-loc">Kwame Nkrumah University of Science and Technology, Kumasi · February 2022</p>
+        <div class="study-headline">+107%</div>
+        <p class="study-headline-sub">Fruit yield increase vs. untreated control (163.88 vs. 79.16 t/ha). Nearly double the harvest from the same soil.</p>
+        <div class="study-metrics">
+          <div class="study-metric">
+            <p class="study-metric-label">Fruit Yield (t/ha)</p>
+            <div class="study-metric-bars">
+              <div class="study-bar-row">
+                <span class="study-bar-label treated">ArableONE</span>
+                <div class="study-bar-track"><div class="study-bar-fill treated" style="width:100%"></div></div>
+                <span class="study-bar-val treated">163.88</span>
+              </div>
+              <div class="study-bar-row">
+                <span class="study-bar-label control">Control</span>
+                <div class="study-bar-track"><div class="study-bar-fill control" style="width:48%"></div></div>
+                <span class="study-bar-val">79.16</span>
+              </div>
+            </div>
+          </div>
+          <div class="study-metric">
+            <p class="study-metric-label">Shelf Life (days)</p>
+            <div class="study-metric-bars">
+              <div class="study-bar-row">
+                <span class="study-bar-label treated">ArableONE</span>
+                <div class="study-bar-track"><div class="study-bar-fill treated" style="width:100%"></div></div>
+                <span class="study-bar-val treated">26.0</span>
+              </div>
+              <div class="study-bar-row">
+                <span class="study-bar-label control">Control</span>
+                <div class="study-bar-track"><div class="study-bar-fill control" style="width:53%"></div></div>
+                <span class="study-bar-val">13.7</span>
+              </div>
+            </div>
+          </div>
+          <div class="study-metric">
+            <p class="study-metric-label">Fruits per Plant</p>
+            <div class="study-metric-bars">
+              <div class="study-bar-row">
+                <span class="study-bar-label treated">ArableONE</span>
+                <div class="study-bar-track"><div class="study-bar-fill treated" style="width:100%"></div></div>
+                <span class="study-bar-val treated">35.3</span>
+              </div>
+              <div class="study-bar-row">
+                <span class="study-bar-label control">Control</span>
+                <div class="study-bar-track"><div class="study-bar-fill control" style="width:71%"></div></div>
+                <span class="study-bar-val">25.0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="study-source"><strong>Source:</strong> Dept. of Horticulture, KNUST, Kumasi, Ghana. "Effects of ARABLE ONE soil conditioner on growth, yield and fruit shelf life of cucumber." February 2022. Analyzed using ANOVA (Tukey's HSD at 5%). Full report available on request.</p>
+      </div>
+
+      <!-- STUDY 2: ABT MEXICO ALFALFA 2019 -->
+      <div class="study-card">
+        <p class="study-institution">ABT Agricultural Research · Mexico · Spring 2019</p>
+        <p class="study-crop">Alfalfa</p>
+        <p class="study-loc">Crianza California Farm · Durango, Mexico · Lat. 25.75° · 1,114m elevation</p>
+        <div class="study-headline">+19%</div>
+        <p class="study-headline-sub">Highest yield of all four products tested — outperforming both the untreated control and competing soil biology products. NDVI satellite imagery confirmed superior biomass.</p>
+        <div class="study-metrics">
+          <div class="study-metric">
+            <p class="study-metric-label">Total Yield (t/ha)</p>
+            <div class="study-metric-bars">
+              <div class="study-bar-row">
+                <span class="study-bar-label treated">ArableONE</span>
+                <div class="study-bar-track"><div class="study-bar-fill treated" style="width:100%"></div></div>
+                <span class="study-bar-val treated">6.87</span>
+              </div>
+              <div class="study-bar-row">
+                <span class="study-bar-label control">Control</span>
+                <div class="study-bar-track"><div class="study-bar-fill control" style="width:84%"></div></div>
+                <span class="study-bar-val">5.76</span>
+              </div>
+            </div>
+          </div>
+          <div class="study-metric">
+            <p class="study-metric-label">Yield vs Resid MG (next best)</p>
+            <div class="study-metric-bars">
+              <div class="study-bar-row">
+                <span class="study-bar-label treated">ArableONE</span>
+                <div class="study-bar-track"><div class="study-bar-fill treated" style="width:100%"></div></div>
+                <span class="study-bar-val treated">6.87</span>
+              </div>
+              <div class="study-bar-row">
+                <span class="study-bar-label control">Resid MG</span>
+                <div class="study-bar-track"><div class="study-bar-fill control" style="width:91%"></div></div>
+                <span class="study-bar-val">6.25</span>
+              </div>
+            </div>
+          </div>
+          <div class="study-metric">
+            <p class="study-metric-label">Profit per Hectare</p>
+            <div class="study-metric-bars">
+              <div class="study-bar-row">
+                <span class="study-bar-label treated">ArableONE</span>
+                <div class="study-bar-track"><div class="study-bar-fill treated" style="width:100%"></div></div>
+                <span class="study-bar-val treated">$236.50</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p style="font-family:var(--fd);font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(122,196,41,.6);margin-bottom:.4rem">NDVI Satellite Verified</p>
+        <p style="font-size:.78rem;font-weight:300;color:var(--g2);margin-bottom:1rem;line-height:1.55">Normalized Difference Vegetation Index satellite imagery (07-June-2019) confirmed higher biomass density in ArableONE-treated plots vs. all other treatments.</p>
+        <p class="study-source"><strong>Source:</strong> ABT Agricultural Research Dept. "Penergetic P Trial in Alfalfa — Farm: Crianza California." 5 cutting cycles, March–July 2019. Conducted across 2 ha treatment plots. Full report available on request.</p>
+      </div>
+
+      <!-- STUDY 3: CAHSA HONDURAS SUGARCANE -->
+      <div class="study-card">
+        <p class="study-institution">Compañía Azucarera de Honduras · ICA–CAHSA</p>
+        <p class="study-crop">Sugarcane</p>
+        <p class="study-loc">Guaruma Farm L123 · Honduras · 9.5 Ha · Vs. Eco Raiz control</p>
+        <div class="study-headline">+22%</div>
+        <p class="study-headline-sub">Sucrose concentration advantage over the control product — more mature, higher-value cane from the same field. ArableONE outperformed Eco Raiz in all agroindustrial yield metrics.</p>
+        <div class="study-metrics">
+          <div class="study-metric">
+            <p class="study-metric-label">Sucrose Conc. (LbsAz/TC)</p>
+            <div class="study-metric-bars">
+              <div class="study-bar-row">
+                <span class="study-bar-label treated">ArableONE</span>
+                <div class="study-bar-track"><div class="study-bar-fill treated" style="width:100%"></div></div>
+                <span class="study-bar-val treated">265.62</span>
+              </div>
+              <div class="study-bar-row">
+                <span class="study-bar-label control">Eco Raiz</span>
+                <div class="study-bar-track"><div class="study-bar-fill control" style="width:82%"></div></div>
+                <span class="study-bar-val">217.39</span>
+              </div>
+            </div>
+          </div>
+          <div class="study-metric">
+            <p class="study-metric-label">Sugar Quintals/Ha (QQAz/Ha)</p>
+            <div class="study-metric-bars">
+              <div class="study-bar-row">
+                <span class="study-bar-label treated">ArableONE</span>
+                <div class="study-bar-track"><div class="study-bar-fill treated" style="width:100%"></div></div>
+                <span class="study-bar-val treated">245.35</span>
+              </div>
+              <div class="study-bar-row">
+                <span class="study-bar-label control">Eco Raiz</span>
+                <div class="study-bar-track"><div class="study-bar-fill control" style="width:96%"></div></div>
+                <span class="study-bar-val">236.72</span>
+              </div>
+            </div>
+          </div>
+          <div class="study-metric">
+            <p class="study-metric-label">Metric Tons / Ha</p>
+            <div class="study-metric-bars">
+              <div class="study-bar-row">
+                <span class="study-bar-label treated">ArableONE</span>
+                <div class="study-bar-track"><div class="study-bar-fill treated" style="width:100%"></div></div>
+                <span class="study-bar-val treated">11.13</span>
+              </div>
+              <div class="study-bar-row">
+                <span class="study-bar-label control">Eco Raiz</span>
+                <div class="study-bar-track"><div class="study-bar-fill control" style="width:97%"></div></div>
+                <span class="study-bar-val">10.74</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p style="font-family:var(--fd);font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(122,196,41,.6);margin-bottom:.4rem">Root Development Measured</p>
+        <p style="font-size:.78rem;font-weight:300;color:var(--g2);margin-bottom:1rem;line-height:1.55">Physical root length and stump weight measured across 3 samples. ArableONE produced longer roots and heavier stumps vs. all competing products.</p>
+        <p class="study-source"><strong>Source:</strong> ICA-CAHSA Sugar Cane Research Department, Compañía Azucarera de Honduras, S.A. "Arable-One Application Report — Guaruma Farm L123." Harvested at 12 months chronological age. Full report available on request.</p>
+      </div>
+
+    </div>
+    <p style="font-size:.72rem;font-weight:300;color:var(--g3);text-align:center;margin-top:2rem;line-height:1.65">All source documents available on request. Wallace Laboratories · EPA 3051A certified analysis for select trials.</p>
+  </div>
+</section>
+
 <!-- ══ TRIAL EVIDENCE ══ -->
 <section id="evidence" style="padding:clamp(3.5rem,7vw,8rem) 0;background:var(--black);border-top:1px solid var(--border)">
   <div class="wrap">
@@ -821,47 +1037,47 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
       <!-- Cucumbers -->
       <div class="ev-card">
         <p class="ev-crop">Cucumbers</p>
-        <p class="ev-loc">Ghana · Field Trial</p>
+        <p class="ev-loc">KNUST, Kumasi, Ghana · Dept. of Horticulture · Feb 2022</p>
         <div class="ev-legend">
           <span class="ev-dot" style="color:var(--green)"><span style="background:var(--green)"></span>ArableONE™</span>
           <span class="ev-dot" style="color:var(--g3)"><span style="background:var(--g3)"></span>Control</span>
         </div>
         <div class="ev-stat">
-          <span class="ev-label">Plant Height (cm)</span>
-          <div class="ev-vals"><span class="ev-treated">70.3</span><span class="ev-control">61.2</span></div>
-        </div>
-        <div class="ev-stat">
-          <span class="ev-label">Leaves per Plant</span>
-          <div class="ev-vals"><span class="ev-treated">52.7</span><span class="ev-control">20</span></div>
+          <span class="ev-label">Fruit Yield (t/ha)</span>
+          <div class="ev-vals"><span class="ev-treated">163.88</span><span class="ev-control">79.16</span></div>
         </div>
         <div class="ev-stat">
           <span class="ev-label">Fruits per Plant</span>
-          <div class="ev-vals"><span class="ev-treated">35.3</span><span class="ev-control">25</span></div>
+          <div class="ev-vals"><span class="ev-treated">35.3</span><span class="ev-control">25.0</span></div>
         </div>
         <div class="ev-stat">
-          <span class="ev-label">Fruit Weight (kg)</span>
-          <div class="ev-vals"><span class="ev-treated">5.9</span><span class="ev-control">2.9</span></div>
+          <span class="ev-label">Shelf Life (days)</span>
+          <div class="ev-vals"><span class="ev-treated">26.0</span><span class="ev-control">13.7</span></div>
+        </div>
+        <div class="ev-stat" style="border-bottom:none;padding-top:.8rem">
+          <span class="ev-label" style="color:var(--green)">Yield increase</span>
+          <span class="ev-treated" style="font-size:1.8rem">+107%</span>
         </div>
       </div>
 
       <!-- Alfalfa -->
       <div class="ev-card">
         <p class="ev-crop">Alfalfa</p>
-        <p class="ev-loc">Crianza, Mexico · Spring 2019</p>
+        <p class="ev-loc">ABT Research · Crianza California, Mexico · Spring 2019</p>
         <div class="ev-legend">
           <span class="ev-dot" style="color:var(--green)"><span style="background:var(--green)"></span>ArableONE™</span>
-          <span class="ev-dot" style="color:var(--g3)"><span style="background:var(--g3)"></span>Best Competitor</span>
+          <span class="ev-dot" style="color:var(--g3)"><span style="background:var(--g3)"></span>Control</span>
         </div>
         <div class="ev-stat">
           <span class="ev-label">Yield (tons/hectare)</span>
           <div class="ev-vals"><span class="ev-treated">6.87</span><span class="ev-control">5.76</span></div>
         </div>
         <div class="ev-stat">
-          <span class="ev-label">vs. Resid MG</span>
-          <div class="ev-vals"><span class="ev-treated">6.87</span><span class="ev-control">6.25</span></div>
+          <span class="ev-label">Profit / Ha</span>
+          <div class="ev-vals"><span class="ev-treated">$236.50</span><span class="ev-control">—</span></div>
         </div>
         <div class="ev-stat" style="border-bottom:none;padding-top:.8rem">
-          <span class="ev-label" style="color:var(--green)">Highest of all tested</span>
+          <span class="ev-label" style="color:var(--green)">Best of 4 products tested</span>
           <span class="ev-treated" style="font-size:1.4rem">+19%</span>
         </div>
       </div>
@@ -869,22 +1085,22 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
       <!-- Sugarcane sucrose -->
       <div class="ev-card">
         <p class="ev-crop">Sugarcane — Sucrose</p>
-        <p class="ev-loc">Honduras · vs. Eco Raiz</p>
+        <p class="ev-loc">ICA-CAHSA · Compañía Azucarera de Honduras · Guaruma Farm</p>
         <div class="ev-legend">
           <span class="ev-dot" style="color:var(--green)"><span style="background:var(--green)"></span>ArableONE™</span>
-          <span class="ev-dot" style="color:var(--g3)"><span style="background:var(--g3)"></span>Eco Raiz</span>
+          <span class="ev-dot" style="color:var(--g3)"><span style="background:var(--g3)"></span>Eco Raiz (control)</span>
         </div>
         <div class="ev-stat">
-          <span class="ev-label">Sucrose Level</span>
+          <span class="ev-label">Sucrose (LbsAz/TC)</span>
           <div class="ev-vals"><span class="ev-treated">265.62</span><span class="ev-control">217.39</span></div>
         </div>
         <div class="ev-stat">
-          <span class="ev-label">Yield per Hectare</span>
-          <div class="ev-vals"><span class="ev-treated">11.13</span><span class="ev-control">10.74</span></div>
+          <span class="ev-label">Sugar Quintals/Ha</span>
+          <div class="ev-vals"><span class="ev-treated">245.35</span><span class="ev-control">236.72</span></div>
         </div>
         <div class="ev-stat" style="border-bottom:none;padding-top:.8rem">
           <span class="ev-label" style="color:var(--green)">Sucrose advantage</span>
-          <span class="ev-treated" style="font-size:1.4rem">+48 lb/TC</span>
+          <span class="ev-treated" style="font-size:1.4rem">+22%</span>
         </div>
       </div>
 
@@ -958,7 +1174,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
       </div>
     </div><!-- /.wrap -->
   </div>
-</section> — 4 real, named, dated ══ -->
+</section>
 
 <!-- ══ VIDEO EVIDENCE ══ -->
 <section style="padding:clamp(3.5rem,7vw,8rem) 0;background:var(--s1);border-top:1px solid var(--border)">
