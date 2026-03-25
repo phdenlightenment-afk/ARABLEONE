@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>How It Works — ArableONE™ | Regenerative Soil Technology Explained</title>
+<meta name="description" content="ArableONE™ activates the native soil biology already in your ground — one application per season. Here's the science behind why it works on any crop, any soil, anywhere."/>
+<meta property="og:title" content="How It Works — ArableONE™ | Regenerative Soil Technology Explained"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --black:#050505;--s1:#0d0d0d;--s2:#131313;--s3:#1a1a1a;
+  --border:rgba(255,255,255,0.07);
+  --green:#7AC429;--green-hi:#92D93E;--green-lo:#4d8a12;--green-dk:#1b3d09;
+  --amber:#E08A1A;--amber-hi:#F5A030;
+  --white:#F5F5F0;--g1:#c8c8c0;--g2:#888880;--g3:#444440;
+  --fd:'Barlow Condensed',sans-serif;--fb:'Barlow',sans-serif;--fs:'Bebas Neue',cursive;
+  --ease:cubic-bezier(0.22,1,0.36,1);--t:0.4s cubic-bezier(0.22,1,0.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--black);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-style:none}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--black)}::-webkit-scrollbar-thumb{background:var(--green-lo)}
+.wrap{max-width:1320px;margin:0 auto;padding:0 2.5rem}
+.lbl{font-family:var(--fd);font-size:.68rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--green)}
+.div{height:1px;background:linear-gradient(to right,transparent,var(--border),transparent)}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fd);font-size:.85rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.9rem 2.2rem;border:none;cursor:pointer;transition:var(--t);position:relative;overflow:hidden;white-space:nowrap}
+.btn::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.08);opacity:0;transition:opacity .2s}
+.btn:hover::after{opacity:1}
+.btn-a{background:var(--amber);color:#050505}.btn-a:hover{background:var(--amber-hi);transform:translateY(-2px);box-shadow:0 6px 24px rgba(224,138,26,.25)}
+.btn-g{background:var(--green);color:#050505}.btn-g:hover{background:var(--green-hi);transform:translateY(-2px);box-shadow:0 6px 24px rgba(122,196,41,.2)}
+.btn-og{background:transparent;color:var(--green);border:1.5px solid var(--green)}.btn-og:hover{background:var(--green);color:#050505;transform:translateY(-2px)}
+.btn-ol{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.25)}.btn-ol:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px)}
+.arr{display:inline-block;transition:transform .25s}.btn:hover .arr{transform:translateX(4px)}
+
+/* SHARED */
+.sbulls{display:flex;flex-direction:column;gap:.6rem}
+.sbulls li{display:flex;align-items:center;gap:.75rem;font-family:var(--fd);font-size:.88rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--g1)}
+.sbulls li::before{content:'';display:block;width:16px;height:2px;background:var(--green);flex-shrink:0}
+.clbl{position:absolute;top:1.2rem;left:1.2rem;z-index:2;font-family:var(--fd);font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--green);background:rgba(5,5,5,.8);padding:.3rem .6rem;border-left:2px solid var(--green)}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+#nav.scrolled{background:rgba(5,5,5,.97);border-bottom-color:var(--border);backdrop-filter:blur(16px)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;max-width:1320px;margin:0 auto}
+.nav-logo img{height:40px;width:auto}
+.nav-links{display:flex;align-items:center;gap:1.8rem}
+.nav-links a{font-family:var(--fd);font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--g2);transition:color .25s}
+.nav-links a:hover,.nav-links a.active{color:var(--green)}
+.ham{display:none;flex-direction:column;gap:6px;cursor:pointer;padding:12px 8px;background:none;border:none;z-index:101;-webkit-tap-highlight-color:rgba(122,196,41,.2);touch-action:manipulation}
+.ham span{display:block;width:26px;height:2px;background:var(--white);border-radius:2px;transition:var(--t)}
+.mob-nav{display:none;position:fixed;inset:0;background:rgba(5,5,5,.99);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+.mob-nav.open{display:flex}
+.mob-nav a{font-family:var(--fd);font-size:1.8rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--white);transition:color .2s}
+.mob-nav a:hover{color:var(--green)}
+.mob-close{position:absolute;top:1.5rem;right:2rem;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer;line-height:1}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(122,196,41,.2);position:relative;z-index:1}
+.sc{padding:3rem 2rem;border-right:1px solid rgba(122,196,41,.15);text-align:center;transition:background .3s}
+.sc:last-child{border-right:none}
+.sc:hover{background:rgba(122,196,41,.06)}
+.sn{font-family:var(--fs);font-size:clamp(3.5rem,6vw,5.5rem);color:var(--green);line-height:1;display:block;margin-bottom:.5rem}
+.sl{font-family:var(--fd);font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--g1);line-height:1.5}
+.sd{font-size:.78rem;color:var(--g2);margin-top:.4rem;font-weight:300}
+
+/* PROCESS STEPS */
+.process-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative}
+.process-steps::before{content:'';position:absolute;top:2.75rem;left:calc(16.66% + 1px);right:calc(16.66% + 1px);height:1px;background:linear-gradient(to right,var(--green-lo),var(--green),var(--green-lo));opacity:.4;pointer-events:none}
+.process-step{background:var(--s1);padding:3.5rem 3rem;border:1px solid var(--border);margin:-1px 0 0 -1px;position:relative;transition:background var(--t)}
+.process-step:hover{background:var(--s2)}
+.step-num{width:56px;height:56px;border-radius:50%;border:2px solid var(--green);background:var(--black);display:flex;align-items:center;justify-content:center;margin-bottom:2rem;position:relative;z-index:1}
+.step-num span{font-family:var(--fs);font-size:1.5rem;color:var(--green);line-height:1}
+.step-tag{font-family:var(--fd);font-size:.58rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--green);margin-bottom:.5rem}
+.step-title{font-family:var(--fd);font-size:1.5rem;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:var(--white);margin-bottom:.75rem;line-height:1}
+.step-body{font-size:.92rem;font-weight:300;color:var(--g2);line-height:1.8;margin-bottom:1.5rem}
+.step-detail{font-family:var(--fd);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green-lo);padding-top:1.25rem;border-top:1px solid var(--border)}
+
+/* MECHANISM TIMELINE */
+.mech-timeline{display:flex;flex-direction:column;gap:0}
+.mech-item{display:grid;grid-template-columns:80px 1fr;gap:0;border-bottom:1px solid var(--border);transition:background var(--t)}
+.mech-item:last-child{border-bottom:none}
+.mech-item:hover{background:rgba(122,196,41,.03)}
+.mech-num{font-family:var(--fs);font-size:3.5rem;color:rgba(122,196,41,.15);line-height:1;padding:2rem 1.5rem 2rem 2rem;display:flex;align-items:flex-start;justify-content:flex-end;transition:color var(--t)}
+.mech-item:hover .mech-num{color:rgba(122,196,41,.35)}
+.mech-content{padding:2rem 2rem 2rem 0;border-left:2px solid var(--border);transition:border-color var(--t)}
+.mech-item:hover .mech-content{border-left-color:var(--green)}
+.mech-title{font-family:var(--fd);font-size:1.1rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:var(--white);margin-bottom:.5rem}
+.mech-body{font-size:.92rem;font-weight:300;line-height:1.8;color:var(--g2)}
+.mech-proof{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--fd);font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green-lo);margin-top:.75rem;padding:.3rem .7rem;background:rgba(122,196,41,.06);border:1px solid rgba(122,196,41,.15)}
+
+/* VS TABLE */
+.vs-table{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border)}
+.vs-col{padding:0}
+.vs-col-bad{border-right:1px solid var(--border);background:rgba(255,255,255,.015)}
+.vs-col-good{background:rgba(122,196,41,.03)}
+.vs-col-header{padding:1.5rem 2rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.6rem}
+.vs-col-header-label{font-family:var(--fd);font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.vs-col-header-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.vs-row{display:flex;align-items:center;gap:.75rem;padding:.9rem 2rem;border-bottom:1px solid rgba(255,255,255,.04);font-family:var(--fd);font-size:.82rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+.vs-row:last-child{border-bottom:none}
+.vs-row::before{font-size:.9rem;font-weight:700;flex-shrink:0;width:16px}
+.vs-row.bad{color:var(--g2)}.vs-row.bad::before{content:'×';color:var(--g3)}
+.vs-row.good{color:var(--g1)}.vs-row.good::before{content:'✓';color:var(--green)}
+
+/* FAQ ACCORDIONS */
+.faq-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--border)}
+.faq-item{border-bottom:1px solid var(--border);cursor:pointer;transition:background var(--t)}
+.faq-item:last-child{border-bottom:none}
+.faq-item:hover{background:rgba(122,196,41,.03)}
+.faq-item.open{background:rgba(122,196,41,.04)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.5rem 2rem;font-family:var(--fd);font-size:1rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--white);line-height:1.3}
+.faq-item.open .faq-q{color:var(--green)}
+.faq-icon{font-size:1.1rem;color:var(--g3);flex-shrink:0;transition:transform var(--t),color var(--t)}
+.faq-item.open .faq-icon{transform:rotate(45deg);color:var(--green)}
+.faq-a{font-size:.9rem;font-weight:300;line-height:1.8;color:var(--g2);max-height:0;overflow:hidden;transition:max-height .45s var(--ease),padding .3s;padding:0 2rem}
+.faq-item.open .faq-a{max-height:400px;padding:0 2rem 1.5rem}
+
+/* FOOTER */
+#ft{padding:5rem 0 3rem;background:var(--s1);border-top:1px solid var(--border)}
+.ft-in{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:4rem}
+.ft-tg{font-size:.78rem;font-weight:300;color:var(--g3);line-height:1.65;margin-top:.75rem;max-width:260px}
+.ft-col h4{font-family:var(--fd);font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--g2);margin-bottom:1.25rem}
+.ft-col li+li{margin-top:.6rem}
+.ft-col a{font-size:.82rem;font-weight:300;color:var(--g3);transition:color .2s}
+.ft-col a:hover{color:var(--green)}
+.ft-bot{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;border-top:1px solid var(--border);padding-top:2rem}
+.ft-copy{font-size:.72rem;font-weight:300;color:var(--g3)}
+.ft-mail a{font-family:var(--fd);font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g2);transition:color .2s}
+.ft-mail a:hover{color:var(--green)}
+.soc{display:flex;gap:.75rem}
+.sb{width:32px;height:32px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--g3);transition:color .2s,border-color .2s}
+.sb svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.sb:hover{color:var(--green);border-color:var(--green)}
+
+/* SCROLL REVEAL */
+.rev{opacity:0;transform:translateY(20px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rev-l{opacity:0;transform:translateX(-24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rev-r{opacity:0;transform:translateX(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rev.in,.rev-l.in,.rev-r.in{opacity:1;transform:none}
+.stg>*{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.stg.in>*{opacity:1;transform:none}
+.stg.in>*:nth-child(1){transition-delay:.05s}
+.stg.in>*:nth-child(2){transition-delay:.12s}
+.stg.in>*:nth-child(3){transition-delay:.19s}
+.stg.in>*:nth-child(4){transition-delay:.26s}
+
+/* MOBILE */
+@media(max-width:1024px){
+  .process-steps{grid-template-columns:1fr}
+  .process-steps::before{display:none}
+  .vs-table{grid-template-columns:1fr}
+  .vs-col-bad{border-right:none;border-bottom:1px solid var(--border)}
+  .mech-item{grid-template-columns:60px 1fr}
+  .ft-in{grid-template-columns:1fr 1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .sc{border-bottom:1px solid rgba(122,196,41,.15)}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .ham{display:flex}
+  .wrap{padding:0 1.25rem}
+  .nav-in{padding:1rem 1.25rem}
+  .process-step{padding:2.5rem 1.5rem}
+  .mech-item{grid-template-columns:1fr}
+  .mech-num{padding:1.5rem 1.5rem .5rem;font-size:2.5rem;justify-content:flex-start;border-left:none}
+  .mech-content{padding:0 1.5rem 1.5rem;border-left:none;border-top:none}
+  .mech-item:hover .mech-content{border-left-color:transparent}
+  .vs-col-header{padding:1.25rem 1.5rem}
+  .vs-row{padding:.8rem 1.5rem;font-size:.75rem}
+  .faq-q{padding:1.25rem 1.5rem;font-size:.9rem}
+  .faq-item.open .faq-a{padding:0 1.5rem 1.25rem}
+  .ft-in{grid-template-columns:1fr}
+  .ft-bot{flex-direction:column;align-items:flex-start;gap:.75rem}
+  .stats{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="mob-nav" id="mobNav">
+  <button class="mob-close" onclick="closeMobileMenu()" aria-label="Close menu">✕</button>
+  <a onclick="closeMobileMenu()" href="index.html">Home</a>
+  <a onclick="closeMobileMenu()" href="howitworks.html" class="active">How It Works</a>
+  <a onclick="closeMobileMenu()" href="applications.html">Applications</a>
+  <a onclick="closeMobileMenu()" href="results.html">Results</a>
+  <a onclick="closeMobileMenu()" href="products.html">Products</a>
+  <a onclick="closeMobileMenu()" href="index.html#b2b">Business</a>
+  <a onclick="closeMobileMenu()" href="faq.html">FAQ</a>
+</nav>
+
+<header id="nav">
+  <div class="nav-in">
+    <a href="index.html" class="nav-logo"><img src="https://arableone.com/cdn/shop/files/ARABLEONE_LOGO_-_Email_Signature.png?v=1683342934&width=320" alt="ArableONE™" style="height:40px;width:auto"/></a>
+    <ul class="nav-links">
+      <li><a href="howitworks.html" class="active">How It Works</a></li>
+      <li><a href="applications.html">Applications</a></li>
+      <li><a href="results.html">Results</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="index.html#b2b">Business</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+    <a href="index.html#b2b" class="btn btn-a" style="padding:.65rem 1.4rem;font-size:.73rem">Get a Quote</a>
+    <button class="ham" id="ham" onclick="openMobileMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section style="padding:11rem 0 6rem;position:relative;overflow:hidden;background:var(--black);border-bottom:1px solid var(--border)">
+  <img src="TREATEDPIVOT.jpg" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%;z-index:0;filter:brightness(0.1) saturate(.6)"/>
+  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.92) 0%,rgba(0,0,0,.6) 60%,rgba(0,0,0,.2) 100%);z-index:1"></div>
+  <div class="wrap rev" style="position:relative;z-index:2">
+    <p class="lbl" style="margin-bottom:1rem">ArableONE™ — The Science</p>
+    <h1 style="font-family:var(--fd);font-size:clamp(3rem,8vw,7rem);font-weight:900;line-height:.88;letter-spacing:-.02em;text-transform:uppercase;color:var(--white);margin-bottom:1.5rem">Not a Fertilizer.<br/><span style="color:var(--green)">A Technology.</span></h1>
+    <div style="width:60px;height:2px;background:var(--green);margin:2rem 0;opacity:.8"></div>
+    <p style="font-size:1.05rem;font-weight:300;color:var(--g2);max-width:580px;line-height:1.85;margin-bottom:2.5rem">Conventional fertilizers feed the plant. ArableONE™ feeds the <em style="font-style:normal;color:var(--g1)">soil</em> — activating the biology already in the ground to build a root system that accesses water and nutrients on its own. One application. All season.</p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap">
+      <a href="#process" class="btn btn-g">See How It Works <span class="arr">↓</span></a>
+      <a href="results.html" class="btn btn-ol">View Field Evidence <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ THE 3-STEP PROCESS ═══ -->
+<section id="process" style="padding:clamp(4rem,8vw,9rem) 0;background:var(--black);border-top:1px solid var(--border)">
+  <div class="wrap">
+    <div class="rev" style="text-align:center;margin-bottom:4rem">
+      <p class="lbl" style="margin-bottom:.75rem">Simple to Deploy</p>
+      <h2 style="font-family:var(--fd);font-size:clamp(2.2rem,5vw,4rem);font-weight:900;line-height:.94;text-transform:uppercase;color:var(--white)">Three Steps.<br/><span style="color:var(--green)">One Season.</span></h2>
+    </div>
+    <div class="process-steps stg">
+
+      <div class="process-step">
+        <div class="step-num"><span>1</span></div>
+        <p class="step-tag">Day 1</p>
+        <h3 class="step-title">Apply Once</h3>
+        <p class="step-body">Mix ArableONE™ with water and apply through your existing irrigation system — drip, pivot, flood, or hose-end. At just 2 quarts per acre, one application handles your entire growing season. No special equipment. No program changes. No disruption.</p>
+        <ul class="sbulls" style="margin-bottom:1.5rem">
+          <li>2 quarts per acre — all crop types</li>
+          <li>Works with drip, pivot, flood &amp; hose-end</li>
+          <li>No special equipment required</li>
+          <li>Apply at planting or pre-season</li>
+        </ul>
+        <p class="step-detail">Compatible with all irrigation methods</p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-num"><span>2</span></div>
+        <p class="step-tag">Days 3–14</p>
+        <h3 class="step-title">Biology Activates</h3>
+        <p class="step-body">ArableONE™ does not add microbes to your soil. It stimulates the beneficial bacteria, fungi, and microorganisms that are <em style="font-style:normal;color:var(--white)">already there</em> — triggering them to multiply and colonize the root zone at a dramatically faster rate than they would naturally.</p>
+        <ul class="sbulls" style="margin-bottom:1.5rem">
+          <li>Activates native bacteria and fungi</li>
+          <li>No GMOs · No live microbes added</li>
+          <li>Works even on severely depleted soils</li>
+          <li>Root zone expansion begins within days</li>
+        </ul>
+        <p class="step-detail">No foreign organisms introduced</p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-num"><span>3</span></div>
+        <p class="step-tag">Day 30 onward</p>
+        <h3 class="step-title">Results Compound</h3>
+        <p class="step-body">A deeper, more active root system unlocks everything: more water from the same irrigation, more nutrients from the same soil, stronger plants that resist drought and disease. Visible improvement in 30 days. Full-season performance. And unlike fertilizer programs — the biology improves year over year.</p>
+        <ul class="sbulls" style="margin-bottom:1.5rem">
+          <li>Visible improvement within 30 days</li>
+          <li>Full-season performance from one application</li>
+          <li>Soil health improves season over season</li>
+          <li>Documented across 38 field trials worldwide</li>
+        </ul>
+        <p class="step-detail">Results visible as soon as 30 days</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROOF STATS ═══ -->
+<section style="padding:5rem 0;background:var(--green-dk);position:relative;overflow:hidden;border-top:1px solid rgba(122,196,41,.2)">
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Bebas Neue',cursive;font-size:22vw;color:rgba(122,196,41,.04);white-space:nowrap;pointer-events:none;letter-spacing:.1em">PROOF</div>
+  <div class="wrap" style="position:relative;z-index:1">
+    <div class="rev" style="text-align:center;margin-bottom:3rem">
+      <p class="lbl" style="margin-bottom:.5rem">Field-Documented Results</p>
+      <h2 style="font-family:var(--fd);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;text-transform:uppercase;color:var(--white)">The Numbers Back It Up.</h2>
+      <p style="font-size:.82rem;font-weight:300;color:rgba(122,196,41,.5);margin-top:.5rem">38 independent trials across 6 continents</p>
+    </div>
+    <div class="stats stg">
+      <div class="sc"><span class="sn">150%+</span><p class="sl">Max Yield Increase</p><p class="sd">Documented across 20+ crop types</p></div>
+      <div class="sc"><span class="sn">50%</span><p class="sl">Water Reduction</p><p class="sd">Deeper roots retain more moisture</p></div>
+      <div class="sc"><span class="sn">80%+</span><p class="sl">Fertilizer Reduction</p><p class="sd">Soil biology handles the rest</p></div>
+      <div class="sc"><span class="sn">&lt;2%</span><p class="sl">Post-Harvest Spoilage</p><p class="sd">vs. industry avg of 10–15%</p></div>
+    </div>
+    <p class="rev" style="text-align:center;margin-top:2rem"><a href="results.html" class="btn btn-og" style="font-size:.8rem">View Full Field Evidence →</a></p>
+  </div>
+</section>
+
+<!-- ═══ THE SCIENCE — MECHANISM ═══ -->
+<section id="science" style="padding:clamp(4rem,8vw,9rem) 0;background:var(--s1);border-top:1px solid var(--border)">
+  <div class="wrap">
+    <div class="rev" style="margin-bottom:4rem;max-width:680px">
+      <p class="lbl" style="margin-bottom:.75rem">The Regenerative Mechanism</p>
+      <h2 style="font-family:var(--fd);font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;line-height:.94;text-transform:uppercase;color:var(--white);margin-bottom:1rem">What Happens<br/><span style="color:var(--green)">Inside the Soil</span></h2>
+      <p style="font-size:.95rem;font-weight:300;color:var(--g2);line-height:1.85">The technology works in four sequential stages. Each builds on the last — which is why the results compound over an entire season and improve year after year.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border)" class="rev">
+      <!-- Left: mechanism timeline -->
+      <div style="border-right:1px solid var(--border)">
+        <div class="mech-timeline">
+          <div class="mech-item">
+            <div class="mech-num">1</div>
+            <div class="mech-content">
+              <p class="mech-title">Root Zone Activation</p>
+              <p class="mech-body">ArableONE™ creates a bio-stimulatory environment in the root zone that signals dormant and active soil microorganisms to begin colonizing more aggressively. Even in chemically damaged or severely depleted ground, enough microbial life exists to respond.</p>
+              <span class="mech-proof">Works on depleted soils</span>
+            </div>
+          </div>
+          <div class="mech-item">
+            <div class="mech-num">2</div>
+            <div class="mech-content">
+              <p class="mech-title">Microbial Proliferation</p>
+              <p class="mech-body">Native soil bacteria and mycorrhizal fungi multiply at 2–5× their natural rate. This accelerated colonization produces a denser, more biologically active root zone — giving plants access to nutrients that were previously locked in the soil matrix.</p>
+              <span class="mech-proof">Up to 2× root growth vs. fertilizer</span>
+            </div>
+          </div>
+          <div class="mech-item">
+            <div class="mech-num">3</div>
+            <div class="mech-content">
+              <p class="mech-title">Water &amp; Nutrient Efficiency</p>
+              <p class="mech-body">Deeper roots reach soil moisture zones that surface feeders cannot. The microbial network acts as an extension of the root system — breaking down organic matter and converting nitrogen, phosphorus, and trace minerals into plant-available forms.</p>
+              <span class="mech-proof">Up to 50% water use reduction</span>
+            </div>
+          </div>
+          <div class="mech-item">
+            <div class="mech-num">4</div>
+            <div class="mech-content">
+              <p class="mech-title">Sustained Soil Health</p>
+              <p class="mech-body">Unlike chemical fertilizers, which suppress or eliminate native microbial populations over time, ArableONE™ restores the biological, chemical, and physical structure of the soil. Each season's application builds on the last — improving ROI over time.</p>
+              <span class="mech-proof">Soil improves season over season</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: what this replaces -->
+      <div style="background:var(--black);display:flex;flex-direction:column">
+        <div style="padding:2rem 2.5rem;border-bottom:1px solid var(--border)">
+          <p class="lbl" style="margin-bottom:1rem">Conventional Fertilizer vs. ArableONE™</p>
+          <div class="vs-table">
+            <div class="vs-col vs-col-bad">
+              <div class="vs-col-header">
+                <span class="vs-col-header-dot" style="background:var(--g3)"></span>
+                <span class="vs-col-header-label" style="color:var(--g3)">Fertilizers</span>
+              </div>
+              <div class="vs-row bad">Add external nutrients</div>
+              <div class="vs-row bad">Feed the plant directly</div>
+              <div class="vs-row bad">Degrade soil microbiome</div>
+              <div class="vs-row bad">Repeat apps every season</div>
+              <div class="vs-row bad">Chemical runoff risk</div>
+              <div class="vs-row bad">Costs increase over time</div>
+            </div>
+            <div class="vs-col vs-col-good">
+              <div class="vs-col-header">
+                <span class="vs-col-header-dot" style="background:var(--green)"></span>
+                <span class="vs-col-header-label" style="color:var(--green)">ArableONE™</span>
+              </div>
+              <div class="vs-row good">Activates soil biology</div>
+              <div class="vs-row good">Feeds microbes, not plants</div>
+              <div class="vs-row good">Rebuilds soil ecosystem</div>
+              <div class="vs-row good">One application per season</div>
+              <div class="vs-row good">100% natural · zero runoff</div>
+              <div class="vs-row good">ROI improves each year</div>
+            </div>
+          </div>
+        </div>
+        <!-- Key differentiators -->
+        <div style="padding:2rem 2.5rem;flex:1;display:flex;flex-direction:column;gap:1.25rem">
+          <p class="lbl" style="margin-bottom:.25rem">Key Differentiators</p>
+          <div style="display:flex;flex-direction:column;gap:.75rem">
+            <div style="display:flex;gap:1rem;align-items:flex-start">
+              <span style="font-family:var(--fs);font-size:1.4rem;color:var(--green);line-height:1;flex-shrink:0;width:24px">✓</span>
+              <div><p style="font-family:var(--fd);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--white);margin-bottom:.2rem">No GMOs. No live microbes added.</p><p style="font-size:.8rem;font-weight:300;color:var(--g3);line-height:1.6">Stimulates organisms already in your soil — no foreign biology introduced.</p></div>
+            </div>
+            <div style="display:flex;gap:1rem;align-items:flex-start">
+              <span style="font-family:var(--fs);font-size:1.4rem;color:var(--green);line-height:1;flex-shrink:0;width:24px">✓</span>
+              <div><p style="font-family:var(--fd);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--white);margin-bottom:.2rem">Works on chemically depleted soils.</p><p style="font-size:.8rem;font-weight:300;color:var(--g3);line-height:1.6">Documented results on soils with decades of chemical fertilizer history.</p></div>
+            </div>
+            <div style="display:flex;gap:1rem;align-items:flex-start">
+              <span style="font-family:var(--fs);font-size:1.4rem;color:var(--green);line-height:1;flex-shrink:0;width:24px">✓</span>
+              <div><p style="font-family:var(--fd);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--white);margin-bottom:.2rem">Lab-verified results.</p><p style="font-size:.8rem;font-weight:300;color:var(--g3);line-height:1.6">Wallace Laboratories · EPA 3051A certified analysis available on request.</p></div>
+            </div>
+            <div style="display:flex;gap:1rem;align-items:flex-start">
+              <span style="font-family:var(--fs);font-size:1.4rem;color:var(--green);line-height:1;flex-shrink:0;width:24px">✓</span>
+              <div><p style="font-family:var(--fd);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--white);margin-bottom:.2rem">Compatible with existing programs.</p><p style="font-size:.8rem;font-weight:300;color:var(--g3);line-height:1.6">Works alongside current fertility, IPM, and irrigation programs — no changes required.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VIDEO ═══ -->
+<section style="padding:0;background:var(--black);border-top:1px solid var(--border)">
+  <div style="border-bottom:1px solid var(--border)">
+    <div data-id="54HHj-lNnLY" style="position:relative;width:100%;aspect-ratio:16/7;background:#000;cursor:pointer;overflow:hidden" onclick="playYT(this)">
+      <img src="https://img.youtube.com/vi/54HHj-lNnLY/maxresdefault.jpg" alt="Watch: ArableONE™ A–Z Explanation" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"/>
+      <div style="position:absolute;inset:0;background:rgba(0,0,0,.42);z-index:1"></div>
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center">
+        <div style="width:88px;height:88px;border-radius:50%;border:2px solid var(--green);background:rgba(122,196,41,.12);display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="32" height="32" fill="var(--green)" style="margin-left:5px"><polygon points="5,3 19,12 5,21"/></svg></div>
+        <div>
+          <p style="font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--green);margin-bottom:.3rem">Full Explanation</p>
+          <p style="font-family:var(--fd);font-size:1.1rem;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:var(--white)">Watch: ArableONE™ A–Z</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COMMON QUESTIONS ═══ -->
+<section style="padding:clamp(4rem,8vw,9rem) 0;background:var(--s1);border-top:1px solid var(--border)">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 2fr;gap:5rem;align-items:start">
+      <div class="rev" style="position:sticky;top:7rem">
+        <p class="lbl" style="margin-bottom:.75rem">Common Questions</p>
+        <h2 style="font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);font-weight:900;line-height:.96;text-transform:uppercase;color:var(--white);margin-bottom:1rem">Before You<br/><span style="color:var(--green)">Apply.</span></h2>
+        <p style="font-size:.88rem;font-weight:300;color:var(--g2);line-height:1.75;margin-bottom:2rem">The most common questions from commercial operators and home growers before their first application.</p>
+        <a href="faq.html" class="btn btn-og" style="font-size:.78rem">Full FAQ <span class="arr">→</span></a>
+      </div>
+      <div class="faq-list rev">
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">Does it work on heavily depleted or chemically damaged soil?<span class="faq-icon">+</span></div>
+          <div class="faq-a">Yes — and this is one of ArableONE™'s most important documented properties. Even soils with decades of heavy chemical fertilizer use retain enough native microbial life to respond. The technology has been tested on severely depleted commercial fields and still produces significant yield improvement. In some cases, depleted soils show the greatest relative gains.</div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">Do I need to stop using my current fertilizer program?<span class="faq-icon">+</span></div>
+          <div class="faq-a">No. ArableONE™ is designed to work alongside existing fertility and IPM programs. Most operators reduce their fertilizer spend by 50–80% after seeing results in the first season — but you don't need to make any changes upfront. Apply it as-is and measure your own results before adjusting your program.</div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">How soon will I see results?<span class="faq-icon">+</span></div>
+          <div class="faq-a">Most commercial operators report visible differences within 14–30 days — darker leaf color, stronger stem development, and improved canopy density. Full yield results are measurable at harvest. Root zone improvements can be seen by simply pulling a treated vs. untreated plant at 30–45 days.</div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">Is it safe for organic certification programs?<span class="faq-icon">+</span></div>
+          <div class="faq-a">ArableONE™ contains no synthetic chemicals, GMOs, or live added microbes. It is 100% natural in formulation. For specific certification compatibility, we recommend consulting your certifying body. Contact us directly and we can provide the full ingredient disclosure needed for review.</div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">Why only one application per season?<span class="faq-icon">+</span></div>
+          <div class="faq-a">Because the technology activates a self-sustaining biological process — not a temporary chemical boost that wears off. Once the microbial population is stimulated and the root zone is colonized, the biology continues to work for the full growing season without reapplication. A second application mid-season does not produce additional benefit over a single application.</div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">Does it work on all crop types and soil conditions?<span class="faq-icon">+</span></div>
+          <div class="faq-a">Documented across avocados, strawberries, alfalfa, sugarcane, corn, cucumber, roses, lawns, and more — in soil types ranging from sandy loam to heavy clay, in climates from tropical Honduras to high-altitude Mexico. The mechanism is universal: every soil contains native biology, and ArableONE™ activates it regardless of crop type or geography.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FINAL CTA ═══ -->
+<section style="padding:8rem 0;position:relative;overflow:hidden;text-align:center;border-top:1px solid var(--border)">
+  <img src="cornfieldangle.JPG" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;filter:brightness(0.12)"/>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(5,5,5,.4),rgba(5,5,5,.7));z-index:1"></div>
+  <div class="wrap rev" style="position:relative;z-index:2">
+    <p class="lbl" style="display:block;margin-bottom:1rem">Ready to Apply</p>
+    <h2 style="font-family:var(--fd);font-size:clamp(2.8rem,6vw,5.5rem);font-weight:900;line-height:.94;letter-spacing:-.01em;text-transform:uppercase;color:var(--white);margin-bottom:1rem">One Application.<br/><strong style="color:var(--green)">All Season.</strong></h2>
+    <p style="font-size:1rem;font-weight:300;color:var(--g1);max-width:500px;margin:0 auto 2.5rem;line-height:1.75">Commercial operators get direct pricing and application guidance. Consumer sizes ship from Amazon.</p>
+    <div style="display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;align-items:stretch">
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);padding:2rem 2.5rem;display:flex;flex-direction:column;gap:1rem;align-items:center;min-width:260px">
+        <p style="font-family:var(--fd);font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--g3)">Commercial Operators</p>
+        <a href="index.html#b2b" class="btn btn-a" style="font-size:1rem;padding:1.1rem 2.6rem;font-weight:900;width:100%;justify-content:center">Request a Quote <span class="arr">→</span></a>
+        <p style="font-size:.72rem;font-weight:300;color:var(--g3)">Farms, golf, municipalities, HOAs</p>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);padding:2rem 2.5rem;display:flex;flex-direction:column;gap:1rem;align-items:center;min-width:260px">
+        <p style="font-family:var(--fd);font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--g3)">Home &amp; Garden</p>
+        <a href="products.html" class="btn btn-g" style="font-size:1rem;padding:1.1rem 2.6rem;font-weight:900;width:100%;justify-content:center">Shop on Amazon <span class="arr">→</span></a>
+        <p style="font-size:.72rem;font-weight:300;color:var(--g3)">Starting at $20 · Ships in 2 days</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="ft">
+  <div class="wrap">
+    <div class="ft-in">
+      <div>
+        <a href="index.html"><img src="https://arableone.com/cdn/shop/files/ARABLEONE_LOGO_-_Email_Signature.png?v=1683342934&width=320" alt="ArableONE™" style="height:38px;width:auto;opacity:.85"/></a>
+        <p class="ft-tg" style="margin-top:.6rem">Regenerative Soil Technology · ONE Product · ONE Application · ONE Solution</p>
+      </div>
+      <div class="ft-col"><h4>Applications</h4><ul>
+        <li><a href="applications.html#agriculture">Big Agriculture</a></li>
+        <li><a href="applications.html#municipalities">Cities &amp; Municipalities</a></li>
+        <li><a href="applications.html#golf">Golf &amp; Commercial</a></li>
+        <li><a href="applications.html#home-garden">Home &amp; Garden</a></li>
+        <li><a href="applications.html#hoa">HOA &amp; Communities</a></li>
+      </ul></div>
+      <div class="ft-col"><h4>Shop</h4><ul>
+        <li><a href="products.html">View All Products</a></li>
+        <li><a href="products.html">Home Grow™ — $20</a></li>
+        <li><a href="products.html">Lawn Boost™ — $75</a></li>
+        <li><a href="index.html#b2b">Bulk — Request Quote</a></li>
+      </ul></div>
+      <div class="ft-col"><h4>Company</h4><ul>
+        <li><a href="results.html">Results &amp; Evidence</a></li>
+        <li><a href="faq.html">FAQs</a></li>
+        <li><a href="index.html#b2b">Business Sales</a></li>
+        <li><a href="index.html#b2b">Contact</a></li>
+      </ul></div>
+    </div>
+    <div class="ft-bot">
+      <p class="ft-copy">© 2026 ArableONE™ | Arable Technology Inc. All rights reserved.</p>
+      <div class="ft-mail"><a href="mailto:info@arableone.com">info@arableone.com</a></div>
+      <div class="soc">
+        <a href="https://instagram.com/arableone" target="_blank" class="sb" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" style="stroke:none"/></svg></a>
+        <a href="https://twitter.com/arableone" target="_blank" class="sb" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="https://www.linkedin.com/in/arableone" target="_blank" class="sb" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="https://www.youtube.com/@ArableONE" target="_blank" class="sb" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.97C5.12 20 12 20 12 20s6.88 0 8.59-.45a2.78 2.78 0 0 0 1.96-1.97A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#050505"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+var navEl=document.getElementById('nav');
+if(navEl){window.addEventListener('scroll',function(){navEl.classList.toggle('scrolled',window.pageYOffset>50);},{passive:true});}
+window.openMobileMenu=function(){var mob=document.getElementById('mobNav');if(mob){mob.classList.add('open');document.body.style.overflow='hidden';}};
+window.closeMobileMenu=function(){var mob=document.getElementById('mobNav');if(mob){mob.classList.remove('open');document.body.style.overflow='';}};
+
+function toggleFaq(el){
+  var isOpen=el.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open');});
+  if(!isOpen)el.classList.add('open');
+}
+
+if(window.requestAnimationFrame){requestAnimationFrame(function(){
+  var els=document.querySelectorAll('.rev,.stg');
+  if(!els.length)return;
+  if(!window.IntersectionObserver){els.forEach(function(el){el.classList.add('in');});return;}
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});
+  },{threshold:.06,rootMargin:'0px 0px -20px 0px'});
+  els.forEach(function(el){
+    var r=el.getBoundingClientRect();
+    if(r.top>window.innerHeight*0.9){obs.observe(el);}else{el.classList.add('in');}
+  });
+});}
+
+function playYT(el){
+  var id=el.getAttribute('data-id');
+  var iframe=document.createElement('iframe');
+  iframe.src='https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1';
+  iframe.setAttribute('frameborder','0');iframe.setAttribute('allowfullscreen','');
+  iframe.setAttribute('allow','accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture');
+  iframe.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:none;z-index:10';
+  el.innerHTML='';el.appendChild(iframe);el.onclick=null;
+}
+</script>
+</body>
+</html>
