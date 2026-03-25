@@ -461,7 +461,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
   .farms-stat-item{padding:1.5rem 1rem}
 
   /* Cities */
-  .cities-vis{height:340px}
+  .cities-vis{height:260px}
   .cities-top{padding:3rem 1.5rem 2.5rem}
 
   /* Golf */
@@ -495,6 +495,27 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
 
   /* Before/after grid */
   [style*="grid-template-columns:1fr 1fr;gap:3px"]{grid-template-columns:1fr!important}
+
+  /* Multi-col photo grids → single or 2-col */
+  [style*="grid-template-columns:1fr 1fr 1fr;gap:3px"]{grid-template-columns:1fr!important}
+  [style*="grid-template-columns:1fr 1fr 1fr"][style*="height:240px"]{grid-template-columns:1fr!important;height:auto!important}
+  [style*="grid-template-columns:1fr 1fr 1fr"][style*="height:220px"]{grid-template-columns:1fr!important;height:auto!important}
+
+  /* Photo strip images — let them be natural height when grid collapses */
+  [style*="grid-template-columns:1fr 1fr 1fr;gap:3px"] > div{min-height:200px}
+
+  /* Sector hero */
+  .sector-hero{min-height:280px}
+
+  /* Detail split visual */
+  .detail-visual{min-height:240px!important}
+  .detail-text{padding:2rem 1.25rem!important}
+
+  /* Stat cards → 2 col on 768, 1 col at 480 */
+  .stat-cards{grid-template-columns:1fr 1fr}
+
+  /* Use cases → single col */
+  .use-cases{grid-template-columns:1fr}
 
   /* Showcase */
   .showcase-grid{grid-template-columns:1fr;grid-template-rows:280px 280px}

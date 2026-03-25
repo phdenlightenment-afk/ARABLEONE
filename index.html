@@ -273,14 +273,27 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
   .wrap{padding:0 1.25rem}
   .nav-in{padding:1rem 1.25rem}
   .fw-left{padding:3rem 1.5rem}
+  .fw-photo{min-height:260px}
   .tech-left,.tech-right,.b2b-left,.b2b-right{padding:2.5rem 1.5rem}
   .form-row{grid-template-columns:1fr}
   .cities-top{padding:4rem 1.25rem 3rem}
+  .cities-vis{height:260px}
+  .golf-photos{min-height:260px}
+  .golf-photo-top,.golf-photo-btm{min-height:130px}
+  .hg-vis{height:260px}
   .who-grid,.ft-in,.hg-cols{grid-template-columns:1fr}
   .farms-stat-strip{grid-template-columns:1fr 1fr}
   .stats{grid-template-columns:1fr 1fr}
   .h-trust-divider{display:none}
   .h-btns{flex-direction:column;align-items:flex-start}
+  /* HOA split: stack on mobile */
+  .rev[style*="grid-template-columns:1fr 1fr"][style*="min-height:480px"]{grid-template-columns:1fr!important;min-height:auto!important}
+  /* Before/after 4-col grid: 2 cols on mobile */
+  [style*="grid-template-columns:1fr 1fr 1fr 1fr"][style*="gap:3px"]{grid-template-columns:1fr 1fr!important}
+  /* Cities bottom stat bar */
+  [style*="flex:1;padding:1.5rem 2rem"]{padding:1rem!important}
+  /* Final CTA dual-path boxes */
+  [style*="min-width:260px"]{min-width:0!important;width:100%}
 }
 </style>
 </head>

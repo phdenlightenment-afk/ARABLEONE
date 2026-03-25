@@ -481,7 +481,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
   .farms-stat-item{padding:1.5rem 1rem}
 
   /* Cities */
-  .cities-vis{height:340px}
+  .cities-vis{height:260px}
   .cities-top{padding:3rem 1.5rem 2.5rem}
 
   /* Golf */
@@ -515,6 +515,18 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
 
   /* Before/after grid */
   [style*="grid-template-columns:1fr 1fr;gap:3px"]{grid-template-columns:1fr!important}
+
+  /* 3-col and 4-col before/after grids → single column */
+  [style*="grid-template-columns:1fr 1fr 1fr;gap:3px"]{grid-template-columns:1fr!important}
+  [style*="grid-template-columns:1fr 1fr 1fr 1fr;gap:3px"]{grid-template-columns:1fr 1fr!important}
+
+  /* Showcase 3-col grid with fixed height → 1 col, auto height */
+  [style*="grid-template-columns:repeat(3,1fr)"][style*="height:600px"]{
+    grid-template-columns:1fr 1fr!important;
+    grid-template-rows:auto!important;
+    height:auto!important
+  }
+  .lb-trigger{height:220px!important}
 
   /* Showcase */
   .showcase-grid{grid-template-columns:1fr;grid-template-rows:280px 280px}
@@ -582,8 +594,10 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
   /* Evidence grid */
   .ev-grid{grid-template-columns:1fr}
 
-  /* Showcase */
+  /* Showcase → single col on small phones */
   .showcase-grid{grid-template-columns:1fr;grid-template-rows:260px 260px}
+  [style*="grid-template-columns:repeat(3,1fr)"][style*="height:600px"]{grid-template-columns:1fr!important}
+  .lb-trigger{height:200px!important}
 
   /* Before/after labels */
   [style*="padding:1.75rem 2.5rem"]{padding:1.25rem 1.25rem!important}
