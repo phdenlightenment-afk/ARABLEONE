@@ -908,56 +908,14 @@ function playYT(el){
   var id=el.getAttribute('data-id');
   var iframe=document.createElement('iframe');
   iframe.src='https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1';
-  iframe.setAttribute('frameborder','0');iframe.setAttribute('allowfullscreen','');
-  oard-write;encrypted-media;gyroscope;picture-in-picture');
+  iframe.setAttribute('frameborder','0');
+  iframe.setAttribute('allowfullscreen','');
+  iframe.setAttribute('allow','accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture');
   iframe.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:none;z-index:10';
   el.innerHTML='';
   el.appendChild(iframe);
   el.onclick=null;
 }
-
-var navEl=document.getElementById('nav');
-if(navEl){window.addEventListener('scroll',function(){navEl.classList.toggle('scrolled',window.pageYOffset>50);},{passive:true});}
-
-window.openMobileMenu=function(){
-  var mob=document.getElementById('mobNav');
-  if(mob){mob.classList.add('open');document.body.style.overflow='hidden';}
-};
-window.closeMobileMenu=function(){
-  var mob=document.getElementById('mobNav');
-  if(mob){mob.classList.remove('open');document.body.style.overflow='';}
-};
-
-if(window.requestAnimationFrame){requestAnimationFrame(function(){
-  var els=document.querySelectorAll('.rev,.rev-l,.rev-r,.stg');
-  if(!els.length)return;
-  if(!window.IntersectionObserver){els.forEach(function(el){el.classList.add('in');});return;}
-  var obs=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('ready');e.target.classList.add('in');obs.unobserve(e.target);}});
-  },{threshold:.06,rootMargin:'0px 0px -20px 0px'});
-  els.forEach(function(el){
-    var r=el.getBoundingClientRect();
-    if(r.top>window.innerHeight*0.9){el.classList.add('ready');obs.observe(el);}else{el.classList.add('in');}
-  });
-});}
-
-var b2bForm=document.getElementById('b2bForm');
-if(b2bForm){b2bForm.addEventListener('submit',function(e){
-  e.preventDefault();
-  var btn=this.querySelector('.form-submit');
-  var wrap=document.getElementById('b2bFormWrap');
-  var succ=document.getElementById('b2bSuccess');
-  btn.textContent='Sending…';btn.disabled=true;
-  var data=new FormData(b2bForm);
-  fetch('https://formspree.io/f/xkoqzgnj',{
-    method:'POST',
-    body:data,
-    headers:{Accept:'application/json'}
-  }).then(function(r){
-    if(r.ok){if(wrap)wrap.style.display='none';if(succ)succ.classList.add('visible');}
-    else{btn.textContent='Error — try again';btn.disabled=false;}
-  }).catch(function(){btn.textContent='Error — try again';btn.disabled=false;});
-});}
 </script>
 </body>
 </html>
