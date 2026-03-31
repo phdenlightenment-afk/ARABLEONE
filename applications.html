@@ -545,6 +545,33 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
   /* CTA sections — fix flex button rows */
   [style*="display:flex;gap:1rem;justify-content:center"]{flex-direction:column;align-items:center}
   [style*="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem"]{flex-direction:column;align-items:stretch}
+
+  /* ── MOBILE BRIGHTNESS IMPROVEMENTS ── */
+  /* Lighten section backgrounds on small screens */
+  :root{
+    --black:#0a0a0a;
+    --s1:#141414;
+    --s2:#1c1c1c;
+    --s3:#242424;
+    --g2:#9a9a92;
+    --g3:#606058;
+    --border:rgba(255,255,255,0.1);
+  }
+  /* Hero overlay: significantly lighter on mobile */
+  .h-overlay{background:linear-gradient(105deg,rgba(0,0,0,.65) 0%,rgba(0,0,0,.35) 55%,rgba(0,0,0,.05) 100%) !important}
+  /* Boost hero image brightness */
+  .h-photo-bg{filter:brightness(1.25) saturate(1.15) !important}
+  /* Lighten section overlays */
+  .cities-vis-overlay{background:linear-gradient(to top,rgba(10,10,10,.8) 0%,rgba(10,10,10,.2) 60%,transparent 100%) !important}
+  .hoa-overlay{opacity:.2 !important}
+  .fw-photo-overlay{background:rgba(0,0,0,.08) !important}
+  /* Lighten proof/stats dark green section */
+  .stats .sc{background:rgba(122,196,41,.04)}
+  /* Increase body text size slightly for readability */
+  .sbody,.h-copy{font-size:1rem !important;line-height:1.85 !important}
+  /* Section top borders more visible */
+  section[style*="border-top:1px solid var(--border)"]{border-top-color:rgba(255,255,255,0.12) !important}
+
 }
 
 /* ═══════════════════════════════════════════════
