@@ -26,10 +26,10 @@ body{font-family:var(--fb);background:var(--black);color:var(--white);overflow-x
 img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-style:none}
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--black)}::-webkit-scrollbar-thumb{background:var(--green-lo)}
 .wrap{max-width:1320px;margin:0 auto;padding:0 2.5rem}
-.lbl{font-family:var(--fd);font-size:.68rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--green)}
+.lbl{font-family:var(--fd);font-size:.78rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--green)}
 .div{height:1px;background:linear-gradient(to right,transparent,var(--border),transparent)}
 /* BUTTONS */
-.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fd);font-size:.85rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.9rem 2.2rem;border:none;cursor:pointer;transition:var(--t);position:relative;overflow:hidden;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fd);font-size:.97rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.9rem 2.2rem;border:none;cursor:pointer;transition:var(--t);position:relative;overflow:hidden;white-space:nowrap}
 .btn::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.08);opacity:0;transition:opacity .2s}
 .btn:hover::after{opacity:1}
 .btn-a{background:var(--amber);color:#050505}.btn-a:hover{background:var(--amber-hi);transform:translateY(-2px);box-shadow:0 6px 24px rgba(224,138,26,.25)}
@@ -43,16 +43,16 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
 .stitle em{font-style:normal;color:var(--green)}
 .sbody{font-size:1rem;font-weight:300;line-height:1.85;color:var(--g1);margin-bottom:1.75rem;max-width:440px}
 .sbulls{display:flex;flex-direction:column;gap:.6rem;margin-bottom:2rem}
-.sbulls li{display:flex;align-items:center;gap:.75rem;font-family:var(--fd);font-size:.88rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--g1)}
+.sbulls li{display:flex;align-items:center;gap:.75rem;font-family:var(--fd);font-size:1rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--g1)}
 .sbulls li::before{content:'';display:block;width:16px;height:2px;background:var(--green);flex-shrink:0}
-.clbl{position:absolute;top:1.2rem;left:1.2rem;z-index:2;font-family:var(--fd);font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--green);background:rgba(5,5,5,.8);padding:.3rem .6rem;border-left:2px solid var(--green)}
+.clbl{position:absolute;top:1.2rem;left:1.2rem;z-index:2;font-family:var(--fd);font-size:1rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--green);background:rgba(5,5,5,.8);padding:.3rem .6rem;border-left:2px solid var(--green)}
 /* NAV */
 #nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
 #nav.scrolled{background:rgba(5,5,5,.97);border-bottom-color:var(--border);backdrop-filter:blur(16px)}
 .nav-in{display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;max-width:1320px;margin:0 auto}
 .nav-logo img{height:40px;width:auto}
 .nav-links{display:flex;align-items:center;gap:1.8rem}
-.nav-links a{font-family:var(--fd);font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--g2);transition:color .25s}
+.nav-links a{font-family:var(--fd);font-size:.97rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--g2);transition:color .25s}
 .nav-links a:hover,.nav-links a.active{color:var(--green)}
 .ham{display:none;flex-direction:column;gap:6px;cursor:pointer;padding:12px 8px;background:none;border:none;z-index:101;-webkit-tap-highlight-color:rgba(122,196,41,.2);touch-action:manipulation}
 .ham span{display:block;width:26px;height:2px;background:var(--white);border-radius:2px;transition:var(--t)}
@@ -68,12 +68,12 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
 .h-cnt{position:relative;z-index:2;width:100%;padding:0 2.5rem;max-width:1320px;margin:0 auto}
 .h-eye{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
 .h-eye-line{display:block;width:40px;height:1px;background:var(--green);opacity:.7}
-.h-eye-text{font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--g3)}
+.h-eye-text{font-family:var(--fd);font-size:1.02rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--g3)}
 .h-hl{font-family:var(--fd);font-size:clamp(4rem,10vw,10rem);font-weight:900;line-height:.88;letter-spacing:-.02em;text-transform:uppercase;color:var(--white);max-width:1000px;margin-bottom:1.5rem}
 .h-hl-accent{color:var(--green);display:block}
 /* TRUST PILLS */
 .h-trust{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;margin-bottom:2rem}
-.h-trust-pill{display:flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:.35rem .75rem;font-family:var(--fd);font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--g2)}
+.h-trust-pill{display:flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:.35rem .75rem;font-family:var(--fd);font-size:1rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--g2)}
 .h-trust-pill svg{flex-shrink:0}
 .h-trust-divider{width:1px;height:14px;background:rgba(255,255,255,.12)}
 .h-rule{width:60px;height:2px;background:var(--green);margin:0 0 2rem;opacity:.8}
@@ -84,18 +84,18 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
 .h-btn-primary:hover{background:var(--amber-hi);transform:translateY(-2px);box-shadow:0 8px 32px rgba(224,138,26,.3)}
 .h-btn-primary .arr{display:inline-block;transition:transform .25s}
 .h-btn-primary:hover .arr{transform:translateX(5px)}
-.h-btn-secondary{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.2);font-family:var(--fd);font-size:.82rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:1rem 1.8rem;cursor:pointer;transition:var(--t)}
+.h-btn-secondary{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.2);font-family:var(--fd);font-size:.94rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:1rem 1.8rem;cursor:pointer;transition:var(--t)}
 .h-btn-secondary:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px)}
 .h-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.6rem;z-index:2}
 .h-scroll-ln{width:1px;height:48px;background:linear-gradient(to bottom,rgba(122,196,41,.6),transparent);animation:sln 2.2s ease-in-out infinite}
 @keyframes sln{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}100%{transform:scaleY(1);transform-origin:bottom;opacity:0}}
-.h-scroll-lbl{font-family:var(--fd);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--g3)}
+.h-scroll-lbl{font-family:var(--fd);font-size:.97rem;letter-spacing:.22em;text-transform:uppercase;color:var(--g3)}
 /* STRIP */
 #strip{background:var(--green);padding:1.1rem 2.5rem}
 .strip-in{max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
 .strip-tg{font-family:var(--fd);font-size:clamp(.95rem,1.8vw,1.3rem);font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#050505}
 .strip-tg span{opacity:.35;margin:0 .6rem}
-.strip-lk{font-family:var(--fd);font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#050505;display:flex;align-items:center;gap:.4rem;transition:opacity .2s}
+.strip-lk{font-family:var(--fd);font-size:1rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#050505;display:flex;align-items:center;gap:.4rem;transition:opacity .2s}
 .strip-lk:hover{opacity:.6}
 /* SOCIAL PROOF BAR */
 .proof-bar{background:var(--s2);border-bottom:1px solid var(--border)}
@@ -103,8 +103,8 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
 .proof-quote{padding:2rem 2.5rem;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:.6rem}
 .proof-quote:last-child{border-right:none}
 .proof-result{font-family:var(--fs);font-size:1.8rem;color:var(--green);line-height:1}
-.proof-text{font-size:.82rem;font-weight:300;color:var(--g1);line-height:1.65;font-style:italic}
-.proof-attr{font-family:var(--fd);font-size:.58rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--g3)}
+.proof-text{font-size:.94rem;font-weight:300;color:var(--g1);line-height:1.65;font-style:italic}
+.proof-attr{font-family:var(--fd);font-size:.75rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--g3)}
 /* WHO CARDS */
 .who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
 .who-card{background:var(--s2);padding:2.5rem 2rem;display:flex;flex-direction:column;gap:.6rem;transition:background var(--t);border-bottom:3px solid transparent}
@@ -113,8 +113,8 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
 .who-card:hover .who-icon{opacity:1}
 .who-icon svg{width:100%;height:100%}
 .who-title{font-family:var(--fd);font-size:1.1rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--white);line-height:1.1}
-.who-sub{font-size:.8rem;font-weight:300;color:var(--g2);line-height:1.65;flex:1}
-.who-arrow{font-family:var(--fd);font-size:.75rem;font-weight:700;letter-spacing:.1em;color:var(--green);transition:transform var(--t);display:inline-block}
+.who-sub{font-size:1.04rem;font-weight:300;color:var(--g2);line-height:1.65;flex:1}
+.who-arrow{font-family:var(--fd);font-size:1rem;font-weight:700;letter-spacing:.1em;color:var(--green);transition:transform var(--t);display:inline-block}
 .who-card:hover .who-arrow{transform:translateX(4px)}
 /* STATS BAR */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(122,196,41,.2);position:relative;z-index:1}
@@ -122,8 +122,8 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
 .sc:last-child{border-right:none}
 .sc:hover{background:rgba(122,196,41,.06)}
 .sn{font-family:var(--fs);font-size:clamp(3.5rem,6vw,5.5rem);color:var(--green);line-height:1;display:block;margin-bottom:.5rem}
-.sl{font-family:var(--fd);font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--g1);line-height:1.5}
-.sd{font-size:.78rem;color:var(--g2);margin-top:.4rem;font-weight:300}
+.sl{font-family:var(--fd);font-size:1.02rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--g1);line-height:1.5}
+.sd{font-size:1.02rem;color:var(--g2);margin-top:.4rem;font-weight:300}
 /* HOW IT WORKS PREVIEW */
 .hiw-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative}
 .hiw-steps::before{content:'';position:absolute;top:2.75rem;left:calc(16.66% + 1px);right:calc(16.66% + 1px);height:1px;background:linear-gradient(to right,var(--green-lo),var(--green),var(--green-lo));opacity:.35;pointer-events:none}
@@ -131,10 +131,10 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
 .hiw-step:hover{background:var(--s2)}
 .hiw-num{width:56px;height:56px;border-radius:50%;border:2px solid var(--green);background:var(--black);display:flex;align-items:center;justify-content:center;margin-bottom:2rem}
 .hiw-num span{font-family:var(--fs);font-size:1.5rem;color:var(--green);line-height:1}
-.hiw-tag{font-family:var(--fd);font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:.5rem}
+.hiw-tag{font-family:var(--fd);font-size:.97rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:.5rem}
 .hiw-title{font-family:var(--fd);font-size:1.3rem;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:var(--white);margin-bottom:.75rem;line-height:1.1}
-.hiw-desc{font-size:.88rem;font-weight:300;color:var(--g2);line-height:1.75}
-.hiw-detail{font-family:var(--fd);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green-lo);margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border)}
+.hiw-desc{font-size:1rem;font-weight:300;color:var(--g2);line-height:1.75}
+.hiw-detail{font-family:var(--fd);font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green-lo);margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border)}
 /* TECH */
 #technology{padding:9rem 0;background:var(--s1);border-top:1px solid var(--border)}
 .tech-split{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border)}
@@ -144,19 +144,19 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
 .tech-col{padding:2rem 1.75rem}
 .tech-col-bad{border-right:1px solid var(--border);background:rgba(255,255,255,.02)}
 .tech-col-good{background:rgba(122,196,41,.04)}
-.tech-col-label{font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1.25rem;display:flex;align-items:center;gap:.5rem}
+.tech-col-label{font-family:var(--fd);font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1.25rem;display:flex;align-items:center;gap:.5rem}
 .tech-col-label.bad{color:var(--g3)}.tech-col-label.good{color:var(--green)}
 .tech-col-label::before{content:'';display:block;width:8px;height:8px;border-radius:50%;background:currentColor;flex-shrink:0}
 .tech-items{display:flex;flex-direction:column;gap:.65rem}
-.tech-item{font-family:var(--fd);font-size:.82rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--g2);display:flex;align-items:center;gap:.6rem}
-.tech-item::before{content:'×';font-size:.9rem;color:var(--g3);font-weight:700;flex-shrink:0;width:14px}
+.tech-item{font-family:var(--fd);font-size:.94rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--g2);display:flex;align-items:center;gap:.6rem}
+.tech-item::before{content:'×';font-size:1.02rem;color:var(--g3);font-weight:700;flex-shrink:0;width:14px}
 .tech-item.good{color:var(--g1)}.tech-item.good::before{content:'✓';color:var(--green)}
 .tech-mechanism{display:flex;flex-direction:column;gap:1rem}
 .tech-step{display:flex;gap:1.25rem;align-items:flex-start;padding:1.25rem;border-left:2px solid var(--border);transition:border-color var(--t)}
 .tech-step:hover{border-left-color:var(--green)}
 .tech-step-num{font-family:var(--fs);font-size:2rem;color:var(--green);line-height:1;flex-shrink:0;min-width:32px}
-.tech-step-title{font-family:var(--fd);font-size:.85rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--white);margin-bottom:.3rem}
-.tech-step-desc{font-size:.82rem;font-weight:300;line-height:1.7;color:var(--g2)}
+.tech-step-title{font-family:var(--fd);font-size:.97rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--white);margin-bottom:.3rem}
+.tech-step-desc{font-size:.94rem;font-weight:300;line-height:1.7;color:var(--g2)}
 /* AG */
 .fw-inner{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:640px}
 .fw-left{padding:5rem 4.5rem;border-left:1px solid var(--border);display:flex;flex-direction:column;justify-content:center}
@@ -169,7 +169,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
 .farms-stat-item{padding:2.25rem 2rem;border-right:1px solid var(--border);display:flex;align-items:baseline;gap:.75rem}
 .farms-stat-item:last-child{border-right:none}
 .fsi-n{font-family:var(--fs);font-size:2.8rem;color:var(--green);line-height:1;flex-shrink:0}
-.fsi-l{font-family:var(--fd);font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--g2);line-height:1.4}
+.fsi-l{font-family:var(--fd);font-size:.97rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--g2);line-height:1.4}
 /* CITIES */
 .cities-top{text-align:center;max-width:760px;margin:0 auto;padding:8rem 2.5rem 5rem}
 .cities-vis{width:100%;height:560px;position:relative;overflow:hidden;border-top:1px solid var(--border)}
@@ -190,7 +190,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
 .hg-col{padding-top:1.5rem;border-top:1px solid var(--border)}
 .hg-col-n{font-family:var(--fs);font-size:2.5rem;color:var(--green);line-height:1;margin-bottom:.5rem}
 .hg-col-title{font-family:var(--fd);font-size:1rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--white);margin-bottom:.6rem}
-.hg-col-desc{font-size:.88rem;font-weight:300;line-height:1.75;color:var(--g2)}
+.hg-col-desc{font-size:1rem;font-weight:300;line-height:1.75;color:var(--g2)}
 /* RESULTS */
 .results-header{max-width:640px;margin-bottom:4rem}
 .results-hl{font-family:var(--fd);font-size:clamp(2.5rem,5vw,4rem);font-weight:900;line-height:.94;letter-spacing:-.01em;text-transform:uppercase;color:var(--white);margin-top:.5rem}
@@ -202,38 +202,38 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
 .b2b-tier{display:flex;align-items:flex-start;gap:1.25rem;padding:1rem 1.25rem;border:1px solid var(--border);transition:border-color var(--t)}
 .b2b-tier:hover{border-color:rgba(122,196,41,.3)}
 .b2b-tier-vol{font-family:var(--fs);font-size:1.8rem;color:var(--green);line-height:1;flex-shrink:0;min-width:60px}
-.b2b-tier-label{font-family:var(--fd);font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--white);margin-bottom:.2rem}
-.b2b-tier-desc{font-size:.78rem;font-weight:300;color:var(--g3);line-height:1.5}
+.b2b-tier-label{font-family:var(--fd);font-size:.94rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--white);margin-bottom:.2rem}
+.b2b-tier-desc{font-size:1.02rem;font-weight:300;color:var(--g3);line-height:1.5}
 .b2b-form-title{font-family:var(--fd);font-size:1.6rem;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:var(--white);margin-bottom:.5rem}
-.b2b-form-sub{font-size:.85rem;font-weight:300;color:var(--g2);margin-bottom:2rem;line-height:1.65}
+.b2b-form-sub{font-size:.97rem;font-weight:300;color:var(--g2);margin-bottom:2rem;line-height:1.65}
 .b2b-form{display:flex;flex-direction:column;gap:1rem}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .form-field{display:flex;flex-direction:column;gap:.4rem}
-.form-field label{font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--g2)}
-.form-field input,.form-field select,.form-field textarea{background:var(--s2);border:1px solid var(--border);color:var(--white);font-family:var(--fb);font-size:.88rem;font-weight:300;padding:.75rem 1rem;outline:none;transition:border-color .25s;-webkit-appearance:none;border-radius:0}
+.form-field label{font-family:var(--fd);font-size:1.02rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--g2)}
+.form-field input,.form-field select,.form-field textarea{background:var(--s2);border:1px solid var(--border);color:var(--white);font-family:var(--fb);font-size:1rem;font-weight:300;padding:.75rem 1rem;outline:none;transition:border-color .25s;-webkit-appearance:none;border-radius:0}
 .form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:var(--green)}
 .form-field select{cursor:pointer}
 .form-field textarea{min-height:90px;resize:vertical}
 .form-field input::placeholder,.form-field textarea::placeholder{color:var(--g3)}
-.form-submit{background:var(--amber);color:#050505;font-family:var(--fd);font-size:.88rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;padding:1rem 2rem;border:none;cursor:pointer;transition:var(--t);display:flex;align-items:center;gap:.5rem;align-self:flex-start}
+.form-submit{background:var(--amber);color:#050505;font-family:var(--fd);font-size:1rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;padding:1rem 2rem;border:none;cursor:pointer;transition:var(--t);display:flex;align-items:center;gap:.5rem;align-self:flex-start}
 .form-submit:hover{background:var(--amber-hi);transform:translateY(-2px)}
-.form-note{font-size:.72rem;font-weight:300;color:var(--g3);margin-top:.25rem}
+.form-note{font-size:.80rem;font-weight:300;color:var(--g3);margin-top:.25rem}
 .form-success{display:none;text-align:center;padding:3rem}
 .form-success.visible{display:block}
 .form-success-icon{font-size:3rem;color:var(--green);margin-bottom:1rem}
 .form-success-title{font-family:var(--fd);font-size:1.8rem;font-weight:900;text-transform:uppercase;color:var(--white);margin-bottom:.75rem}
-.form-success-msg{font-size:.92rem;font-weight:300;color:var(--g1);line-height:1.75}
+.form-success-msg{font-size:1.04rem;font-weight:300;color:var(--g1);line-height:1.75}
 /* FOOTER */
 #ft{padding:5rem 0 3rem;background:var(--s1);border-top:1px solid var(--border)}
 .ft-in{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:4rem}
-.ft-tg{font-size:.78rem;font-weight:300;color:var(--g3);line-height:1.65;margin-top:.75rem;max-width:260px}
-.ft-col h4{font-family:var(--fd);font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--g2);margin-bottom:1.25rem}
+.ft-tg{font-size:1.02rem;font-weight:300;color:var(--g3);line-height:1.65;margin-top:.75rem;max-width:260px}
+.ft-col h4{font-family:var(--fd);font-size:.94rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--g2);margin-bottom:1.25rem}
 .ft-col li+li{margin-top:.6rem}
-.ft-col a{font-size:.82rem;font-weight:300;color:var(--g3);transition:color .2s}
+.ft-col a{font-size:.94rem;font-weight:300;color:var(--g3);transition:color .2s}
 .ft-col a:hover{color:var(--green)}
 .ft-bot{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;border-top:1px solid var(--border);padding-top:2rem}
-.ft-copy{font-size:.72rem;font-weight:300;color:var(--g3)}
-.ft-mail a{font-family:var(--fd);font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g2);transition:color .2s}
+.ft-copy{font-size:.97rem;font-weight:300;color:var(--g3)}
+.ft-mail a{font-family:var(--fd);font-size:.97rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g2);transition:color .2s}
 .ft-mail a:hover{color:var(--green)}
 .soc{display:flex;gap:.75rem}
 .sb{width:32px;height:32px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--g3);transition:color .2s,border-color .2s}
@@ -557,7 +557,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
       <div style="position:absolute;inset:0;background:rgba(0,0,0,.38);z-index:1"></div>
       <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center">
         <div style="width:80px;height:80px;border-radius:50%;border:2px solid var(--green);background:rgba(122,196,41,.12);display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="28" height="28" fill="var(--green)" style="margin-left:5px"><polygon points="5,3 19,12 5,21"/></svg></div>
-        <span style="font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--white)">Watch: ArableONE™ A–Z</span>
+        <span style="font-family:var(--fd);font-size:.78rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--white)">Watch: ArableONE™ A–Z</span>
       </div>
     </div>
   </div>
@@ -701,10 +701,10 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
         <h2 class="stitle">Better Landscapes.<br/>Lower Cost.<br/><em>Less Maintenance.</em></h2>
         <p class="sbody">For HOAs, property managers, and multi-acre residential communities.</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(122,196,41,.1);margin:1.5rem 0">
-          <div style="background:var(--s2);padding:1rem 1.25rem"><p style="font-family:var(--fd);font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:.25rem">Stronger Turf</p><p style="font-size:.8rem;font-weight:300;color:var(--g2);line-height:1.5">Fuller, greener, more resilient</p></div>
-          <div style="background:var(--s2);padding:1rem 1.25rem"><p style="font-family:var(--fd);font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:.25rem">Reduced Irrigation</p><p style="font-size:.8rem;font-weight:300;color:var(--g2);line-height:1.5">Lower water bills property-wide</p></div>
-          <div style="background:var(--s2);padding:1rem 1.25rem"><p style="font-family:var(--fd);font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:.25rem">Lower Maintenance</p><p style="font-size:.8rem;font-weight:300;color:var(--g2);line-height:1.5">Less reseeding, fewer seasonal fixes</p></div>
-          <div style="background:var(--s2);padding:1rem 1.25rem"><p style="font-family:var(--fd);font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:.25rem">Consistent Results</p><p style="font-size:.8rem;font-weight:300;color:var(--g2);line-height:1.5">Fewer dead zones and patch repairs</p></div>
+          <div style="background:var(--s2);padding:1rem 1.25rem"><p style="font-family:var(--fd);font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:.25rem">Stronger Turf</p><p style="font-size:.8rem;font-weight:300;color:var(--g2);line-height:1.5">Fuller, greener, more resilient</p></div>
+          <div style="background:var(--s2);padding:1rem 1.25rem"><p style="font-family:var(--fd);font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:.25rem">Reduced Irrigation</p><p style="font-size:.8rem;font-weight:300;color:var(--g2);line-height:1.5">Lower water bills property-wide</p></div>
+          <div style="background:var(--s2);padding:1rem 1.25rem"><p style="font-family:var(--fd);font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:.25rem">Lower Maintenance</p><p style="font-size:.8rem;font-weight:300;color:var(--g2);line-height:1.5">Less reseeding, fewer seasonal fixes</p></div>
+          <div style="background:var(--s2);padding:1rem 1.25rem"><p style="font-family:var(--fd);font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:.25rem">Consistent Results</p><p style="font-size:.8rem;font-weight:300;color:var(--g2);line-height:1.5">Fewer dead zones and patch repairs</p></div>
         </div>
         <div style="display:flex;gap:1rem;flex-wrap:wrap">
           <a href="#b2b" class="btn btn-a">Request HOA Pricing <span class="arr">→</span></a>
@@ -726,10 +726,10 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
       </div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:3px;background:var(--border)">
-      <div style="background:#0a0a0a;display:flex;flex-direction:column;justify-content:flex-end"><img src="beforeafterplants.jpg" alt="Plants before and after ArableONE™" style="width:100%;height:auto;display:block"/><div style="padding:1.75rem 2.5rem;background:rgba(5,5,5,.92)"><div style="font-family:'Barlow Condensed',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#7AC429;margin-bottom:.35rem">Plants</div><div style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#F5F5F0;line-height:1.1">Before &amp; After</div><div style="font-size:.82rem;font-weight:300;color:rgba(255,255,255,.5);margin-top:.35rem">One application. Visible difference.</div></div></div>
-      <div style="background:#0a0a0a;display:flex;flex-direction:column;justify-content:flex-end"><img src="beforeafterlawn.jpg" alt="Lawn before and after ArableONE™" style="width:100%;height:auto;display:block"/><div style="padding:1.75rem 2.5rem;background:rgba(5,5,5,.92)"><div style="font-family:'Barlow Condensed',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#7AC429;margin-bottom:.35rem">Lawn &amp; Turf</div><div style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#F5F5F0;line-height:1.1">Before &amp; After</div><div style="font-size:.82rem;font-weight:300;color:rgba(255,255,255,.5);margin-top:.35rem">Same irrigation. Visibly thicker growth.</div></div></div>
-      <div style="background:#0a0a0a;display:flex;flex-direction:column;justify-content:flex-end"><img src="lettuce.jpg" alt="Lettuce before and after ArableONE™" style="width:100%;height:auto;display:block"/><div style="padding:1.75rem 2.5rem;background:rgba(5,5,5,.92)"><div style="font-family:'Barlow Condensed',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#7AC429;margin-bottom:.35rem">Lettuce</div><div style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#F5F5F0;line-height:1.1">Before &amp; After</div><div style="font-size:.82rem;font-weight:300;color:rgba(255,255,255,.5);margin-top:.35rem">Dramatic size &amp; density increase.</div></div></div>
-      <div style="background:#0a0a0a;display:flex;flex-direction:column;justify-content:flex-end"><img src="avocados.jpg" alt="Avocados treated by ArableONE™" style="width:100%;height:auto;display:block;object-fit:cover"/><div style="padding:1.75rem 2.5rem;background:rgba(5,5,5,.92)"><div style="font-family:'Barlow Condensed',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#7AC429;margin-bottom:.35rem">Avocados</div><div style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#F5F5F0;line-height:1.1">Treated Harvest</div><div style="font-size:.82rem;font-weight:300;color:rgba(255,255,255,.5);margin-top:.35rem">+35% yield, larger fruit, higher value.</div></div></div>
+      <div style="background:#0a0a0a;display:flex;flex-direction:column;justify-content:flex-end"><img src="beforeafterplants.jpg" alt="Plants before and after ArableONE™" style="width:100%;height:auto;display:block"/><div style="padding:1.75rem 2.5rem;background:rgba(5,5,5,.92)"><div style="font-family:'Barlow Condensed',sans-serif;font-size:.76rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#7AC429;margin-bottom:.35rem">Plants</div><div style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#F5F5F0;line-height:1.1">Before &amp; After</div><div style="font-size:.82rem;font-weight:300;color:rgba(255,255,255,.5);margin-top:.35rem">One application. Visible difference.</div></div></div>
+      <div style="background:#0a0a0a;display:flex;flex-direction:column;justify-content:flex-end"><img src="beforeafterlawn.jpg" alt="Lawn before and after ArableONE™" style="width:100%;height:auto;display:block"/><div style="padding:1.75rem 2.5rem;background:rgba(5,5,5,.92)"><div style="font-family:'Barlow Condensed',sans-serif;font-size:.76rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#7AC429;margin-bottom:.35rem">Lawn &amp; Turf</div><div style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#F5F5F0;line-height:1.1">Before &amp; After</div><div style="font-size:.82rem;font-weight:300;color:rgba(255,255,255,.5);margin-top:.35rem">Same irrigation. Visibly thicker growth.</div></div></div>
+      <div style="background:#0a0a0a;display:flex;flex-direction:column;justify-content:flex-end"><img src="lettuce.jpg" alt="Lettuce before and after ArableONE™" style="width:100%;height:auto;display:block"/><div style="padding:1.75rem 2.5rem;background:rgba(5,5,5,.92)"><div style="font-family:'Barlow Condensed',sans-serif;font-size:.76rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#7AC429;margin-bottom:.35rem">Lettuce</div><div style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#F5F5F0;line-height:1.1">Before &amp; After</div><div style="font-size:.82rem;font-weight:300;color:rgba(255,255,255,.5);margin-top:.35rem">Dramatic size &amp; density increase.</div></div></div>
+      <div style="background:#0a0a0a;display:flex;flex-direction:column;justify-content:flex-end"><img src="avocados.jpg" alt="Avocados treated by ArableONE™" style="width:100%;height:auto;display:block;object-fit:cover"/><div style="padding:1.75rem 2.5rem;background:rgba(5,5,5,.92)"><div style="font-family:'Barlow Condensed',sans-serif;font-size:.76rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#7AC429;margin-bottom:.35rem">Avocados</div><div style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#F5F5F0;line-height:1.1">Treated Harvest</div><div style="font-size:.82rem;font-weight:300;color:rgba(255,255,255,.5);margin-top:.35rem">+35% yield, larger fruit, higher value.</div></div></div>
     </div>
     <div style="padding:2rem;text-align:center;border-top:1px solid var(--border)">
       <a href="results.html" class="btn btn-og">View Full Results &amp; Field Evidence <span class="arr">→</span></a>
@@ -747,21 +747,21 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
     <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border)">
       <div style="background:var(--s2);padding:2.5rem">
         <p style="font-family:'Bebas Neue',cursive;font-size:clamp(2.5rem,4vw,3.5rem);color:var(--green);line-height:1;margin-bottom:.5rem">+350% Production</p>
-        <p style="font-family:var(--fd);font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g3);margin-bottom:1.25rem">Strawberries · Santa Cruz, CA</p>
+        <p style="font-family:var(--fd);font-size:.76rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g3);margin-bottom:1.25rem">Strawberries · Santa Cruz, CA</p>
         <blockquote style="font-size:.92rem;font-weight:300;line-height:1.75;color:var(--g1);border-left:2px solid var(--green);padding-left:1.25rem;margin-bottom:1.25rem;font-style:italic">"84 bins harvested from the treated field. Only 24 from the untreated. Plants grew faster with healthier dark green color."</blockquote>
-        <p style="font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g3)">— Armando R., Field Manager, Santa Cruz Berry</p>
+        <p style="font-family:var(--fd);font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g3)">— Armando R., Field Manager, Santa Cruz Berry</p>
       </div>
       <div style="background:var(--s2);padding:2.5rem">
         <p style="font-family:'Bebas Neue',cursive;font-size:clamp(2.5rem,4vw,3.5rem);color:var(--green);line-height:1;margin-bottom:.5rem">+15 Extra Tons</p>
-        <p style="font-family:var(--fd);font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g3);margin-bottom:1.25rem">Commercial Agriculture · Watsonville, CA</p>
+        <p style="font-family:var(--fd);font-size:.76rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g3);margin-bottom:1.25rem">Commercial Agriculture · Watsonville, CA</p>
         <blockquote style="font-size:.92rem;font-weight:300;line-height:1.75;color:var(--g1);border-left:2px solid var(--green);padding-left:1.25rem;margin-bottom:1.25rem;font-style:italic">"We're getting more tons per acre, better quality fruit, and we've cut our fertilizer program significantly. The soil is visibly healthier."</blockquote>
-        <p style="font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g3)">— Commercial Farm Operator, Watsonville, CA</p>
+        <p style="font-family:var(--fd);font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g3)">— Commercial Farm Operator, Watsonville, CA</p>
       </div>
       <div style="background:var(--s2);padding:2.5rem">
         <p style="font-family:'Bebas Neue',cursive;font-size:clamp(2.5rem,4vw,3.5rem);color:var(--green);line-height:1;margin-bottom:.5rem">Visibly Lush</p>
-        <p style="font-family:var(--fd);font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g3);margin-bottom:1.25rem">Commercial Landscaping · Sacramento, CA</p>
+        <p style="font-family:var(--fd);font-size:.76rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g3);margin-bottom:1.25rem">Commercial Landscaping · Sacramento, CA</p>
         <blockquote style="font-size:.92rem;font-weight:300;line-height:1.75;color:var(--g1);border-left:2px solid var(--green);padding-left:1.25rem;margin-bottom:1.25rem;font-style:italic">"Turf much more thick and lush — same irrigation, same fertilization. Incorporating into all future applications."</blockquote>
-        <p style="font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g3)">— Todd M., President, California Landscape Associates Inc.</p>
+        <p style="font-family:var(--fd);font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g3)">— Todd M., President, California Landscape Associates Inc.</p>
       </div>
       <div style="background:var(--s2);padding:2.5rem;display:flex;flex-direction:column;justify-content:center;gap:1.25rem">
         <p class="lbl">38 Field Trials Worldwide</p>
@@ -791,13 +791,13 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
         </div>
         <p style="font-size:.82rem;font-weight:300;color:var(--g3);line-height:1.75">All commercial orders include application guidance, coverage calculations, and direct ArableONE™ team support.</p>
         <div style="margin-top:2rem;padding-top:2rem;border-top:1px solid var(--border)">
-          <p style="font-family:var(--fd);font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g3);margin-bottom:.5rem">Trusted by</p>
+          <p style="font-family:var(--fd);font-size:.75rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g3);margin-bottom:.5rem">Trusted by</p>
           <p style="font-size:.82rem;font-weight:300;color:var(--g2);line-height:1.65">Commercial farms · Golf courses · Municipalities · HOA communities · Landscape companies</p>
         </div>
       </div>
       <div class="b2b-right">
         <div id="b2bFormWrap">
-          <p style="font-family:var(--fd);font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g3);margin-bottom:.75rem">For farms, municipalities, golf, landscaping companies, HOAs, and institutional buyers.</p>
+          <p style="font-family:var(--fd);font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g3);margin-bottom:.75rem">For farms, municipalities, golf, landscaping companies, HOAs, and institutional buyers.</p>
           <h3 class="b2b-form-title">Request Commercial Pricing</h3>
           <p class="b2b-form-sub">Tell us about your operation and we'll respond within one business day.</p>
           <form class="b2b-form" id="b2bForm" novalidate>
@@ -854,12 +854,12 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
     <!-- Two clearly labeled paths -->
     <div style="display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:3rem;align-items:stretch">
       <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);padding:2rem 2.5rem;display:flex;flex-direction:column;gap:1rem;align-items:center;min-width:260px">
-        <p style="font-family:var(--fd);font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--g3)">Commercial Operators</p>
+        <p style="font-family:var(--fd);font-size:.76rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--g3)">Commercial Operators</p>
         <a href="#b2b" class="btn btn-a" style="font-size:1rem;padding:1.1rem 2.6rem;font-weight:900;width:100%;justify-content:center">Request a Quote <span class="arr">→</span></a>
         <p style="font-size:.72rem;font-weight:300;color:var(--g3)">Farms, golf, municipalities, HOAs</p>
       </div>
       <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);padding:2rem 2.5rem;display:flex;flex-direction:column;gap:1rem;align-items:center;min-width:260px">
-        <p style="font-family:var(--fd);font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--g3)">Home &amp; Garden</p>
+        <p style="font-family:var(--fd);font-size:.76rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--g3)">Home &amp; Garden</p>
         <a href="products.html" class="btn btn-g" style="font-size:1rem;padding:1.1rem 2.6rem;font-weight:900;width:100%;justify-content:center">Shop on Amazon <span class="arr">→</span></a>
         <p style="font-size:.72rem;font-weight:300;color:var(--g3)">Starting at $20 · Ships in 2 days</p>
       </div>
