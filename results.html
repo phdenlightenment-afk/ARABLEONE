@@ -105,7 +105,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
 #credibility{background:var(--s1);padding:4.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .cred-top{text-align:center;margin-bottom:3.5rem}
 .cred-headline{font-family:var(--fd);font-size:clamp(1rem,1.8vw,1.25rem);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g2);margin-bottom:.9rem}
-.cred-statement{font-size:1.04rem;font-weight:300;color:var(--g2)}
+.cred-statement{font-size:1.04rem;font-weight:300;color:var(--g3)}
 .cred-logos{display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:3.5rem}
 .cred-logo{flex:1;min-width:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.55rem;padding:2rem 1.5rem;border-right:1px solid var(--border);transition:background var(--t)}
 .cred-logo:last-child{border-right:none}
@@ -294,13 +294,13 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
 .ev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
 .ev-card{background:var(--s2);padding:2rem 1.75rem}
 .ev-crop{font-family:var(--fd);font-size:1.02rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:.5rem}
-.ev-loc{font-size:1.02rem;font-weight:300;color:var(--g2);margin-bottom:1.25rem}
+.ev-loc{font-size:1.02rem;font-weight:300;color:var(--g3);margin-bottom:1.25rem}
 .ev-stat{display:flex;justify-content:space-between;align-items:baseline;padding:.6rem 0;border-bottom:1px solid var(--border)}
 .ev-stat:last-of-type{border-bottom:none}
 .ev-label{font-family:var(--fd);font-size:.97rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--g2)}
 .ev-vals{display:flex;gap:1.25rem;align-items:baseline}
 .ev-treated{font-family:var(--fs);font-size:1.4rem;color:var(--green);line-height:1}
-.ev-control{font-family:var(--fs);font-size:1rem;color:var(--g2);line-height:1}
+.ev-control{font-family:var(--fs);font-size:1rem;color:var(--g3);line-height:1}
 .ev-legend{display:flex;gap:1.5rem;margin-bottom:1.25rem}
 .ev-dot{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--fd);font-size:1rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
 .ev-dot::before{content:'';display:block;width:10px;height:10px;border-radius:50%;background:currentColor}
@@ -675,25 +675,25 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
 .study-card:hover{background:var(--s3)}
 .study-institution{font-family:var(--fd);font-size:1rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--green);margin-bottom:.5rem}
 .study-crop{font-family:var(--fd);font-size:1.5rem;font-weight:900;letter-spacing:.02em;text-transform:uppercase;color:var(--white);line-height:1;margin-bottom:.25rem}
-.study-loc{font-size:1.02rem;font-weight:300;color:var(--g1);margin-bottom:1.75rem}
+.study-loc{font-size:1.02rem;font-weight:300;color:var(--g3);margin-bottom:1.75rem}
 .study-metrics{display:flex;flex-direction:column;gap:.85rem;margin-bottom:1.75rem}
 .study-metric{display:flex;flex-direction:column;gap:.35rem}
-.study-metric-label{font-family:var(--fd);font-size:1rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g1)}
+.study-metric-label{font-family:var(--fd);font-size:1rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g3)}
 .study-metric-bars{display:flex;flex-direction:column;gap:.2rem}
 .study-bar-row{display:flex;align-items:center;gap:.75rem}
 .study-bar-label{font-family:var(--fd);font-size:1rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;width:70px;flex-shrink:0}
 .study-bar-label.treated{color:var(--green)}
-.study-bar-label.control{color:var(--g1)}
-.study-bar-track{flex:1;height:5px;background:rgba(255,255,255,.15);position:relative;overflow:visible}
+.study-bar-label.control{color:var(--g3)}
+.study-bar-track{flex:1;height:5px;background:var(--border);position:relative;overflow:visible}
 .study-bar-fill{height:100%;transition:width 1.2s var(--ease)}
 .study-bar-fill.treated{background:var(--green)}
-.study-bar-fill.control{background:var(--g2)}
+.study-bar-fill.control{background:var(--g3)}
 .study-bar-val{font-family:var(--fs);font-size:1.06rem;color:var(--white);min-width:50px;text-align:right;flex-shrink:0}
 .study-bar-val.treated{color:var(--green)}
 .study-headline{font-family:var(--fs);font-size:2.2rem;color:var(--green);line-height:1;margin-bottom:.35rem}
-.study-headline-sub{font-size:1.02rem;font-weight:400;color:var(--g1);line-height:1.65}
-.study-source{font-size:.94rem;font-weight:300;color:var(--g2);margin-top:auto;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1);line-height:1.6}
-.study-source strong{color:var(--g1);font-weight:500}
+.study-headline-sub{font-size:1.02rem;font-weight:300;color:var(--g2);line-height:1.6}
+.study-source{font-size:.94rem;font-weight:300;color:var(--g3);margin-top:auto;padding-top:1.5rem;border-top:1px solid var(--border);line-height:1.55}
+.study-source strong{color:var(--g2);font-weight:400}
 @media(max-width:1024px){.study-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -788,7 +788,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
         <div style="padding:1.5rem 2rem;background:rgba(5,5,5,.92)">
           <div style="font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#7AC429;margin-bottom:.3rem">Alfalfa — Root System</div>
           <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#F5F5F0;line-height:1.1">Treated vs. Untreated</div>
-          <div style="font-size:.8rem;font-weight:300;color:rgba(255,255,255,.45);margin-top:.3rem">Dramatically deeper, fuller root development.</div>
+          <div style="font-size:.8rem;font-weight:300;color:rgba(255,255,255,.45);margin-top:.3rem">Measurably deeper, fuller root development.</div>
         </div>
       </div>
 

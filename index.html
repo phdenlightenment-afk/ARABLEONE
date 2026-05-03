@@ -64,20 +64,20 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
 /* HERO */
 #hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:#050505}
 .h-photo-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;filter:brightness(1.35) saturate(1.35)}
-.h-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(0,0,0,.78) 0%,rgba(0,0,0,.52) 55%,rgba(0,0,0,.12) 100%);z-index:1}
+.h-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.28) 55%,rgba(0,0,0,.0) 100%);z-index:1}
 .h-cnt{position:relative;z-index:2;width:100%;padding:0 2.5rem;max-width:1320px;margin:0 auto}
 .h-eye{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
 .h-eye-line{display:block;width:40px;height:1px;background:var(--green);opacity:.7}
-.h-eye-text{font-family:var(--fd);font-size:1.02rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--g1)}
+.h-eye-text{font-family:var(--fd);font-size:1.02rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--g3)}
 .h-hl{font-family:var(--fd);font-size:clamp(4rem,10vw,10rem);font-weight:900;line-height:.88;letter-spacing:-.02em;text-transform:uppercase;color:var(--white);max-width:1000px;margin-bottom:1.5rem}
 .h-hl-accent{color:var(--green);display:block}
 /* TRUST PILLS */
 .h-trust{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;margin-bottom:2rem}
-.h-trust-pill{display:flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);padding:.35rem .75rem;font-family:var(--fd);font-size:1rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--g1)}
+.h-trust-pill{display:flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:.35rem .75rem;font-family:var(--fd);font-size:1rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--g2)}
 .h-trust-pill svg{flex-shrink:0}
 .h-trust-divider{width:1px;height:14px;background:rgba(255,255,255,.12)}
 .h-rule{width:60px;height:2px;background:var(--green);margin:0 0 2rem;opacity:.8}
-.h-copy{font-size:1.05rem;font-weight:300;line-height:1.85;color:var(--g1);max-width:520px;margin-bottom:2.5rem}
+.h-copy{font-size:1.05rem;font-weight:300;line-height:1.85;color:var(--g2);max-width:520px;margin-bottom:2.5rem}
 .h-copy strong{color:var(--white);font-weight:500}
 .h-btns{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
 .h-btn-primary{display:inline-flex;align-items:center;gap:.6rem;background:var(--amber);color:#050505;font-family:var(--fd);font-size:1rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;padding:1.15rem 2.8rem;border:none;cursor:pointer;transition:var(--t)}
@@ -89,7 +89,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
 .h-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.6rem;z-index:2}
 .h-scroll-ln{width:1px;height:48px;background:linear-gradient(to bottom,rgba(122,196,41,.6),transparent);animation:sln 2.2s ease-in-out infinite}
 @keyframes sln{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}100%{transform:scaleY(1);transform-origin:bottom;opacity:0}}
-.h-scroll-lbl{font-family:var(--fd);font-size:.97rem;letter-spacing:.22em;text-transform:uppercase;color:var(--g2)}
+.h-scroll-lbl{font-family:var(--fd);font-size:.97rem;letter-spacing:.22em;text-transform:uppercase;color:var(--g3)}
 /* STRIP */
 #strip{background:var(--green);padding:1.1rem 2.5rem}
 .strip-in{max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
@@ -399,8 +399,8 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
       <span class="proof-attr">Armando R. · Strawberries · Santa Cruz, CA</span>
     </div>
     <div class="proof-quote">
-      <div class="proof-result">+15 Extra Tons / Acre</div>
-      <p class="proof-text">"More tons per acre, better quality fruit. Cut our fertilizer program significantly — soil visibly healthier."</p>
+      <div class="proof-result">+15 Extra Bales</div>
+      <p class="proof-text">"75 acres treated outproduced 125 untreated acres. Soil visibly healthier, fertilizer program cut significantly."</p>
       <span class="proof-attr">Commercial Farm Operator · Watsonville, CA</span>
     </div>
     <div class="proof-quote">
@@ -422,22 +422,22 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
         <p class="who-sub">Reduce water use and fertilizer dependency. Improve root depth and yield consistency across any commercial crop.</p>
         <span class="who-arrow">→</span>
       </a>
-      <a href="applications.html#golf" class="who-card">
-        <div class="who-icon"><svg viewBox="0 0 48 48" fill="none"><ellipse cx="24" cy="30" rx="18" ry="8" stroke="#7AC429" stroke-width="2"/><ellipse cx="24" cy="24" rx="12" ry="6" stroke="#7AC429" stroke-width="1.5" opacity=".6"/><line x1="28" y1="14" x2="28" y2="26" stroke="#7AC429" stroke-width="2"/><polygon points="28,14 36,18 28,22" fill="#7AC429" opacity=".8"/></svg></div>
-        <h3 class="who-title">Golf &amp; Turf</h3>
-        <p class="who-sub">Fewer irrigation cycles, reduced fertilizer inputs, and consistent turf conditions — one seasonal application.</p>
-        <span class="who-arrow">→</span>
-      </a>
       <a href="applications.html#municipalities" class="who-card">
         <div class="who-icon"><svg viewBox="0 0 48 48" fill="none"><rect x="6" y="18" width="10" height="22" stroke="#7AC429" stroke-width="2"/><rect x="19" y="10" width="10" height="30" stroke="#7AC429" stroke-width="2"/><rect x="32" y="22" width="10" height="18" stroke="#7AC429" stroke-width="2"/><line x1="4" y1="40" x2="44" y2="40" stroke="#7AC429" stroke-width="2"/></svg></div>
         <h3 class="who-title">Cities &amp; Municipalities</h3>
         <p class="who-sub">Cut water costs and maintenance cycles across parks, medians, and public turf. Meets conservation compliance standards.</p>
         <span class="who-arrow">→</span>
       </a>
+      <a href="applications.html#golf" class="who-card">
+        <div class="who-icon"><svg viewBox="0 0 48 48" fill="none"><ellipse cx="24" cy="30" rx="18" ry="8" stroke="#7AC429" stroke-width="2"/><ellipse cx="24" cy="24" rx="12" ry="6" stroke="#7AC429" stroke-width="1.5" opacity=".6"/><line x1="28" y1="14" x2="28" y2="26" stroke="#7AC429" stroke-width="2"/><polygon points="28,14 36,18 28,22" fill="#7AC429" opacity=".8"/></svg></div>
+        <h3 class="who-title">Golf &amp; Turf</h3>
+        <p class="who-sub">Fewer irrigation cycles, reduced fertilizer inputs, and consistent turf conditions — one seasonal application.</p>
+        <span class="who-arrow">→</span>
+      </a>
       <a href="applications.html#home-garden" class="who-card">
         <div class="who-icon"><svg viewBox="0 0 48 48" fill="none"><path d="M8 38 L8 22 L16 12 L32 12 L40 22 L40 38 Z" stroke="#7AC429" stroke-width="2" fill="none"/><line x1="24" y1="12" x2="24" y2="38" stroke="#7AC429" stroke-width="1.5" opacity=".5"/><rect x="18" y="26" width="12" height="12" stroke="#7AC429" stroke-width="1.5" opacity=".7"/></svg></div>
         <h3 class="who-title">Home &amp; Garden</h3>
-        <p class="who-sub">Lawns, garden beds, flowers — the same technology, residential size</p>
+        <p class="who-sub">Healthier soil, stronger plants, and lower water use — one application per season, no programs needed.</p>
         <span class="who-arrow">→</span>
       </a>
     </div>
@@ -855,7 +855,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul{list-st
     <div style="display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:3rem;align-items:stretch">
       <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);padding:2rem 2.5rem;display:flex;flex-direction:column;gap:1rem;align-items:center;min-width:260px">
         <p style="font-family:var(--fd);font-size:.76rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--g3)">Commercial Operators</p>
-        <a href="#b2b" class="btn btn-a" style="font-size:1rem;padding:1.1rem 2.6rem;font-weight:900;width:100%;justify-content:center">Request a Quote <span class="arr">→</span></a>
+        <a href="#b2b" class="btn btn-a" style="font-size:1rem;padding:1.1rem 2.6rem;font-weight:900;width:100%;justify-content:center">Request Commercial Quote <span class="arr">→</span></a>
         <p style="font-size:.72rem;font-weight:300;color:var(--g3)">Farms, golf, municipalities, HOAs</p>
       </div>
       <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);padding:2rem 2.5rem;display:flex;flex-direction:column;gap:1rem;align-items:center;min-width:260px">
